@@ -1,8 +1,8 @@
 
 
-The actual website can be viewed at [https://petrelharp.github.io/dsci345/](https://petrelharp.github.io/dsci345/).
+The actual website can be viewed at [https://UOdsci.github.io/dsci345/](https://UOdsci.github.io/dsci345/).
 
-Quick link: the [schedule](https://petrelharp.github.io/dsci345/pages/schedule.html), with links to the slides.
+Quick link: the [schedule](https://UOdsci.github.io/dsci345/pages/schedule.html), with links to the slides.
 
 
 --------------------
