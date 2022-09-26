@@ -20,7 +20,7 @@ and want to have a deeper (and more quantitative)
 understanding of what we are doing when we make predictions using data.
 The course covers
 both tools for modeling randomness and calculating properties of those models,
-and the process of estimating quantities from randomly generated data.
+and the process of estimating quantities from data.
 An important thread throughout the course is on *simulating data*:
 being able to construct and simulate from sophisticated models for random data generation.
 
@@ -28,7 +28,8 @@ being able to construct and simulate from sophisticated models for random data g
 ## Instructor:
 
 - [Peter Ralph](https://pages.uoregon.edu/plr/), instructor: plr@uoregon.edu
-    * office hours: Wednesday 1:00-3:00pm or by appointment (location TBD)
+    * office hours: Wednesday 12:00-1:30pm in Pacific 204,
+      or by appointment.
 
 ## Course Information
 

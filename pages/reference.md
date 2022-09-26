@@ -62,7 +62,7 @@ These are in no particular order; browse and find one the speaks to you.
 ### Other courses:
 
 - [Probability for Data Science](http://prob140.org/) at UC Berkeley
-- [](http://stat88.org/)
+- [Data 88](http://stat88.org/) at UC Berkeley
 - [Data 100](https://ds100.org/fa22/) at UC Berkeley
     * [pandas quick reference](https://www.textbook.ds100.org/ch/a04/ref_pandas.html)
     * [slides, intro to pandas](https://docs.google.com/presentation/d/1g-2mjkBFGvW3KA3iWbWrTItGYf4fGBQWlTjXq9K2f68/edit#slide=id.g8ae4121a16_0_1022)
@@ -86,7 +86,6 @@ These are in no particular order; browse and find one the speaks to you.
 ### Probability and statistics
 
 - List of [common probability distributions](https://en.wikipedia.org/wiki/Probability_distribution#Common_probability_distributions)
-- [ANOVA: a short intro using R](https://stat.ethz.ch/~meier/teaching/anova/) by Lukas Meier
 - Interactive plot of the [beta distribution](https://www.desmos.com/calculator/mnvwjlvnyj)
 - Interactive plot of the [gamma distribution](https://www.desmos.com/calculator/vk2tqrxpk5)
 - Interactive plot of [Student's t-distribution](https://www.desmos.com/calculator/u1ftxqcsqd)
