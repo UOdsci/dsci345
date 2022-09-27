@@ -37,7 +37,7 @@ being able to construct and simulate from sophisticated models for random data g
 - *Websites:* besides [the page you are looking at](https://UOdsci.github.io/dsci345/),
     assignments and announcements will be distributed
     on the [canvas page](https://canvas.uoregon.edu/)
-- *Assignments:* Assigned, and due, on Thursdays.
+- *Assignments:* Assigned, and due, on Mondays.
 
 ## Prerequisites:
 
@@ -50,9 +50,10 @@ either DSCI 101/102 or some other exposure to data science/statistics,
 
 ## Textbooks
 
-We will be assigning reading from these books:
+We will be assigning reading from these (freely available) books:
 
-- xyz
+- [*Probability for Data Science*](http://prob140.org/textbook/content/README.html),
+    by Ani Adhikari and Jim Pitman.
 
 There is a list of other useful reading materials on [the page of references](reference.html).
 
@@ -97,7 +98,7 @@ Course grades will be based on assignments and a final,
 totaled as either 85% assignments and 15% final or 70% assignments and 30% final,
 whichever is greater.
 Most assignments are weekly homeworks,
-assigned on Thursdays and due the following Thursday.
+assigned on Monday and due the following Monday.
 These will be multi-part assignments done using jupyter notebooks,
 that will contain writing, mathematics, and (python) code.
 The contribution of each assignment to the final grade will be proportional to the points assigned,

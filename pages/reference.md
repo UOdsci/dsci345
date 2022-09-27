@@ -48,14 +48,13 @@ These are in no particular order; browse and find one the speaks to you.
 - [*All of Statistics*](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html),
     by Larry Wasserman. Technical, a book on statistical theory.
 
-- Bruce, Bruce, and Gedeck, *Practical Statistics for Data Scientists.* O'Reilley Publishers.
-    [code repository](https://github.com/gedeck/practical-statistics-for-data-scientists)
-    and [link to the book](https://www.oreilly.com/library/view/practical-statistics-for/9781491952955/)
+- [*Introductory Statistics*](https://saylordotorg.github.io/text_introductory-statistics/index.html),
+    by Shafer & Zhang.
 
-* Wickham, H. & G. Grolemund. 2016. *R for Data Science.* O'Reilly Publishers. (free [web version](https://r4ds.had.co.nz/))
+- [*R for Data Science*](https://r4ds.had.co.nz/), by Wickham, H. & G. Grolemund. 2016. O'Reilly Publishers.
     How to do many common data analysis tasks in R, specifically in the [tidyverse](http://www.tidyverse.org).
 
-* Wilke, Claus O. *Fundamentals of Data Visualization.*. O'Reilly Publishers. (free [web version](https://serialmentor.com/dataviz/))
+- [*Fundamentals of Data Visualization*](https://serialmentor.com/dataviz/), by Wilke, Claus O. O'Reilly Publishers.
     How to think about visualization (with source code for plots available!).
 
 
