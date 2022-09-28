@@ -15371,6 +15371,21 @@ Too bad: for the analogy to hold up,
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><em>Example: the martingale</em></p>
+<p>Let $G_i$ be a random variable that takes values either 0 or 2, with probability 1/2 each.
+Let $W_n = G_1 G_2 \cdots G_n$, and $X = \max_n W_n$.</p>
+<ol>
+<li>If $G_i$ is the outcome of a "double-or-nothing" bet, give an interpretation of $W_n$ and $X$.</li>
+<li>Write a function to simulate from $X$.</li>
+<li>Find the distribution of $W_n$ and $X$.</li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="The-distribution-of-a-random-variable">The distribution of a random variable<a class="anchor-link" href="#The-distribution-of-a-random-variable">&#182;</a></h2><p>To say how $X$ behaves, we need to specify the <em>probability</em>
 of each possible outcome. For instance:</p>
 <ul>
@@ -15412,12 +15427,12 @@ $$  \P\{ a \le X \le b \} = \int_a^b f_X(x) dx . $$</p>
 By additivity of disjoint events, and then by complements,
 $$</p>
 <h1 id="-%5CP%7B-%7CX%7C-%3E-2-%7D"> \P{ |X| &gt; 2 }<a class="anchor-link" href="#-%5CP%7B-%7CX%7C-%3E-2-%7D">&#182;</a></h1><p>\P{ X &lt; - 2 }</p>
-<h1 id="--+-%5CP%7B-X-%3E-2-%7D-">  + \P{ X &gt; 2 } <a class="anchor-link" href="#--+-%5CP%7B-X-%3E-2-%7D-">&#182;</a></h1><p>\P{ -2 \le X \le 2 } .
+<h1 id="--+-%5CP%7B-X-%3E-2-%7D-">  + \P{ X &gt; 2 } <a class="anchor-link" href="#--+-%5CP%7B-X-%3E-2-%7D-">&#182;</a></h1><p>1 - \P{ -2 \le X \le 2 } .
 $$
 [By Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution),
 $X$ has density $e^{x^2/2}/\sqrt{2\pi}$, so this is
 $$
-    \int_{-2}^2 \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx .
+    1 - \int_{-2}^2 \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx .
 $$</p>
 
 </div>
@@ -15435,11 +15450,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15457,13 +15472,13 @@ $$</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.9544997361036416</pre>
+<pre>0.04550026389635842</pre>
 </div>
 
 </div>
@@ -15477,7 +15492,7 @@ $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Terminology:">Terminology:<a class="anchor-link" href="#Terminology:">&#182;</a></h2><ul>
-<li><p>the <em>cumulative density function</em> of $X$ is
+<li><p>the <em>cumulative distribution function</em> (CDF) of $X$ is
   $$ F_X(x) = \P\{ X &lt; x \} . $$</p>
 </li>
 <li><p>the <em>probability density function</em> of $X$, if it exists, is
@@ -15493,12 +15508,9 @@ $$</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Example:">Example:<a class="anchor-link" href="#Example:">&#182;</a></h2><p>Suppose we are surveying asteroid diameters,
-which we find roughly follow an <a href="https://en.wikipedia.org/wiki/Exponential_distribution">Exponential distribution</a>
-with mean $40$ meters.
-Out of 1,000 surveyed asteroids,
-about how many have a diameter above 100 meters?
-About how many have a diameter between 50 and 51 meters?</p>
+<p><strong>Exercise:</strong> The <a href="https://en.wikipedia.org/wiki/Exponential_distribution">Exponential($\lambda$) distribution</a>
+has cumulative distribution function $\P\{ X &lt; x \} = 1 - e^{-\lambda x}$.
+Plot this (a) empirically, from $10^6$ draws, and (b) analytically.</p>
 
 </div>
 </div>

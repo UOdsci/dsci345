@@ -14624,7 +14624,8 @@ Which is it?</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="2.-Ascending-sums">2. Ascending sums<a class="anchor-link" href="#2.-Ascending-sums">&#182;</a></h2><p>For each $i \ge 1$, Let $D_i$ be a random number drawn
 independently and uniformly from $\{1, 2, 3, 4, 5, 6\}$.
-Let $$ K = \min\{ k \ge 1 \;:\; D_{k+1} &lt; D_k \} . $$
+Let $$ K = \min\{ k \ge 1 \;:\; D_{k+1} &lt; D_k \} , $$
+i.e., $D_{k+1}$ is the first number that is smaller than the one before it.
 Define
 $$ X = \sum_{i=1}^K D_i . $$</p>
 <p><strong>a.</strong> Describe in words how to simulate $X$ using fair dice.</p>
