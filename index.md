@@ -13,7 +13,7 @@ Quick links:
 
 - [about](pages/syllabus.html) this course (the syllabus).
 - [schedule](pages/schedule.html), including links to slides and homeworks.
-- [useful links](pages/resources.html), to reference/background material.
+- [useful links](pages/reference.html), to reference/background material.
 - the [github repository](https://github.com/UOdsci/dsci345) for this website
 
 
