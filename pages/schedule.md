@@ -19,7 +19,7 @@ Week 1 (*9/28*): Probability
     - Slides: [ipynb](../class_material/slides/Week_01_Introduction.ipynb) [html](../class_material/slides/Week_01_Introduction.slides.html)
     - Reading: [Adhikari & Pitman, chapters 1, 2, & 3](http://prob140.org/textbook/content/README.html)
     - *alternative reading:* [Wasserman, chapter 1, 2.1-2.4](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Homework (due 10/3): [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
+    - Homework (due 10/6): [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
 
 Week 2 (*10/3*): The modeler's toolbox
 
