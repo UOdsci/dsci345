@@ -14625,8 +14625,9 @@ Which is it?</p>
 <h2 id="2.-Ascending-sums">2. Ascending sums<a class="anchor-link" href="#2.-Ascending-sums">&#182;</a></h2><p>For each $i \ge 1$, Let $D_i$ be a random number drawn
 independently and uniformly from $\{1, 2, 3, 4, 5, 6\}$.
 Let $$ K = \min\{ k \ge 1 \;:\; D_{k+1} &lt; D_k \} , $$
-i.e., $D_{k+1}$ is the first number that is smaller than the one before it.
-Define
+i.e., $K$ is defined by the fact that
+$D_{K+1}$ is the first number that is smaller than the one before it.
+Finally, let
 $$ X = \sum_{i=1}^K D_i . $$</p>
 <p><strong>a.</strong> Describe in words how to simulate $X$ using fair dice.</p>
 <p><strong>b.</strong> Write a function to simulate $X$ (in python).
