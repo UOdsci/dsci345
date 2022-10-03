@@ -16,7 +16,7 @@ Week 1 (*9/28*): Probability
     Probability and expectation, conditional probabilities,
     and random variables.
 
-    - Slides: [ipynb](../class_material/slides/Week_01_Introduction.ipynb) [html](../class_material/slides/Week_01_Introduction.slides.html)
+    - Slides: Introduction, and probability [ipynb](../class_material/slides/Week_01_Introduction.ipynb) [html](../class_material/slides/Week_01_Introduction.slides.html)
     - Reading: [Adhikari & Pitman, chapters 1, 2, & 3](http://prob140.org/textbook/content/README.html)
     - *alternative reading:* [Wasserman, chapter 1, 2.1-2.4](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 10/6): [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
@@ -27,9 +27,10 @@ Week 2 (*10/3*): The modeler's toolbox
     some common probability distributions; computing means,
     covariances, and expectations. Stochastic gradient descent.
 
-    - Slides: 
-    - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6, 7, 8, 15.
-    - *alternative reading:* [Chan, chapters 3 & 4](https://probability4datascience.com/ch02.html)
+    - Slides: Random variables [ipynb](../class_material/slides/Week_02_Random_variables.ipynb) [html](../class_material/slides/Week_02_Random_variables.slides.html)
+    - Slides: Poisson counts [ipynb](../class_material/slides/Week_02_Poisson.ipynb) [html](../class_material/slides/Week_02_Poisson.slides.html)
+    - Slides: Stochastic gradient descent [ipynb](../class_material/slides/Week_02_Stochastic_gradient_descent.ipynb) [html](../class_material/slides/Week_02_Stochastic_gradient_descent.slides.html)
+    - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 10/13): 
 
