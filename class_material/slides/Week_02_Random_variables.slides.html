@@ -15198,7 +15198,7 @@ Plot this (a) empirically, using <code>rng.exponential(size=1000000)</code>, and
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="The-expected-value">The expected value<a class="anchor-link" href="#The-expected-value">&#182;</a></h2><p>For a random variable $X$ and a function $f( )$,
 the <em>expected value</em> of $f(X)$ random variable is the weighted average of its possible values:
-$$ \E[X] = \sum_x f(x) \P\{X = x\} . $$</p>
+$$ \E[f(X)] = \sum_x f(x) \P\{X = x\} . $$</p>
 <p>The simplest example of this is the <em>mean</em> of $X$:
 $$ \E[X] = \sum_x x \P\{X = x\} . $$</p>
 
@@ -15264,7 +15264,7 @@ $$ \E[X Y] = \E[X] \E[Y] .$$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><em>Example:</em> Let $U$ and $V$ be independent and Uniform on $[0, 1]$.
-What is the expected area of a rectangle with width $U$ and height $U+V$?</p>
+What is the expected area of a rectangle with width $U$ and height $V$?</p>
 
 </div>
 </div>
@@ -15274,28 +15274,6 @@ What is the expected area of a rectangle with width $U$ and height $U+V$?</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><em>Non-example:</em> Let $U$ be Uniform on $[0, 1]$.
 What is the expected area of a square with width $U$?</p>
-
-</div>
-</div>
-</div></div></section><section>
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Challenge:</strong>
-On a game show, a contestant has to try to throw 20 balls through a hoop.
-Each ball they get through the hoop gets them money:
-the first one through is \$100, the second one through is \\$200, etcetera.
-(So, if out of 20 balls they get 4 in then they'll get \$100 + \\$200 + \$300 = \\$600.)
-Suppose that they get each ball in with probability $1/5$, independently of the others.
-What is the expected amount of money they win?</p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>Alternate formulation:</em> Let $X \sim \text{Binomial}(20, 1/5).$ What is $\E[100 X^2]$?</p>
 
 </div>
 </div>
@@ -15317,6 +15295,25 @@ $$ \var[X] = \E[(X-\mu)^2] . $$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The standard deviation tells us how much $X$ tends to differ from the mean.</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Additivity-of-variance-(or-not)">Additivity of variance (or not)<a class="anchor-link" href="#Additivity-of-variance-(or-not)">&#182;</a></h2><p>If $X$ and $Y$ are independent,
+then $$ \var[X + Y] = \var[X] + \var[Y]. $$</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><em>Example:</em> Suppose the amount of rain that falls each day is independent,
+with mean 0.1" and variance 0.25". What is the mean and variance of the total amount of rain
+in a week?</p>
 
 </div>
 </div>
