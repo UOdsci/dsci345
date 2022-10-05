@@ -32,7 +32,7 @@ Week 2 (*10/3*): The modeler's toolbox
     - Slides: Stochastic gradient descent [ipynb](../class_material/slides/Week_02_Stochastic_gradient_descent.ipynb) [html](../class_material/slides/Week_02_Stochastic_gradient_descent.slides.html)
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Homework (due 10/13): 
+    - Homework (due 10/13): [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
 
 Week 3 (*10/10*): Simulation, moments, and overdispersion.
 
