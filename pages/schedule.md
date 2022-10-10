@@ -41,8 +41,8 @@ Week 3 (*10/10*): Simulation, moments, and overdispersion.
     Outliers and overdispersion: scale mixtures, goodness-of-fit.
 
     - Slides: Poisson counts [ipynb](../class_material/slides/Week_03_Poisson.ipynb) [html](../class_material/slides/Week_03_Poisson.slides.html)
-    - Slides: 
-    - Reading: 
+    - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Week_03_Central_limits.ipynb) [html](../class_material/slides/Week_03_Central_limits.slides.html)
+    - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
     - Homework (due 10/20): 
 
 Week 4 (*10/17*): Model choice, categorical prediction, and likelihood.

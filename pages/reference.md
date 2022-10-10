@@ -6,11 +6,15 @@ description: useful resources
 
 ### Software
 
+These might be of interest (for prerequisites, see the syllabus):
 
 - [scikit-learn](https://scikit-learn.org/stable/)
 - [statsmodels](https://www.statsmodels.org/stable/index.html)
 - [patsy](https://patsy.readthedocs.io/en/latest/) for specifying (linear) models in python
 - [jupyterhub troubleshooting](https://ucbds-infra.github.io/ds-course-infra-guide/jupyterhub/administering.html)
+- [matplotlib](https://matplotlib.org/) - a common way to make plots in python
+- [seaborn](https://seaborn.pydata.org/) - another way to make plots in python
+- [plotnine](https://plotnine.readthedocs.io/en/stable/api.html) - yet another way to make plots in python
 
 
 ### Other books
