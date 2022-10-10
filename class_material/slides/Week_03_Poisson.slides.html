@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>Week_02_Poisson slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Week_03_Poisson slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14647,7 +14647,10 @@ div.jp-OutputPrompt {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Motivation,-and-the-Poisson">Motivation, and the Poisson<a class="anchor-link" href="#Motivation,-and-the-Poisson">&#182;</a></h1>
+<h1 id="Motivation,-and-the-Poisson">Motivation, and the Poisson<a class="anchor-link" href="#Motivation,-and-the-Poisson">&#182;</a></h1><p><em>Main points: the Poisson distribution shows up
+when you are counting rare events.
+So do Exponentials, as waiting times.</em></p>
+
 </div>
 </div>
 </div></section><section>
@@ -14671,7 +14674,7 @@ the panel will not work.
 <p><em>What do we need to know?</em>
 Well, let's suppose that a panel has $N$ modules,
 and each module is broken independently of the others.
-If the probability of a module being broken is $p$, then we must have $p = 1/N$.
+If the probability of a particular module being broken is $p$, then we must have $p = 1/N$.
 (<em>Why?</em>)</p>
 
 </div>
@@ -14687,13 +14690,19 @@ $$\begin{aligned}
     &amp;=
     \frac{N (N-1) \cdots (N-k+1)}{k!} \left(\frac{\lambda}{N}\right)^k \left(1-\frac{\lambda}{N}\right)^{N-k} .
 \end{aligned}$$
-However, $N$ was arbitrary. For large $N$, (see board)
+However, $N$ was arbitrary. For large $N$,
+$$\begin{aligned}
+   N (N-1) \cdots (N-k+1) &amp;\approx N^k, \\
+   \text{and} \qquad
+   \left(1 - \frac{\lambda}{N}\right) &amp;\approx e^{-\lambda},
+\end{aligned}$$
+so
 $$\begin{aligned}
     \P\{ X = k \}
     &amp;\approx
     \frac{1}{k!} \lambda^k e^{-\lambda} ,
 \end{aligned}$$
-i.e., $X$ is <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson with mean $\lambda$</a>.</p>
+i.e., $X$ is approximately <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson with mean $\lambda$</a>.</p>
 
 </div>
 </div>
@@ -14708,9 +14717,7 @@ i.e., $X$ is <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisso
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Suppose that we're running a solar panel manufacturing plant.
-Each panel has a Poisson number of defects with mean 1.
-A few defects are okay, but if a panel has more then 2 defects,
+<p>Suppose that a few defects are okay, but if a panel has more then 2 defects,
 the panel will not work.
 <em>What proportion of panels will work?</em></p>
 
@@ -14772,43 +14779,279 @@ which is here</p>
 
 </div>
 
-</div></div></section></section><section><section>
+</div></div></section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Complications">Complications<a class="anchor-link" href="#Complications">&#182;</a></h1>
+<p><strong>Exercise:</strong>
+What proportion of good panels still have some defects?
+Answer with math and check it by simulation.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Waiting-times">Waiting times<a class="anchor-link" href="#Waiting-times">&#182;</a></h1>
 </div>
 </div>
 </div></section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>However:</em> this turns out <em>not</em> to match observation,
+<p>Here's a different example.
+<a href="https://en.wikipedia.org/wiki/Cosmic_ray">Cosmic rays</a> from outside the solar system
+pass through us pretty often.
+Let's say we have a <a href="https://muse.jhu.edu/article/19841">cosmic ray detector</a>
+that plays a sound whenever a strong enough cosmic ray passes through it,
+which turns out to be about once every 1.2 minutes.
+How many do we expect in 6 minutes?
+How long do we have to wait between sounds?</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>How many in 6 minutes?</strong> By the same argument as above, the number of cosmic rays we get
+in $t$ minutes is Poisson with mean $t / 1.2$.
+So, we expect about $6 / 1.2 = 5$ cosmic rays in 6 minutes,
+with a standard deviation of $\sqrt{5} \approx 2.23$ cosmic rays.
+The probability we see zero cosmic rays is $e^{-5} = 0.0067$</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>How long between sounds?</strong>
+Well, the probability there's no rays in $t$ minutes is $\exp(-t/1.2)$,
+i.e., if $T$ is the time we have to wait for the next ray,
+then $$\P\{T &gt; t\} = e^{-t/1.2}.$$</p>
+<p><strong>So:</strong> $T$ is Exponentially distributed with rate 1.2 rays/second,
+and so $\E[T] = 1/1.2$ and $\sd[T] = 1/1.2$.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Memorylessness">Memorylessness<a class="anchor-link" href="#Memorylessness">&#182;</a></h2><p><strong>Fact:</strong> The Exponential distribution is <em>memoryless</em>,
+i.e., if $T$ is Exponential, then
+$$ \P\{ T &gt; t + s | T &gt; t \} = \P\{ T &gt; s \} . $$</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Proof:</strong></p>
+$$\begin{aligned}
+    \P\{ T &gt; t + s | T &gt; t \} 
+    &amp;=
+    \frac{ \P\{ T &gt; t + s \} }{ \P\{ T &gt; t \} } \\
+    &amp;=
+    \frac{ e^{-\lambda(t+s)} }{ e^{-\lambda t} } \\
+    &amp;=
+    \P\{ T &gt; s \} . 
+\end{aligned}$$
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Exercise:</strong>
+This implies that cosmic rays don't care how long I've already been waiting for one to arrive:
+the probability that $T &gt; 2$ minutes given that $T &gt; 1$ minute is equal to the probability that $T &gt; 1$ minute.
+Demonstrate this, by simulation.</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Distributions:-recap">Distributions: recap<a class="anchor-link" href="#Distributions:-recap">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If something happens at rate $\lambda$ per unit time,
+and whether it happens in each bit of time is independent of other bits of time, then:</p>
+<p>The <strong>number</strong> of times it happens in $t$ units of time, $N(t)$,
+is <strong>Poisson</strong> with mean $\lambda t$;
+so $\E[N(t)] = \var[N(t)] = \lambda t$
+and $$ \P\{ N(t) = n \} = e^{-\lambda t} \frac{(\lambda t)^n}{n!} ,$$</p>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The <strong>time</strong> between subsequent events, $T$, is <strong>Exponential</strong> with rate $\lambda$,
+so $\E[T] = \sd[T] = 1/\lambda$ and
+$$ \P\{ T &gt; t \} = \exp(-\lambda t) . $$</p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Complications:-overdispersion">Complications: overdispersion<a class="anchor-link" href="#Complications:-overdispersion">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's go back to the solar panels:
+suppose that the number of defects per panel turns out to <em>not</em> be Poisson,
 and in fact the distribution of number of defects per panel looks like this:</p>
 
 </div>
 </div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">defects</span>
+</pre></div>
 
-<pre><code>value   expected    observed
-0   3678.79 4954
-1   3678.79 2511
-2   1839.40 1263
-3   613.13  625
-4   153.28  336
-5   30.66   146
-6   5.11    89
-7   0.73    42
-8   0.09    17
-9   0.01    8
-10  0.00    5
-11  0.00    3</code></pre>
-
+     </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>value</th>
+      <th>expected</th>
+      <th>observed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3678.794412</td>
+      <td>4941</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>3678.794412</td>
+      <td>2484</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1839.397206</td>
+      <td>1259</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>613.132402</td>
+      <td>675</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>153.283100</td>
+      <td>319</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>30.656620</td>
+      <td>169</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>5.109437</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>0.729920</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>0.091240</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>0.010138</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>0.001014</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div></section><section>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
