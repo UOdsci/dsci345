@@ -25,7 +25,7 @@ Week 2 (*10/3*): The modeler's toolbox
 
 : Simulation, random variables, properties of and relationships between
     some common probability distributions; computing means,
-    covariances, and expectations. Stochastic gradient descent.
+    variances, and expectations. Stochastic gradient descent.
 
     - Slides: Random variables [ipynb](../class_material/slides/Week_02_Random_variables.ipynb) [html](../class_material/slides/Week_02_Random_variables.slides.html)
     - Slides: Stochastic gradient descent [ipynb](../class_material/slides/Week_02_Stochastic_gradient_descent.ipynb) [html](../class_material/slides/Week_02_Stochastic_gradient_descent.slides.html)
@@ -42,6 +42,7 @@ Week 3 (*10/10*): Simulation, moments, and overdispersion.
 
     - Slides: Poisson counts [ipynb](../class_material/slides/Week_03_Poisson.ipynb) [html](../class_material/slides/Week_03_Poisson.slides.html)
     - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Week_03_Central_limits.ipynb) [html](../class_material/slides/Week_03_Central_limits.slides.html)
+    - Slides: Method of moments [ipynb](../class_material/slides/Week_03_Method_of_moments.ipynb) [html](../class_material/slides/Week_03_Method_of_moments.slides.html)
     - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
     - Homework (due 10/20): [ipynb](../class_material/homeworks/HW03.ipynb) [html](../class_material/homeworks/HW03.html)
 
