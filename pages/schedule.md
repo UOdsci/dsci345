@@ -51,7 +51,8 @@ Week 4 (*10/17*): Model choice, categorical prediction, and likelihood.
 : Likelihood, p-values, hypothesis testing, power and false positives,
     false discovery rates, and some history.
 
-    - Slides: Likelihood, p-values, and hypotheses [ipynb](../class_material/slides/Week_04_Likelihood.ipynb) [html](../class_material/slides/Week_04_Likelihood.slides.html)
+    - Slides: Likelihood [ipynb](../class_material/slides/Week_04_Likelihood.ipynb) [html](../class_material/slides/Week_04_Likelihood.slides.html)
+    - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Week_04_Pvalues.ipynb) [html](../class_material/slides/Week_04_Pvalues.slides.html)
     - Slides: Power and false positives [ipynb](../class_material/slides/Week_04_Power.ipynb) [html](../class_material/slides/Week_04_Power.slides.html)
     - Slides: Some history: statistics and eugenics [ipynb](../class_material/slides/Week_04_History.ipynb) [html](../class_material/slides/Week_04_History.slides.html)
     - Reading: [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/01_Maximum_Likelihood.html)
