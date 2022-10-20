@@ -55,7 +55,7 @@ Week 4 (*10/17*): Model choice, categorical prediction, and likelihood.
     - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Week_04_Pvalues.ipynb) [html](../class_material/slides/Week_04_Pvalues.slides.html)
     - Reading: [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/01_Maximum_Likelihood.html)
     - *alternative reading:* [Wasserman, chapter 9](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Homework (due 10/27): 
+    - Homework (due 10/27): [ipynb](../class_material/homeworks/HW04.ipynb) [html](../class_material/homeworks/HW04.html)
 
 Week 5 (*10/24*): Quantifying uncertainty
 
