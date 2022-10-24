@@ -65,7 +65,11 @@ Week 5 (*10/24*): Quantifying uncertainty
 
     - Slides: Some history: statistics and eugenics [ipynb](../class_material/slides/Week_05_History.ipynb) [html](../class_material/slides/Week_05_History.slides.html)
     - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
-    - Reading: 
+    - Reading:
+        [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
+        [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html);
+        [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
+    - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 11/3): 
 
 Week 6 (*10/31*): Multivariate data and latent structure
