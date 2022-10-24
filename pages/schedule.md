@@ -49,7 +49,7 @@ Week 3 (*10/10*): Simulation, moments, and overdispersion.
 Week 4 (*10/17*): Model choice, categorical prediction, and likelihood.
 
 : Likelihood, p-values, hypothesis testing, power and false positives,
-    false discovery rates, and some history.
+    false discovery rates.
 
     - Slides: Likelihood [ipynb](../class_material/slides/Week_04_Likelihood.ipynb) [html](../class_material/slides/Week_04_Likelihood.slides.html)
     - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Week_04_Pvalues.ipynb) [html](../class_material/slides/Week_04_Pvalues.slides.html)
@@ -59,11 +59,10 @@ Week 4 (*10/17*): Model choice, categorical prediction, and likelihood.
 
 Week 5 (*10/24*): Quantifying uncertainty
 
-: Calibration of estimates of uncertainty; bias-variance tradeoff;
+: Calibration of estimates of uncertainty;
     asymptotics versus simulation. Bayesian statistics:
-    priors and posteriors.
+    priors and posteriors. <!-- bias-variance tradeoff; -->
 
-    - Slides: Some history: statistics and eugenics [ipynb](../class_material/slides/Week_05_History.ipynb) [html](../class_material/slides/Week_05_History.slides.html)
     - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
