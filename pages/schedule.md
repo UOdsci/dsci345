@@ -61,9 +61,10 @@ Week 5 (*10/24*): Quantifying uncertainty
 
 : Calibration of estimates of uncertainty;
     asymptotics versus simulation. Bayesian statistics:
-    priors and posteriors. <!-- bias-variance tradeoff; -->
+    priors and posteriors.
 
     - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
+    - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Week_05_Exercise_Uncertainty.ipynb) [html](../class_material/slides/Week_05_Exercise_Uncertainty.slides.html)
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
         [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html);
