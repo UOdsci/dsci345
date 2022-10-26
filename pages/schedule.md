@@ -63,7 +63,7 @@ Week 5 (*10/24*): Quantifying uncertainty
     asymptotics versus simulation. Bayesian statistics:
     priors and posteriors.
 
-    - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
+    - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
     - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Week_05_Exercise_Uncertainty.ipynb) [html](../class_material/slides/Week_05_Exercise_Uncertainty.slides.html)
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
@@ -71,6 +71,10 @@ Week 5 (*10/24*): Quantifying uncertainty
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 11/3): 
+
+<!--
+    - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
+-->
 
 Week 6 (*10/31*): Multivariate data and latent structure
 
