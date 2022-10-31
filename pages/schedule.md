@@ -83,7 +83,9 @@ Week 6 (*10/31*): Multivariate data and latent structure
     
     - Slides: Correlation and covariance [ipynb](../class_material/slides/Week_06_Covariance.ipynb) [html](../class_material/slides/Week_06_Covariance.slides.html)
     - Slides: Principal components analysis [ipynb](../class_material/slides/Week_06_PCA.ipynb) [html](../class_material/slides/Week_06_PCA.slides.html)
-    - Reading: 
+    - Reading: [Adhikari & Pitman, chapter 17.1-17.3](http://prob140.org/textbook/content/Chapter_17/00_Joint_Densities.html)
+        and [chapter 23](http://prob140.org/textbook/content/Chapter_23/00_Multivariate_Normal_RVs.html)
+    - *alternative reading:* [Wasserman, chapter 14](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 11/10): 
 
 Week 7 (*11/7*): Linear models
