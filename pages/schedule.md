@@ -74,6 +74,7 @@ Week 5 (*10/24*): Quantifying uncertainty
 
 <!--
     - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
+    - Slides: The bootstrap [ipynb](../class_material/slides/Week_05_Bootstrap.ipynb) [html](../class_material/slides/Week_05_Bootstrap.slides.html)
 -->
 
 Week 6 (*10/31*): Multivariate data and latent structure
