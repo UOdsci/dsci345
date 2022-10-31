@@ -60,8 +60,7 @@ Week 4 (*10/17*): Model choice, categorical prediction, and likelihood.
 Week 5 (*10/24*): Quantifying uncertainty
 
 : Calibration of estimates of uncertainty;
-    asymptotics versus simulation. Bayesian statistics:
-    priors and posteriors.
+    asymptotics versus simulation. Review.
 
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
     - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Week_05_Exercise_Uncertainty.ipynb) [html](../class_material/slides/Week_05_Exercise_Uncertainty.slides.html)
@@ -70,7 +69,7 @@ Week 5 (*10/24*): Quantifying uncertainty
         [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html);
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Homework (due 11/3): 
+    - Homework (due 11/3): [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
 
 <!--
     - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
