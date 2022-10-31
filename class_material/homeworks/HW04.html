@@ -14634,7 +14634,7 @@ To do this, you should</p>
 <p><em>(b)</em> use an optimization function (like <code>scipy.optimize.minimize()</code>)
 to find the value of $\lambda$ that maximizes the log-likelihood.
     <em>(note: the <code>minimize</code> function works better if you use the log likelihood instead of the likelihood!)</em></p>
-<p><em>(c)</em> check your ansewr is sensible by comparing the distribution of the data to that expected under
+<p><em>(c)</em> check your answer is sensible by comparing the distribution of the data to that expected under
     the model you've fit.</p>
 <p><em>(d)</em> Under this model, what proportion of kids do we expect to have zero mosquito bites?
     Answer this question with math, and check it with simulation.</p>
@@ -14656,10 +14656,10 @@ $$ \begin{aligned}
 \end{aligned}$$
 and
 $X$ has probability density
-$$</p>
-<h1 id="f_X(u)">f_X(u)<a class="anchor-link" href="#f_X(u)">&#182;</a></h1><p>\frac{ u^{\alpha - 1}(1 - u)^{\beta - 1} }{ B(\alpha, \beta) }.
+$$ f_X(u) =
+\frac{ u^{\alpha - 1}(1 - u)^{\beta - 1} }{ B(\alpha, \beta) }.
 $$
-This density can be computed (as usual) with `scipy.stats.beta.pdf`,
+This density can be computed (as usual) with <code>scipy.stats.beta.pdf</code>,
 or by hand; in the latter case, $B(\alpha, \beta)$ can be computed with <code>scipy.special.beta</code>.</p>
 <p>Suppose we have data from many different tracts of forest
 of what proportion of the trees have burned,
