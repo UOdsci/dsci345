@@ -81,7 +81,8 @@ Week 6 (*10/31*): Multivariate data and latent structure
 : The multivariate Gaussian distribution, autocorrelation, modeling correlated data,
     random walks. Principal components analysis.
     
-    - Slides: 
+    - Slides: Correlation and covariance [ipynb](../class_material/slides/Week_06_Covariance.ipynb) [html](../class_material/slides/Week_06_Covariance.slides.html)
+    - Slides: Principal components analysis [ipynb](../class_material/slides/Week_06_PCA.ipynb) [html](../class_material/slides/Week_06_PCA.slides.html)
     - Reading: 
     - Homework (due 11/10): 
 
