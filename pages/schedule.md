@@ -94,7 +94,7 @@ Week 7 (*11/7*): Linear models
     Robust models, loss functions and likelihood.
 
     - Slides: 
-    - Reading: 
+    - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Homework (due 11/17): 
 
 Week 8 (*11/14*): Generalized linear models

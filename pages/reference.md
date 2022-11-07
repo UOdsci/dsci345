@@ -15,6 +15,8 @@ These might be of interest (for prerequisites, see the syllabus):
 - [matplotlib](https://matplotlib.org/) - a common way to make plots in python
 - [seaborn](https://seaborn.pydata.org/) - another way to make plots in python
 - [plotnine](https://plotnine.readthedocs.io/en/stable/api.html) - yet another way to make plots in python
+- [scipy](https://scipy.org/) - many fundamental algorithms
+    (e.g., for [optimization](https://docs.scipy.org/doc/scipy/reference/optimize.html))
 
 
 ### Other books
