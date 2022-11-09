@@ -95,6 +95,7 @@ Week 7 (*11/7*): Linear models
 
     - Slides: Introduction to linear models [ipynb](../class_material/slides/Week_07_Linear_models.ipynb) [html](../class_material/slides/Week_07_Linear_models.slides.html)
     - Slides: In-class exercise [ipynb](../class_material/slides/Week_07_Exercise_Linear_models.ipynb) [html](../class_material/slides/Week_07_Exercise_Linear_models.slides.html)
+    - Slides: Robust models [ipynb](../class_material/slides/Week_07_Robust_models.ipynb) [html](../class_material/slides/Week_07_Robust_models.slides.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Homework (due 11/17): 
 
