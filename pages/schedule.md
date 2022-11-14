@@ -104,6 +104,7 @@ Week 8 (*11/14*): Generalized linear models
 : Response distributions, nonlinear relationships. Mixed models.
 
     - Slides: Generalized linear models [ipynb](../class_material/slides/Week_08_Generalized_Linear_Models.ipynb) [html](../class_material/slides/Week_08_Generalized_Linear_Models.slides.html)
+    - Slides: Some history [ipynb](../class_material/slides/Week_08_History.ipynb) [html](../class_material/slides/Week_08_History.slides.html)
     - Reading: 
     - Homework (due 11/24): 
 
