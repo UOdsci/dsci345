@@ -107,8 +107,7 @@ Week 8 (*11/14*): Generalized linear models
     - Slides: Some history [ipynb](../class_material/slides/Week_08_History.ipynb) [html](../class_material/slides/Week_08_History.slides.html)
     - Slides: Nonlinear models [ipynb](../class_material/slides/Week_08_Nonlinear_models.ipynb) [html](../class_material/slides/Week_08_Nonlinear_models.slides.html)
     - Slides: Example simulation [ipynb](../class_material/slides/Week_08_Random_effects.ipynb) [html](../class_material/slides/Week_08_Random_effects.slides.html)
-    - Reading: 
-    - Homework (due 11/24): 
+    - Homework (due 11/22): [ipynb](../class_material/homeworks/HW08.ipynb) [html](../class_material/homeworks/HW08.html)
 
 Week 9 (*11/21*): Problems with linear models
 
