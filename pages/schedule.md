@@ -115,7 +115,7 @@ Week 9 (*11/21*): Problems with linear models
 
     - Slides: Regularization [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
     - Reading: 
-    - Homework (due 11/31): 
+    - Homework (due 12/1): 
 
 Week 10 (*11/28*): Prediction and inference revisited
 
