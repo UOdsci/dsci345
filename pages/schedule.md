@@ -101,7 +101,7 @@ Week 7 (*11/7*): Linear models
 
 Week 8 (*11/14*): Generalized linear models
 
-: Response distributions, nonlinear relationships. Mixed models.
+: Response distributions, nonlinear relationships, transformations. <!-- Mixed models. -->
 
     - Slides: Generalized linear models [ipynb](../class_material/slides/Week_08_Generalized_Linear_Models.ipynb) [html](../class_material/slides/Week_08_Generalized_Linear_Models.slides.html)
     - Slides: Some history [ipynb](../class_material/slides/Week_08_History.ipynb) [html](../class_material/slides/Week_08_History.slides.html)
@@ -111,10 +111,9 @@ Week 8 (*11/14*): Generalized linear models
 
 Week 9 (*11/21*): Problems with linear models
 
-: Too many variables, not enough linearity: transformations, regularization,
-    diagnostics, and other approaches.
+: Too many variables, not enough linearity: regularization and diagnostics.
 
-    - Slides: 
+    - Slides: Regularization [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
     - Reading: 
     - Homework (due 11/31): 
 

@@ -14835,15 +14835,11 @@ what's our estimate of their total weight?</p>
 <p><em>More formally:</em> let's assume the distribution of the weights (across <em>all</em> the apples) is Normal.
 If the mean is $\mu$ grams and standard deviation $\sigma$ grams, then the chance<em> of getting an apple
 that weighs $x$ grams is
-$$
-  L(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2 \sigma^2}\right) .
-$$
-$</em>$ <em>(okay, this is actually a probability density, but let's go with it)</em></p>
-<p>So, the chance of getting apples weighing $x_1, \ldots, x_n$ is
-$$</p>
-<h1 id="--%5Cprod_%7Bi=1%7D%5En-L(x_i;-%5Cmu,-%5Csigma)">  \prod_{i=1}^n L(x_i; \mu, \sigma)<a class="anchor-link" href="#--%5Cprod_%7Bi=1%7D%5En-L(x_i;-%5Cmu,-%5Csigma)">&#182;</a></h1><p>\frac{1}{\sqrt{2 \pi \sigma^2}^n} \exp\left(- \frac{\sum_{i=1}^n (x_i - \mu)^2}{2 \sigma^2} \right) .
-$$</p>
-
+$$   L(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2 \sigma^2}\right) . $$</em>(okay, this is actually a probability density, but let's go with it)*</p>
+<p>So, the chance of getting apples weighing $x_1, \ldots, x_n$ is</p>
+$$   \prod_{i=1}^n L(x_i; \mu, \sigma)
+  = 
+  \frac{1}{\sqrt{2 \pi \sigma^2}^n} \exp\left(- \frac{\sum_{i=1}^n (x_i - \mu)^2}{2 \sigma^2} \right) . $$
 </div>
 </div>
 </div><div class="fragment">
