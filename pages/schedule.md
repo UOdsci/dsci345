@@ -114,6 +114,7 @@ Week 9 (*11/21*): Problems with linear models
 : Too many variables, not enough linearity: regularization and diagnostics.
 
     - Slides: Regularization [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
+    - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Week_09_Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Week_09_Transformations_and_diagnostics.slides.html)
     - Reading: 
     - Homework (due 12/1): 
 
