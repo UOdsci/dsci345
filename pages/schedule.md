@@ -66,8 +66,7 @@ Week 5 (*10/24*): Quantifying uncertainty
     - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Week_05_Exercise_Uncertainty.ipynb) [html](../class_material/slides/Week_05_Exercise_Uncertainty.slides.html)
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
-        [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html);
-        [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
+        <!-- [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html) -->
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 11/3): [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
 
@@ -112,16 +111,17 @@ Week 9 (*11/21*): Problems with linear models
 
 : Too many variables, not enough linearity: regularization and diagnostics.
 
-    - Slides: Regularization [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
+    - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
     - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Week_09_Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Week_09_Transformations_and_diagnostics.slides.html)
-    - Reading: 
     - Homework (due 12/1):  [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
 
 Week 10 (*11/28*): Prediction and inference revisited
 
-: Identifiability, regularization, ill-posed inference, non-convex optimization.
+: The bootstrap; Identifiability, ill-posed inference, non-convex optimization.
 
-    - Slides: 
+    - Slides: Uncertainty and the bootstrap [ipynb](../class_material/slides/Week_10_Uncertainty.ipynb) [html](../class_material/slides/Week_10_Uncertainty.slides.html)
     - Reading: 
+        [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
+    - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (maybe)
 
