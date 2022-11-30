@@ -113,7 +113,7 @@ Week 9 (*11/21*): Problems with linear models
 
     - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
     - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Week_09_Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Week_09_Transformations_and_diagnostics.slides.html)
-    - Homework (due 12/1):  [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
+    - Homework (due 12/1): [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
 
 Week 10 (*11/28*): Prediction and inference revisited
 
@@ -125,5 +125,5 @@ Week 10 (*11/28*): Prediction and inference revisited
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Homework (maybe)
+    - Final (due 12/8): [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html)
 
