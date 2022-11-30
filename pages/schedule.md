@@ -120,6 +120,8 @@ Week 10 (*11/28*): Prediction and inference revisited
 : The bootstrap; Identifiability, ill-posed inference, non-convex optimization.
 
     - Slides: Uncertainty and the bootstrap [ipynb](../class_material/slides/Week_10_Uncertainty.ipynb) [html](../class_material/slides/Week_10_Uncertainty.slides.html)
+    - Slides: Interpolation and ill-posedness [ipynb](../class_material/slides/Week_10_Ill_posedness.ipynb) [html](../class_material/slides/Week_10_Ill_posedness.slides.html)
+    - Slides: Review [ipynb](../class_material/slides/Week_10_Review.ipynb) [html](../class_material/slides/Week_10_Review.slides.html)
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
