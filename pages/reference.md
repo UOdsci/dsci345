@@ -24,6 +24,10 @@ These might be of interest (for prerequisites, see the syllabus):
 If you are looking for more reference or reading material, these are also good.
 These are in no particular order; browse and find one the speaks to you.
 
+- [*Python for Data Analysis*](https://wesmckinney.com/book/preliminaries.html),
+    by Wes McKinney, free online, covering
+    "the nuts and bolts of manipulating, processing, cleaning, and crunching data in Python".
+
 - [*Probability for Data Science*](http://prob140.org/textbook/content/README.html),
     by Ani Adhikari and Jim Pitman, free online.
 
