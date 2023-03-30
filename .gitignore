@@ -2,3 +2,5 @@
 .ipynb_checkpoints
 ._DS_Store
 __pycache__
+_site
+Gemfile.lock

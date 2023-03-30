@@ -28,16 +28,15 @@ being able to construct and simulate from sophisticated models for random data g
 ## Instructor:
 
 - [Peter Ralph](https://pages.uoregon.edu/plr/), instructor: plr@uoregon.edu
-    * office hours: Wednesday 12:00-1:30pm in Pacific 204,
-      or by appointment.
+    * office hours: TBA or by appointment.
 
 ## Course Information
 
-- *Schedule:* Mon/Wed 10:00-11:20 AM in 260 Condon and on zoom (see Canvas for link)
+- *Schedule:* Mon/Wed/Fri 11:00-11:50 AM in 251 Straub and on zoom (see Canvas for link)
 - *Websites:* besides [the page you are looking at](https://UOdsci.github.io/dsci345/),
     assignments and announcements will be distributed
     on the [canvas page](https://canvas.uoregon.edu/)
-- *Assignments:* Assigned weekly, and due the following Thursdays.
+- *Assignments:* Assigned weekly, and due (usually) the following Tuesday.
 
 ## Prerequisites:
 
@@ -85,8 +84,6 @@ and results in better learning outcomes,
 so I strongly encourage in-person attendance.
 However, I know that things happen in life that might make you unable to come --
 for instance, please do not come to class if you are sick.
-(Also note that UO currently requires
-[students and employees to be fully vaccinated](https://coronavirus.uoregon.edu/).)
 
 If you are unable to turn in assignments on time,
 please let me know when you are able,
@@ -97,18 +94,17 @@ so I can make alternative arrangements.
 Course grades will be based on assignments and a final,
 totaled as either 85% assignments and 15% final or 70% assignments and 30% final,
 whichever is greater.
-Most assignments are weekly homeworks,
-assigned on Monday and due the following Monday.
+Most assignments are weekly homeworks, due the week after they are assigned.
 These will be multi-part assignments done using jupyter notebooks,
 that will contain writing, mathematics, and (python) code.
 The contribution of each assignment to the final grade will be proportional to the points assigned,
 and thresholds for letter grades are not fixed beforehand
 but will be chosen to reflect:
-A: excellent, demonstrates competence in all topics and mastery of many;
-B: good, demonstrates competence in all topics;
-C: satisfactory, demonstrates competence in most topics and familiarity with all topics;
-D: less than satisfactory, demonstrates competence in some topics but not all;
-F: not satisfactory, not competent or familiar with most topics.
+A: "excellent, demonstrates competence in all topics and mastery of many";
+B: "good, demonstrates competence in all topics";
+C: "satisfactory, demonstrates competence in most topics and familiarity with all topics";
+D: "less than satisfactory, demonstrates competence in some topics but not all";
+F: "not satisfactory, not competent or familiar with most topics".
 
 
 ## Inclusion and accessibility
