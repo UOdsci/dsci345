@@ -28,7 +28,7 @@ being able to construct and simulate from sophisticated models for random data g
 ## Instructor:
 
 - [Peter Ralph](https://pages.uoregon.edu/plr/), instructor: plr@uoregon.edu
-    * office hours: TBA or by appointment.
+    * office hours: Mondays, 12:30-2pm in 204 Pacific, or by appointment.
 
 ## Course Information
 

@@ -1,0 +1,13 @@
+name: dsci
+channels:
+  - conda-forge
+  - anaconda
+  - defaults
+dependencies:
+  - python
+  - matplotlib
+  - numpy
+  - scipy
+  - pandas
+  - RISE
+  - jupyter
