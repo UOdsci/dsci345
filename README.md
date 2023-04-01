@@ -32,10 +32,9 @@ see notes [here](https://www.markroepke.me/posts/2019/05/23/creating-interactive
 and [here](https://www.markroepke.me/posts/2019/06/05/tips-for-slideshows-in-jupyter.html).
 Also see [enabling extensions](https://github.com/ipython-contrib/jupyter_contrib_nbextensions/blob/master/README.md#2-install-javascript-and-css-files)
 
-Prerequisites:
+Prerequisites for executing and showing the slides are in `requirements/conda-environment.yml`:
 ```
-pip install RISE jupyter_contrib_nbextensions
-# the extensions are for columns
-jupyter contrib nbextension install --user
+conda env create -f requirements/conda-environment.yml 
+conda activate dsci
 jupyter nbextension enable splitcell/splitcell
 ```
