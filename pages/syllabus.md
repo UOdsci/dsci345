@@ -36,7 +36,7 @@ being able to construct and simulate from sophisticated models for random data g
 - *Websites:* besides [the page you are looking at](https://UOdsci.github.io/dsci345/),
     assignments and announcements will be distributed
     on the [canvas page](https://canvas.uoregon.edu/)
-- *Assignments:* Assigned weekly, and due (usually) the following Tuesday.
+- *Assignments:* Assigned weekly, and due (usually) the following Wednesday.
 
 ## Prerequisites:
 
