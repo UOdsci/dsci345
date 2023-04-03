@@ -36,5 +36,4 @@ Prerequisites for executing and showing the slides are in `requirements/conda-en
 ```
 conda env create -f requirements/conda-environment.yml 
 conda activate dsci
-jupyter nbextension enable splitcell/splitcell
 ```
