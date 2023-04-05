@@ -21,8 +21,8 @@ Week 1 (*4/3*): Probability
     - Slides: Random variables [ipynb](../class_material/slides/Random_variables.ipynb) [html](../class_material/slides/Random_variables.slides.html)
     - Reading: [Adhikari & Pitman, chapters 1, 2, & 3](http://prob140.org/textbook/content/README.html)
     - *alternative reading:* [Wasserman, chapter 1, 2.1-2.4](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Short Homework (due 4/6): [ipynb](../class_material/homeworks/HW00.ipynb)
-    - Homework (due 4/12): [ipynb](../class_material/homeworks/HW01.ipynb)
+    - Short Homework (due 4/6): [ipynb](../class_material/homeworks/HW00.ipynb) [html](../class_material/homeworks/HW00.html)
+    - Homework (due 4/12): [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
 
 Week 2 (*4/10*): The modeler's toolbox
 
