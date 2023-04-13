@@ -31,6 +31,7 @@ Week 2 (*4/10*): The modeler's toolbox
     variances, and expectations. Stochastic gradient descent.
 
     - Slides: Stochastic gradient descent [ipynb](../class_material/slides/Stochastic_gradient_descent.ipynb) [html](../class_material/slides/Stochastic_gradient_descent.slides.html)
+    - Slides: Poisson counts [ipynb](../class_material/slides/Poisson.ipynb) [html](../class_material/slides/Poisson.slides.html)
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 4/19): [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
@@ -43,7 +44,6 @@ Week 3 (*4/17*): Simulation, moments, and overdispersion.
     Outliers and overdispersion: scale mixtures, goodness-of-fit.
 
 <!--
-    - Slides: Poisson counts [ipynb](../class_material/slides/Week_03_Poisson.ipynb) [html](../class_material/slides/Week_03_Poisson.slides.html)
     - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Week_03_Central_limits.ipynb) [html](../class_material/slides/Week_03_Central_limits.slides.html)
     - Slides: Method of moments [ipynb](../class_material/slides/Week_03_Method_of_moments.ipynb) [html](../class_material/slides/Week_03_Method_of_moments.slides.html)
     - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
