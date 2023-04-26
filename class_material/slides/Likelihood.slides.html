@@ -15369,20 +15369,52 @@ But we're just trying to optimize over two parameters, so it's easy to do by com
 </div>
 </div>
 
-</div></div></section><section >
+</div></div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This gives a good guess. But: <em>how sure are we</em>?
-<em>Next:</em> one way of approaching this question - $p$-values.</p>
+<h1 id="Goodness-of-fit,-and-uncertainty">Goodness-of-fit, and uncertainty<a class="anchor-link" href="#Goodness-of-fit,-and-uncertainty">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div></section><section >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In summary, we've got (hopefully) good estimates of the <em>parameters</em> in <em>model</em>
+that we think ought to fit the rainfall data.</p>
+<p>Let's continue, asking</p>
+<ol>
+<li><em>Is it a good model for the data?</em> and</li>
+<li><em>how certain are we about the parameter estimates?</em></li>
+</ol>
 
 </div>
 </div>
 </div>
-</div></section></section>
+</div><div class="fragment" >
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>To do this, we'll simulate data under the model, with the fitted parameters, and ask:</p>
+<ol>
+<li>Does the simulated data look like the real data?</li>
+<li>If we re-do inference, how far off are we from the true values?</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div></div></section></section>
 </div>
 </div>
 </body>
