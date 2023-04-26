@@ -55,7 +55,6 @@ Week 4 (*4/24*): Model choice, categorical prediction, and likelihood.
     false discovery rates.
 
     - Slides: Likelihood [ipynb](../class_material/slides/Likelihood.ipynb) [html](../class_material/slides/Likelihood.slides.html)
-    - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Pvalues.ipynb) [html](../class_material/slides/Pvalues.slides.html)
     - Reading: [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/01_Maximum_Likelihood.html)
     - *alternative reading:* [Wasserman, chapter 9](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework (due 5/3): [ipynb](../class_material/homeworks/HW04.ipynb) [html](../class_material/homeworks/HW04.html)
@@ -64,6 +63,8 @@ Week 5 (*5/1*): Quantifying uncertainty
 
 : Calibration of estimates of uncertainty;
     asymptotics versus simulation. Review.
+
+    - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Pvalues.ipynb) [html](../class_material/slides/Pvalues.slides.html)
 
 <!--
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
