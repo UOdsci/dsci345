@@ -14797,22 +14797,45 @@ even if the ice water doesn't do anything? Just by random chance?</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ice</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">not_ice</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ice</span> <span class="o">-</span> <span class="n">not_ice</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">not_ice</span> <span class="o">-</span> <span class="n">ice</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.0532</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></section><section >
@@ -14835,11 +14858,11 @@ than the index finger on the other hand.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_longer</span> <span class="o">=</span> 
-<span class="n">num_shorter</span> <span class="o">=</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_longer</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">num_shorter</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 
      </div>
@@ -14867,12 +14890,12 @@ between those numbers even if we all just flipped coins to decide instead?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># rng.choice([&#39;h&#39;, &#39;t&#39;])</span>
-<span class="n">num_heads</span> <span class="o">=</span>
-<span class="n">num_tails</span> <span class="o">=</span> 
+<span class="n">num_heads</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">num_tails</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
 
      </div>
@@ -14892,20 +14915,56 @@ between those numbers even if we all just flipped coins to decide instead?</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span>
+<span class="n">k</span><span class="p">,</span> <span class="mi">7</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">7</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">num_big</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">7</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">num_big</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;percent:&quot;</span><span class="p">,</span> <span class="n">num_big</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">p_big</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mf">3.5</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">1.5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list comprehension answer:&quot;</span><span class="p">,</span> <span class="n">p_big</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>percent: 0.4498
+list comprehension answer: 0.4523
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div></section></section><section ><section >
@@ -15036,12 +15095,12 @@ here's a quick simulation check:</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sigma2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -15063,6 +15122,29 @@ here's a quick simulation check:</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>The true variance is 0.9529334584955687.
+The mean sigma^2 is 0.7737694845912159.
+The mean sample variance is 1.0698048147444539.
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div></section></section><section ><section >
@@ -15169,12 +15251,12 @@ and the probability a $t$ distribution with 98 degrees of freedom is at least 3 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
@@ -15184,6 +15266,29 @@ and the probability a $t$ distribution with 98 degrees of freedom is at least 3 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.003423264463729536</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></div><div class="fragment" >
