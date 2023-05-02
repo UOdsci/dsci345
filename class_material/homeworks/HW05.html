@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>HW05</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
-<title>Pvalues slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-</script>
 
 <style type="text/css">
     pre { line-height: 125%; }
@@ -14469,145 +14455,103 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
+}
+
+/* Misc */
 a.anchor-link {
-   display: none;
-}
-.highlight  {
-    margin: 0.4em;
-}
-.jp-Notebook {
-    padding: 0;
-}
-:root {
-    --jp-ui-font-size1: 20px;       /* instead of 14px */
-    --jp-content-font-size1: 20px;  /* instead of 14px */
-    --jp-code-font-size: 19px;      /* instead of 13px */
-    --jp-cell-prompt-width: 110px;  /* instead of 64px */
-}
-@media print {
-  body {
-    margin: 0;
-  }
-}
-</style>
-
-<style type="text/css">
-/* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
-}
-.reveal table {
-  font-size: var(--jp-ui-font-size1);
-}
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
+  display: none;
 }
 
-div.jp-InputArea-editor {
-  padding: 0.06em;
+/* Input area styling */
+.jp-InputArea {
+  overflow: hidden;
 }
 
-div.code_cell {
-  background-color: transparent;
+.jp-InputArea-editor {
+  overflow: hidden;
 }
 
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-
-div.jp-OutputPrompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-
-.reveal div.highlight {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
 }
 
-.reveal div.highlight > pre {
-  margin: 0;
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
+}
+
+/* Using table instead of flexbox so that we can use break-inside property */
+/* CSS rules under this comment should not be required anymore after we move to the JupyterLab 4.0 CSS */
+
+
+.jp-CodeCell.jp-mod-outputsScrolled .jp-OutputArea-prompt {
+  min-width: calc(
+    var(--jp-cell-prompt-width) - var(--jp-private-cell-scrolling-output-offset)
+  );
+}
+
+.jp-OutputArea-child {
+  display: table;
   width: 100%;
-  font-size: var(--jp-code-font-size);
 }
 
-.reveal div.jp-OutputArea-output > pre {
-  margin: 0;
-  width: 90%;
-  font-size: var(--jp-code-font-size);
-  box-shadow: none;
+.jp-OutputPrompt {
+  display: table-cell;
+  vertical-align: top;
+  min-width: var(--jp-cell-prompt-width);
 }
 
-/* Reveal navigation controls */
-
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
+body[data-format='mobile'] .jp-OutputPrompt {
+  display: table-row;
 }
 
-/* Scrollbars */
+.jp-OutputArea-output {
+  display: table-cell;
+  width: 100%;
+}
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
+  display: table-row;
 }
-::-webkit-scrollbar * {
-  background: transparent;
+
+.jp-OutputArea-output.jp-OutputArea-executeResult {
+  width: 100%;
 }
-::-webkit-scrollbar-thumb {
-  background: #727272 !important;
+
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
+}
+
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
+}
+
+@media print {
+  .jp-Cell-inputWrapper,
+  .jp-Cell-outputWrapper {
+    display: block;
+  }
+
+  .jp-OutputArea-child {
+    break-inside: avoid-page;
+  }
 }
 </style>
 
@@ -14644,211 +14588,24 @@ div.jp-OutputPrompt {
     }
     init_mathjax();
     </script>
-    <!-- End of mathjax configuration --><!-- Reveal Theme -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme">
-
-</head>
-
+    <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="reveal">
-<div class="slides"><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Model-selection,-and-p-values">Model selection, and p-values<a class="anchor-link" href="#Model-selection,-and-p-values">&#182;</a></h1><p>Peter Ralph</p>
-<p><a href="https://uodsci.github.io/dsci345">https://uodsci.github.io/dsci345</a></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="False-positives">False positives<a class="anchor-link" href="#False-positives">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="The-danger-of-statistics">The danger of statistics<a class="anchor-link" href="#The-danger-of-statistics">&#182;</a></h2><p>We now know how to fit models (in two ways!). Let's do experiments now!</p>
-<p>Let's say we all go out and test our own favorite method for avoiding COVID:
-vitamin C, vaccination, lots of coffee, lucky charms, chloroquine...
-Everyone comes back with an estimate of
-the relative risk of getting COVID using their treatment.
-<em>How useful is this?</em></p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Some people have much bigger studies than others:
-whose methods will have the largest estimates:
-large studies or small ones?</p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We need to also report a <strong>measure of uncertainty</strong>
-and/or the <strong>strength of statistical support</strong>
-for our results.</p>
-
-</div>
-</div>
-</div>
-</div></div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="My-skeptical-friend">My skeptical friend<a class="anchor-link" href="#My-skeptical-friend">&#182;</a></h2><p><em>Me:</em> I have an amazing new treatment!
-I had ten random people soak their feet in ice water three times a day for a month,
-and none of them got sick!</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>You:</em> Okay, sure, but they might not have got sick anyhow?</p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>Me:</em> I got that covered, ten other random people who didn't do this,
-and three of them got sick.</p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>You:</em> Hm, okay, but isn't it kinda likely that you'd get such a big difference
-even if the ice water doesn't do anything? Just by random chance?</p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>Me:</em> Gee, I dunno, how do we find out?</p>
-
-</div>
-</div>
-</div>
-</div></div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>You:</em> Well, this isn't perfect, but</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ice</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">not_ice</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="o">/</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">not_ice</span> <span class="o">-</span> <span class="n">ice</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.0532</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Fingers">Fingers<a class="anchor-link" href="#Fingers">&#182;</a></h2><p>I think that writing affects the ligaments in your fingers,
-so that the index finger on peoples' writing hands tends to be a different length
-than the index finger on the other hand.</p>
-<p>Let's collect some data!</p>
+<h1 id="Homework-4:-Statistics!">Homework 4: Statistics!<a class="anchor-link" href="#Homework-4:-Statistics!">&#182;</a></h1><p><em>Instructions:</em>
+Please answer the following questions and submit your work
+by editing this jupyter notebook and submitting it on Canvas.
+Questions may involve math, programming, or neither,
+but you should make sure to <em>explain your work</em>:
+i.e., you should usually have a cell with at least a few sentences
+explaining what you are doing.</p>
+<p>Also, please be sure to always specify units of any quantities that have units,
+and label axes of plots (again, with units when appropriate).</p>
 
 </div>
 </div>
@@ -14858,11 +14615,12 @@ than the index finger on the other hand.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_longer</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">num_shorter</span> <span class="o">=</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14870,466 +14628,90 @@ than the index finger on the other hand.</p>
 </div>
 </div>
 
-</div><div class="fragment" >
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>It's maybe more natural to suppose there <em>isn't</em> a difference.
-Okay, let's see how good my evidence is against this idea:
-what's the probability that we'd see such a big difference
-between those numbers even if we all just flipped coins to decide instead?</p>
+<h1 id="1.-Statistics-statistics">1. Statistics statistics<a class="anchor-link" href="#1.-Statistics-statistics">&#182;</a></h1><p>We have given 25 statistics students
+a standardized test on statistics concepts
+both before and after taking a statistics class.
+Across the class, the mean improvement was 32 points (out of 100),
+with an SD of 30 points.
+Assuming that the $t$ test is appropriate,
+what can we conclude from this study?
+Please interpret the results, including degree of uncertainty.
+<em>(Your results should include a $p$-value and a confidence interval, appropriately interpreted in words.)</em></p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># rng.choice([&#39;h&#39;, &#39;t&#39;])</span>
-<span class="n">num_heads</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">num_tails</span> <span class="o">=</span> <span class="mi">3</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div></section><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>Exercise:</em> find the &quot;probability that we'd see such a big difference between those numbers even if we all just flipped coins&quot;, by simulation.</p>
+<h1 id="2.-Student's-tea-distribution">2. Student's tea distribution<a class="anchor-link" href="#2.-Student's-tea-distribution">&#182;</a></h1><p>We are intending to do a study of how baked goods affect liquid intake:
+we plan to give 100 students a cup of tea along with either crumpets or fruit,
+and measure how many ounces of tea each student drinks in 5 minutes.
+Based on trial runs, we expect the amount of tea drunk per student
+has a SD of 3 oz.
+50 students each are assigned randomly to the &quot;crumpet&quot; and &quot;fruit&quot; groups.
+You'll do a <em>power analysis</em>,
+finding out the probability that a study correctly identifies a difference of a certain size
+in mean amounts of tea drunk between the two groups.</p>
+<p><em>(a)</em> Write a function that produces a simulation of the study.
+    The function should have two arguments: <code>mean_crumpet</code> and <code>mean_fruit</code>,
+    which are the mean amount of tea drunk per student in the two groups, respectively.
+    Assume that the number of ounces of tea drunk by a student is
+    $$ \min(8, \max(0, X)), $$
+    where $X \sim \text{Normal}(\text{mean}=\mu, \text{sd}=3)$.
+    (In other words, draw the number of ounces from a Normal distribution,
+    but truncate it to fall between 0 and 8 ounces.)
+    The function should return something of the form <code>((mc, sdc), (mf, sdf))</code>,
+    where <code>mc</code> and <code>sdc</code> are sample mean and sample SD of the &quot;crumpet&quot; group, respectively,
+    and <code>mf</code> and <code>sdf</code> are sample mean and sample SD of the &quot;fruit&quot; group.</p>
+<p><em>(b)</em> The <em>two-sample $t$ statistic</em> for a pair of samples $x$ and $y$, each of size $n$, is
+    $$ t = \frac{ \bar x - \bar y }{ \sqrt{s_x^2 + s_y^2} / \sqrt{n} }, $$
+    where $\bar x$ and $s_x$ are the sample mean and sample SD of the first sample,
+    and $\bar y$ and $s_y$ are the same for the second sample.
+    Plot a histogram of the distribution of $t$ statistics from at least 1,000 simulated studies
+    in which both groups have mean 4 oz.</p>
+<p><em>(c)</em> Find the <em>critical value</em> of the distribution from (b),
+    i.e., the value $t^*$ such that $\mathbb{P}\{ |t| &lt; t^* \} = 0.95$
+    under the assumptions from part (b).
+    (Do this by calculating the value from a $t$ distribution with $2n-2$ degrees of freedom, not by simulation.)
+    What proportion of the $t$ statistics from (b) are larger (in absolute value) than $t^*$?</p>
+<p><em>(d)</em> Suppose in reality the 'crumpet' group drinks an average of 5oz of tea,
+    while the 'fruit' group drinks an average of 3oz.
+    Now, plot a histogram of the distribution of $t$ statistics in this case,
+    overlaid on the histogram from (b).</p>
+<p><em>(e)</em> Find the probability that a dataset produced from the model of part (d)
+    finds a $t$ statistic larger in absolute value than $t^*$,
+    either by calculation or by simulation.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span>
-<span class="n">k</span><span class="p">,</span> <span class="mi">7</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">7</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">num_big</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">7</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="n">num_big</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;percent:&quot;</span><span class="p">,</span> <span class="n">num_big</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
-
-<span class="n">p_big</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mf">3.5</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">1.5</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list comprehension answer:&quot;</span><span class="p">,</span> <span class="n">p_big</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>percent: 0.4498
-list comprehension answer: 0.4523
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></section></section><section ><section >
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="The-p-value">The p-value<a class="anchor-link" href="#The-p-value">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The $p$-value is</p>
-<blockquote>
-<p>the probability of seeing a result
-at least as surprising as what we observed in the data,
-if the null hypothesis is true.</p>
-</blockquote>
+<h1 id="3.-Imaginary-data">3. Imaginary data<a class="anchor-link" href="#3.-Imaginary-data">&#182;</a></h1><p>Make up a situation in which we'd have measured at least 3 quantitative variables in at least 500 observations. The variables should be related to each other in some way. It does not have to be realistic or serious.</p>
+<p>(a) Describe it in words.</p>
+<p>(b) Simulate some data that looks at least roughly like what you'd expect real data to look like.</p>
+<p>(c) Make plots of the data: histograms of each variable, and scatter plots of each pair of variables.</p>
+<p>Note: By &quot;looks at least roughly like you'd expect&quot;, I mean that variables should be in real units and not totally unreasonable values. So, counts should be actually integers, weights should not be negative numbers, etcetera. For instance, if one of your variable is &quot;number of dishes in my sink&quot;, then these numbers should be nonnegative integers, and should not be in the thousands.</p>
 
 </div>
 </div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The parts of this are:</p>
-<ul>
-<li><p><em>the probability ... if the null hypothesis is true</em>:
-  we need a concrete model we can compute probabilities with</p>
-</li>
-<li><p><em>a result</em>: a statistic summarizing how strongly our data suggest that model is <em>not</em> right</p>
-</li>
-<li><p><em>at least as surprising</em>: usually, the statistic is chosen so that larger values are more surprising</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In the finger exercise, we found the probability that
-if we all flipped fair coins,
-the difference
-between the number of people with Heads and with Tails
-was at least as big as <FILL ME>,
-the difference between the number of people with longer writing-hand fingers
-and those with shorter writing-hand fingers.</p>
-<p><em>Why's this a $p$-value?</em></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Aside:-the-sample-SD">Aside: the sample SD<a class="anchor-link" href="#Aside:-the-sample-SD">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Recall that the <em>variance</em> of a random variable $X$ with mean $\mu$
-is
-$$ \text{var}[X] = \mathbb{E}[ (X - \mu)^2 ] . $$
-If we have samples $x_1, \ldots, x_n$, with sample mean $\bar x = (x_1 + \cdots + x_n)/n$,
-this suggests estimating the variance of the distribution they are drawn from as
-$$ \sigma^2(x) =  \frac{1}{n} \sum_{i=1}^n (x_i - \bar x)^2 . $$</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>However:</strong> the estimator for $\var[X]$ you <em>want</em> to use
-has an $n-1$ instead of $n$, and is called the <em>sample variance:</em>
-$$ s^2(x) = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar x)^2 . $$</p>
-<p>It is an <em>unbiased</em> estimator: if $X_1, \ldots, X_n$ are independent draws from $X$, then
-$$ \E[s^2(X_1, \ldots, X_n)] = \var[X], $$
-while $\sigma^2(X)$ gives an underestimate:
-$$ \E[\sigma^2(X_1, \ldots, X_n)] = \frac{n-1}{n} \var[X]. $$</p>
-
-</div>
-</div>
-</div>
-</div></div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The <em>sample SD</em>, as returned for instance by <code>np.std( )</code>, is $s(x)$.</p>
-<p>Checking this with math is straightforward but tedious;
-here's a quick simulation check:</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sigma2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">s2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">sig_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">sigma2</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
-<span class="n">s_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">s2</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
-<span class="n">true_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The true variance is </span><span class="si">{</span><span class="n">true_var</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean sigma^2 is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sig_vals</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean sample variance is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s_vals</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>The true variance is 0.9529334584955687.
-The mean sigma^2 is 0.7737694845912159.
-The mean sample variance is 1.0698048147444539.
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></section></section><section ><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="The-$t$-things">The $t$-things<a class="anchor-link" href="#The-$t$-things">&#182;</a></h1>
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>It turns out that thanks to the Central Limit Theorem,
-if</p>
-<ul>
-<li>$X_1, \ldots, X_n$ are a bunch of independent samples from some distribution with mean $\mu$,</li>
-<li>$\bar X$ is the sample mean, and</li>
-<li>$S$ is the sample standard deviation,</li>
-</ul>
-<p>then the difference between the sample mean and $\mu$, in units of $S$:
-$$  T = \frac{\bar X - \mu}{S/\sqrt{n}}  $$
-has, approximately$^*$, <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">Student's t distribution</a>
-with $n-1$ degrees of freedom.</p>
-<p>$^*$ (the approximation is better the bigger $n$ is and the closer $X_i$ is to Normal)</p>
-
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>So: let's suppose we have measurements $x_1, \ldots, x_n$.</p>
-<ol>
-<li><p>How do we estimate the mean? With the sample mean, $(x_1 + \cdots + x_n)/n$.
- And, the SD? With the sample SD, $s$.</p>
-</li>
-<li><p>How sure are we the mean is not zero?
- Well, if it <em>was</em> zero, then $t = \bar x / (s/\sqrt{n})$ would be Student's $t(n-1)$ distributed,
- so if $t$ is bigger than we'd expect then we can be pretty sure:
- the $p$-value is
- $$ \P\{ T &gt; t \} , $$
- where $T$ is Student's t with $n-1$ degrees of freedom.</p>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In other words:</p>
-<ul>
-<li>The sample mean, $\bar X$, is likely close to the true mean, $\mu$.</li>
-<li>How close? Probably only a few multiples of the &quot;standard error of the mean&quot;, $S/\sqrt{n}$.</li>
-<li>How many multiples? Well, that quantity is $t$-distributed, so you can calculate whatever you like about it.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section><section >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2><p>Let's say we've measured how typing speed
-of 100 people changes after drinking coffee:
-the average change is 3 wpm and the SD is 10 wpm.
-Is this good evidence that coffee increases typing speed?</p>
-
-</div>
-</div>
-</div>
-</div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Well, this has a $t$ statistic of
-$$ t = \frac{3}{10/\sqrt{100}} = 3, $$
-and the probability a $t$ distribution with 98 degrees of freedom is at least 3 is</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
-<span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">98</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.003423264463729536</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>... so, it does seem like good evidence? ($p = 0.003$, $t$-test with $\text{df}=98$)</p>
-<p>We found an average of 3 wpm higher after drinking coffee;
-this is good evidence that coffee increases typing speed
-($p = 0.003$, by $t$-test with df=98).</p>
-<p>If there was no mean difference in typing speed,
-the chance that we would see a difference as big as what we saw
-is only 0.3%.</p>
-<p>If I do 1000 different studies and none of the things I'm looking for are real,
-then I only expect statistical evidence that is this strong
-in about 3 of them.</p>
-
-</div>
-</div>
-</div>
-</div></div><div class="fragment" >
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>However:</strong> this does <em>not</em> answer the questions:
-&quot;What is the range of likely increases in typing speed?&quot;
-<em>(see: confidence intervals)</em>
-or
-&quot;Is this difference in typing speed big enough to care about?&quot;
-<em>(just think about the problem)</em></p>
-
-</div>
-</div>
-</div>
-</div></div></section></section>
 </div>
 </div>
 </body>
@@ -15339,56 +14721,5 @@ or
 
 
 
-
-<script>
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js",
-      "https://unpkg.com/reveal.js@4.0.2/plugin/notes/notes.js"
-    ],
-
-    function(Reveal, RevealNotes){
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            transition: "slide",
-            slideNumber: "",
-            plugins: [RevealNotes]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
-
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
-    }
-);
-</script>
 
 </html>

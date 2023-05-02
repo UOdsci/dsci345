@@ -65,20 +65,20 @@ Week 5 (*5/1*): Quantifying uncertainty
     asymptotics versus simulation. Review.
 
     - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Pvalues.ipynb) [html](../class_material/slides/Pvalues.slides.html)
-
-<!--
-    - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
-    - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Week_05_Exercise_Uncertainty.ipynb) [html](../class_material/slides/Week_05_Exercise_Uncertainty.slides.html)
+    - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Uncertainty.ipynb) [html](../class_material/slides/Uncertainty.slides.html)
+    - Slides: Power and false positives [ipynb](../class_material/slides/Power.ipynb) [html](../class_material/slides/Power.slides.html)
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Homework (due 11/3): [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
+    - Homework (due 5/10): [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
+
+<!--
+    - Slides: The bootstrap [ipynb](../class_material/slides/Bootstrap.ipynb) [html](../class_material/slides/Bootstrap.slides.html)
+    - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
 -->
 
 <!--
         [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html)
-    - Slides: Power and false positives [ipynb](../class_material/slides/Week_05_Power.ipynb) [html](../class_material/slides/Week_05_Power.slides.html)
-    - Slides: The bootstrap [ipynb](../class_material/slides/Week_05_Bootstrap.ipynb) [html](../class_material/slides/Week_05_Bootstrap.slides.html)
 -->
 
 Week 6 (*5/8*): Multivariate data and latent structure
