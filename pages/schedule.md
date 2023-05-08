@@ -86,12 +86,13 @@ Week 6 (*5/8*): Multivariate data and latent structure
 : The multivariate Gaussian distribution, autocorrelation, modeling correlated data,
     random walks. Principal components analysis.
 
-<!--
-    - Slides: Correlation and covariance [ipynb](../class_material/slides/Week_06_Covariance.ipynb) [html](../class_material/slides/Week_06_Covariance.slides.html)
-    - Slides: Principal components analysis [ipynb](../class_material/slides/Week_06_PCA.ipynb) [html](../class_material/slides/Week_06_PCA.slides.html)
+    - Slides: Correlation and covariance [ipynb](../class_material/slides/Covariance.ipynb) [html](../class_material/slides/Covariance.slides.html)
+    - Slides: Principal components analysis [ipynb](../class_material/slides/PCA.ipynb) [html](../class_material/slides/PCA.slides.html)
     - Reading: [Adhikari & Pitman, chapter 17.1-17.3](http://prob140.org/textbook/content/Chapter_17/00_Joint_Densities.html)
         and [chapter 23](http://prob140.org/textbook/content/Chapter_23/00_Multivariate_Normal_RVs.html)
     - *alternative reading:* [Wasserman, chapter 14](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
+
+<!--
     - Homework (due 11/10): [ipynb](../class_material/homeworks/HW06.ipynb) [html](../class_material/homeworks/HW06.html)
 -->
 
