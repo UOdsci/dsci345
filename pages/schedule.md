@@ -87,7 +87,6 @@ Week 6 (*5/8*): Multivariate data and latent structure
     random walks. Principal components analysis.
 
     - Slides: Correlation and covariance [ipynb](../class_material/slides/Covariance.ipynb) [html](../class_material/slides/Covariance.slides.html)
-    - Slides: Principal components analysis [ipynb](../class_material/slides/PCA.ipynb) [html](../class_material/slides/PCA.slides.html)
     - Reading: [Adhikari & Pitman, chapter 17.1-17.3](http://prob140.org/textbook/content/Chapter_17/00_Joint_Densities.html)
         and [chapter 23](http://prob140.org/textbook/content/Chapter_23/00_Multivariate_Normal_RVs.html)
     - *alternative reading:* [Wasserman, chapter 14](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
@@ -98,13 +97,12 @@ Week 7 (*5/15*): Linear models
 : Introduction to linear models, and some history of modern statistics.
     Robust models, loss functions and likelihood.
 
-<!--
-    - Slides: Introduction to linear models [ipynb](../class_material/slides/Week_07_Linear_models.ipynb) [html](../class_material/slides/Week_07_Linear_models.slides.html)
-    - Slides: In-class exercise [ipynb](../class_material/slides/Week_07_Exercise_Linear_models.ipynb) [html](../class_material/slides/Week_07_Exercise_Linear_models.slides.html)
-    - Slides: Robust models [ipynb](../class_material/slides/Week_07_Robust_models.ipynb) [html](../class_material/slides/Week_07_Robust_models.slides.html)
+    - Slides: Principal components analysis [ipynb](../class_material/slides/PCA.ipynb) [html](../class_material/slides/PCA.slides.html)
+    - Slides: Introduction to linear models [ipynb](../class_material/slides/Linear_models.ipynb) [html](../class_material/slides/Linear_models.slides.html)
+    - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_models.ipynb) [html](../class_material/slides/Exercise_Linear_models.slides.html)
+    - Slides: Robust models [ipynb](../class_material/slides/Robust_models.ipynb) [html](../class_material/slides/Robust_models.slides.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Homework (due 11/17): [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
--->
 
 Week 8 (*5/22*): Generalized linear models
 
