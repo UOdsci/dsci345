@@ -100,7 +100,6 @@ Week 7 (*5/15*): Linear models
     - Slides: Principal components analysis [ipynb](../class_material/slides/PCA.ipynb) [html](../class_material/slides/PCA.slides.html)
     - Slides: Introduction to linear models [ipynb](../class_material/slides/Linear_models.ipynb) [html](../class_material/slides/Linear_models.slides.html)
     - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_models.ipynb) [html](../class_material/slides/Exercise_Linear_models.slides.html)
-    - Slides: Robust models [ipynb](../class_material/slides/Robust_models.ipynb) [html](../class_material/slides/Robust_models.slides.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Homework (due 11/17): [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
 
@@ -108,12 +107,11 @@ Week 8 (*5/22*): Generalized linear models
 
 : Response distributions, nonlinear relationships, transformations. <!-- Mixed models. -->
 
-<!--
-    - Slides: Generalized linear models [ipynb](../class_material/slides/Week_08_Generalized_Linear_Models.ipynb) [html](../class_material/slides/Week_08_Generalized_Linear_Models.slides.html)
-    - Slides: Some history [ipynb](../class_material/slides/Week_08_History.ipynb) [html](../class_material/slides/Week_08_History.slides.html)
-    - Slides: Nonlinear models [ipynb](../class_material/slides/Week_08_Nonlinear_models.ipynb) [html](../class_material/slides/Week_08_Nonlinear_models.slides.html)
+    - Slides: Some history [ipynb](../class_material/slides/History.ipynb) [html](../class_material/slides/History.slides.html)
+    - Slides: Robust models [ipynb](../class_material/slides/Robust_models.ipynb) [html](../class_material/slides/Robust_models.slides.html)
+    - Slides: Generalized linear models [ipynb](../class_material/slides/Generalized_Linear_Models.ipynb) [html](../class_material/slides/Generalized_Linear_Models.slides.html)
+    - Slides: Nonlinear models [ipynb](../class_material/slides/Nonlinear_models.ipynb) [html](../class_material/slides/Nonlinear_models.slides.html)
     - Homework (due 11/22): [ipynb](../class_material/homeworks/HW08.ipynb) [html](../class_material/homeworks/HW08.html)
--->
 
 Week 9 (*5/29*): Problems with linear models
 
