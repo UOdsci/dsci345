@@ -73,7 +73,6 @@ Week 5 (*5/1*): Quantifying uncertainty
     - Homework (due 5/10): [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
 
 <!--
-    - Slides: The bootstrap [ipynb](../class_material/slides/Bootstrap.ipynb) [html](../class_material/slides/Bootstrap.slides.html)
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
 -->
 
@@ -118,12 +117,9 @@ Week 9 (*5/29*): Problems with linear models
 : Too many variables, not enough linearity: regularization and diagnostics.
 
     - *No class Monday, 5/29 (Memorial day)*
-
-<!--
-    - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Week_09_Regularization.ipynb) [html](../class_material/slides/Week_09_Regularization.slides.html)
-    - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Week_09_Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Week_09_Transformations_and_diagnostics.slides.html)
-    - Homework (due 12/1): [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
--->
+    - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Transformations_and_diagnostics.slides.html)
+    - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Regularization.ipynb) [html](../class_material/slides/Regularization.slides.html)
+    - Homework (due 6/7): [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
 
 Week 10 (*6/5*): Prediction and inference revisited
 
