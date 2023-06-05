@@ -125,13 +125,14 @@ Week 10 (*6/5*): Prediction and inference revisited
 
 : The bootstrap; Identifiability, ill-posed inference, non-convex optimization.
 
-<!--
-    - Slides: Uncertainty and the bootstrap [ipynb](../class_material/slides/Week_10_Uncertainty.ipynb) [html](../class_material/slides/Week_10_Uncertainty.slides.html)
-    - Slides: Interpolation and ill-posedness [ipynb](../class_material/slides/Week_10_Ill_posedness.ipynb) [html](../class_material/slides/Week_10_Ill_posedness.slides.html)
-    - Slides: Review [ipynb](../class_material/slides/Week_10_Review.ipynb) [html](../class_material/slides/Week_10_Review.slides.html)
+    - Slides: Uncertainty and the bootstrap [ipynb](../class_material/slides/Bootstrap.ipynb) [html](../class_material/slides/Bootstrap.slides.html)
+    - Slides: Interpolation and ill-posedness [ipynb](../class_material/slides/Ill_posedness.ipynb) [html](../class_material/slides/Ill_posedness.slides.html)
+    - Slides: Review [ipynb](../class_material/slides/Review.ipynb) [html](../class_material/slides/Review.slides.html)
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
+
+<!--
     - Final (due 12/8): [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html)
 -->
 
