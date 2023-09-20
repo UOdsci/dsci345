@@ -37,3 +37,10 @@ Prerequisites for executing and showing the slides are in `requirements/conda-en
 conda env create -f requirements/conda-environment.yml 
 conda activate dsci
 ```
+
+Also currently (9/20/23) that to use the slides (with jupyter RISE) you have to display them with jupyter notebook,
+and there is a bug that requires doing
+```
+pip uninstall traitlets
+pip install traitlets==5.9.0
+```
