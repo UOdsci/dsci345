@@ -27,7 +27,7 @@ by way of [Cécile Ané](http://cecileane.github.io/computingtools/).
 -------------------
 
 The slides are written in jupyter,
-rendered using [RISE](https://rise.readthedocs.io/en/stable/):
+rendered using [RISE](https://rise.readthedocs.io/en/latest/);
 see notes [here](https://www.markroepke.me/posts/2019/05/23/creating-interactive-slideshows-in-jupyter.html)
 and [here](https://www.markroepke.me/posts/2019/06/05/tips-for-slideshows-in-jupyter.html).
 Also see [enabling extensions](https://github.com/ipython-contrib/jupyter_contrib_nbextensions/blob/master/README.md#2-install-javascript-and-css-files)
