@@ -25,18 +25,23 @@ An important thread throughout the course is on *simulating data*:
 being able to construct and simulate from sophisticated models for random data generation.
 
 
-## Instructor:
+## Instructors:
 
-- [Peter Ralph](https://pages.uoregon.edu/plr/), instructor: plr@uoregon.edu
-    * office hours: Mondays, 12:30-2pm in 204 Pacific, or by appointment.
+- [David Levin](https://pages.uoregon.edu/dlevin/), instructor: dlevin@uoregon.edu
+    * lecture: 2-3:30 MW in LIL 112
+    * office hours: 3:30-4:30pm MW in Fenton 310 or by appointment
+- [Ben Young](https://pages.uoregon.edu/bjy/), instructor: bjy@uoregon.edu
+    * lecture: 10-11:30am MW GSH 130
+    * office hours: 11:30-12:30pm MW in Fenton 211 or by appointment
+- Joe Sventek, instructor: sventek@uoregon.edu
+    * office hours: TBA
 
 ## Course Information
 
-- *Schedule:* Mon/Wed/Fri 11:00-11:50 AM in 251 Straub and on zoom (see Canvas for link)
 - *Websites:* besides [the page you are looking at](https://UOdsci.github.io/dsci345/),
     assignments and announcements will be distributed
     on the [canvas page](https://canvas.uoregon.edu/)
-- *Assignments:* Assigned weekly, and due (usually) the following Wednesday.
+- *Assignments:* Assigned weekly, and due (usually) the following Tuesday (at 11:59pm).
 
 ## Prerequisites:
 
