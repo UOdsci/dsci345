@@ -37,6 +37,7 @@ Week 2: The modeler's toolbox
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
 <!--    - Homework: [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
 -->
+
 Week 3: Simulation, moments, and overdispersion.
 
 : How to pick "realistic" simulation parameters.
@@ -107,6 +108,7 @@ Week 7: Linear models
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
 <!--    - Homework: [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
 -->`
+
 Week 8: Generalized linear models
 
 : Response distributions, nonlinear relationships, transformations. <!-- Mixed models. -->
