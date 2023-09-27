@@ -102,6 +102,7 @@ whichever is greater.
 Most assignments are weekly homeworks, due the week after they are assigned.
 These will be multi-part assignments done using jupyter notebooks,
 that will contain writing, mathematics, and (python) code.
+<!--
 The contribution of each assignment to the final grade will be proportional to the points assigned,
 and thresholds for letter grades are not fixed beforehand
 but will be chosen to reflect:
@@ -110,7 +111,7 @@ B: "good, demonstrates competence in all topics";
 C: "satisfactory, demonstrates competence in most topics and familiarity with all topics";
 D: "less than satisfactory, demonstrates competence in some topics but not all";
 F: "not satisfactory, not competent or familiar with most topics".
-
+-->
 
 ## Inclusion and accessibility
 
