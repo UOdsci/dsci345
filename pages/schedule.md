@@ -60,8 +60,8 @@ Week 4: Model choice, categorical prediction, and likelihood.
     - Slides: Likelihood [ipynb](../class_material/slides/Likelihood.ipynb) [html](../class_material/slides/Likelihood.slides.html)
     - Reading: [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/01_Maximum_Likelihood.html)
     - *alternative reading:* [Wasserman, chapter 9](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--    - Homework: [ipynb](../class_material/homeworks/HW04.ipynb) [html](../class_material/homeworks/HW04.html)
--->
+    - Homework: [ipynb](../class_material/homeworks/HW04.ipynb) [html](../class_material/homeworks/HW04.html)
+
 
 Week 5: Quantifying uncertainty
 
@@ -74,8 +74,8 @@ Week 5: Quantifying uncertainty
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--    - Homework: [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
--->
+    - Homework: [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
+
 
 <!--
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)

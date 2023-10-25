@@ -33,8 +33,8 @@ being able to construct and simulate from sophisticated models for random data g
 - [Ben Young](https://pages.uoregon.edu/bjy/), instructor: bjy@uoregon.edu
     * lecture: 10-11:30am MW GSH 130
     * office hours: 11:30-12:30pm MW in Fenton 211 or by appointment
-- Joe Sventek, instructor: sventek@uoregon.edu
-    * office hours: TBA
+- Joe Sventek, instructor: jsventek@uoregon.edu
+    * office hours: Mon/Fri, 4:00-5:00, [on zoom](https://uoregon.zoom.us/my/jsventek)
 
 ## Course Information
 
