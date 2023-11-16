@@ -117,9 +117,9 @@ Week 8: Generalized linear models
     - Slides: Robust models [ipynb](../class_material/slides/Robust_models.ipynb) [html](../class_material/slides/Robust_models.slides.html)
     - Slides: Generalized linear models [ipynb](../class_material/slides/Generalized_Linear_Models.ipynb) [html](../class_material/slides/Generalized_Linear_Models.slides.html)
     - Slides: Nonlinear models [ipynb](../class_material/slides/Nonlinear_models.ipynb) [html](../class_material/slides/Nonlinear_models.slides.html)
-<!--
+
 - Homework: [ipynb](../class_material/homeworks/HW08.ipynb) [html](../class_material/homeworks/HW08.html)
--->
+
 
 Week 9: Problems with linear models
 
