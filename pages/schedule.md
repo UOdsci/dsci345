@@ -127,9 +127,9 @@ Week 9: Problems with linear models
 
     - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Transformations_and_diagnostics.slides.html)
     - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Regularization.ipynb) [html](../class_material/slides/Regularization.slides.html)
-<!--
+
 - Homework: [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
--->
+
 
 Week 10: Prediction and inference revisited
 
