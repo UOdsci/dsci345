@@ -27,14 +27,10 @@ being able to construct and simulate from sophisticated models for random data g
 
 ## Instructors:
 
-- [David Levin](https://pages.uoregon.edu/dlevin/), instructor: dlevin@uoregon.edu
-    * lecture: 2-3:30 MW in LIL 112
-    * office hours: 3:30-4:30pm MW in Fenton 310 or by appointment
-- [Ben Young](https://pages.uoregon.edu/bjy/), instructor: bjy@uoregon.edu
-    * lecture: 10-11:30am MW GSH 130
-    * office hours: 11:30-12:30pm MW in Fenton 211 or by appointment
-- Joe Sventek, instructor: jsventek@uoregon.edu
-    * office hours: Mon/Fri, 4:00-5:00, [on zoom](https://uoregon.zoom.us/my/jsventek)
+- [Peter Ralph](https://kr-colab.github.io/people), instructor: plr@uoregon.edu
+    * lecture: 11-11:50 MW in GER 302
+    * lab: 11-11:50 F in MCK 442
+    * office hours: TBD
 
 ## Course Information
 
@@ -75,7 +71,7 @@ with
 - [scikit-learn](https://scikit-learn.org/).
 
 We will also have a jupyter hub available -
-ask me for an account - but recommend that you
+ask me for an account if needed - but recommend that you
 get this working on your own computer, if possible.
 
 
@@ -102,7 +98,6 @@ whichever is greater.
 Most assignments are weekly homeworks, due the week after they are assigned.
 These will be multi-part assignments done using jupyter notebooks,
 that will contain writing, mathematics, and (python) code.
-<!--
 The contribution of each assignment to the final grade will be proportional to the points assigned,
 and thresholds for letter grades are not fixed beforehand
 but will be chosen to reflect:
@@ -111,7 +106,6 @@ B: "good, demonstrates competence in all topics";
 C: "satisfactory, demonstrates competence in most topics and familiarity with all topics";
 D: "less than satisfactory, demonstrates competence in some topics but not all";
 F: "not satisfactory, not competent or familiar with most topics".
--->
 
 ## Inclusion and accessibility
 

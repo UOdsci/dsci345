@@ -15,7 +15,8 @@ by way of [Cécile Ané](http://cecileane.github.io/computingtools/).
 
 *Notes on installation/building:*
 
-- To view a local version run `bundle exec jekyll serve`.
+- To view a local version, install `jekyll` and run `bundle exec jekyll serve`
+    (to do a "hard reset", remove `Gemfile.lock` and `_site/` and try again)
 
 - The skeleton can by modified by editing `config.yml` and `_includes/themes/twitter/default.html`.
 
@@ -27,20 +28,26 @@ by way of [Cécile Ané](http://cecileane.github.io/computingtools/).
 -------------------
 
 The slides are written in jupyter,
-rendered using [RISE](https://rise.readthedocs.io/en/latest/);
-see notes [here](https://www.markroepke.me/posts/2019/05/23/creating-interactive-slideshows-in-jupyter.html)
-and [here](https://www.markroepke.me/posts/2019/06/05/tips-for-slideshows-in-jupyter.html).
-Also see [enabling extensions](https://github.com/ipython-contrib/jupyter_contrib_nbextensions/blob/master/README.md#2-install-javascript-and-css-files)
+rendered using [RISE](https://pypi.org/project/jupyterlab-rise/).
+(For background, see notes
+[here](https://www.markroepke.me/posts/2019/05/23/creating-interactive-slideshows-in-jupyter.html)
+and [here](https://www.markroepke.me/posts/2019/06/05/tips-for-slideshows-in-jupyter.html),
+but note these are for the previous, jupyter notebook, package `rise`.)
 
 Prerequisites for executing and showing the slides are in `requirements/conda-environment.yml`:
+(*note: you may need to replace `conda` with e.g., `micromamba`*)
 ```
 conda env create -f requirements/conda-environment.yml 
 conda activate dsci
 ```
+Then open the slides with `jupyter notebook`.
 
-Also currently (9/20/23) that to use the slides (with jupyter RISE) you have to display them with jupyter notebook,
-and there is a bug that requires doing
-```
-pip uninstall traitlets
-pip install traitlets==5.9.0
-```
+*Note:* at time or writing (March 2024), rise is no longer maintained and being replaced by
+[`jupterlab_rise`](https://pypi.org/project/jupyterlab-rise/);
+however, it's still buggier than rise.
+To create slides you add the type of slide to the *metadata*:
+in jupyterlab, you specify the type of slide after clicking the gears in the sidebar:
+![](assets/rise_howto1.png)
+Slides can have more than one cell; only label the first one.
+Then click the 'present' icon to start:
+![](assets/rise_howto2.png)
