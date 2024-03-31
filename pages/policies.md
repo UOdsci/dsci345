@@ -6,17 +6,17 @@ description:
 
 ## Campus resources to support your learning
 
-[Tutoring and Academic Engagement Center:](https://engage.uoregon.edu/services/)
-Drop-in math and writing support in addition to tutoring, study skills support, and Class Encore. Located in the 4th Floor Knight Library. (541) 346-3226, engage@uoregon.edu
+[Tutoring and Academic Engagement Center:](https://engage.uoregon.edu/)
+Drop-in math and writing support in addition to tutoring, study skills support, and Class Encore study groups. Located in the 4th Floor Knight Library. (541) 346-3226, engage@uoregon.edu
  
 **Counseling Center:** Call anytime to speak with a therapist who can provide support and connect you with resources. Located on the 2nd Floor of the Health Center. (541) 346-3227.
  
 **Accessible Education Center:** 
 If there are aspects of the instruction or design of this course that result in barriers to your participation, please notify us as soon as possible.
-You are also encouraged to contact the Accessible Education Center.
-If you are not a student with a documented disability,
+You are also encouraged to contact the Accessible Education Center:
+*"If you are not a student with a documented disability,
 but you would like to let the Center know about class issues that will impact your ability to learn,
-we encourage you to come visit the Center during our office hours so that we can strategize how you can get the most out of this course.
+we encourage you to come visit the Center during our office hours so that we can strategize how you can get the most out of this course."*
 Located on the 1st Floor of Oregon Hall (541) 346-1155, uoaec@uoregon.edu
  
 **Center for Multicultural Academic Excellence (CMAE):**
@@ -43,6 +43,17 @@ Academic misconduct includes cheating
 and plagiarism ("using the ideas or writings of another as one's own").
 All persons involved in academic dishonesty will be disciplined in accordance with University regulations and procedures. 
 
+## Collaboration and Generative AI use
+
+Students are encouraged to work together on homework assignments,
+sharing ideas and helping each other debug.
+Similarly,
+students may use generative AI tools in this class to assist with drafting and debugging homework assignments.
+However, in either case submitted work should be your own:
+written in your own words.
+We encourage you to introspect and develop good strategies to 
+best support your learning and self-confidence.
+
 
 ## Discrimination and Harassment
 
@@ -52,8 +63,8 @@ may seek resources and help at [safe.uoregon.edu](https://safe.uoregon.edu).
 To get help by phone, a student can also call either the UO's 24-hour hotline at 541-346-7244 (SAFE), or the non-confidential Title IX Coordinator at 541-346-8136.
 From the SAFE website, students may also connect to Callisto, a confidential, third-party reporting site that is not a part of the university.
 
-Students experiencing any other form of discrimination or harassment can find information at [respect.uoregon.edu](https://respect.uoregon.edu)
-or [aaeo.uoregon.edu](https://aaeo.uoregon.edu) or contact the non-confidential AAEO office at 541-346-3123 or the Dean of Students Office at 541-346-3216 for help.
+Students experiencing any other form of discrimination or harassment can find information at
+[aaeo.uoregon.edu](https://aaeo.uoregon.edu) or contact the non-confidential AAEO office at 541-346-3123 or the Dean of Students Office at 541-346-3216 for help.
 As UO policy has different reporting requirements based on the nature of the reported harassment or discrimination,
 additional information about reporting requirements for discrimination or harassment unrelated to sexual assault, relationship violence, sex or gender based bullying, stalking, and/or sexual harassment is available in the [Employee Responsibilities section](https://investigations.uoregon.edu/employee-responsibilities#employee-obligations)
 of the Office of Investigations and Civil Rights Compliance website.
@@ -75,6 +86,7 @@ Please note also that I am required to report all other forms of prohibited disc
 Specific details about confidentiality of information and reporting obligations of employees can be found at [titleix.uoregon.edu](https://titleix.uoregon.edu).
 
 
+<!--
 ## GE involvement and conflict of interest
 
 This course has a graduate student GE,
@@ -82,3 +94,4 @@ who will be involved in evaluating (grading homeworks) and instructing (office h
 If you have any privacy, conflict of interest, or other concerns about their role,
 then please contact us (the instructors) and we will address them
 (for instance, by grading your work ourselves).
+-->
