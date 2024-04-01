@@ -64,7 +64,7 @@ will be done using [jupyter notebooks](https://jupyter.org/),
 so you should have on your computer a working python installation
 with
 
-- [jupyter](https://jupyter.org/),
+- [jupyter](https://jupyter.org/) (either jupyter lab or jupyter notebook),
 - [numpy](https://numpy.org/),
 - [scipy](https://scipy.org/),
 - [matplotlib](https://matplotlib.org/), and
