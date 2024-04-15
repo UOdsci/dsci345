@@ -26,6 +26,7 @@ Week 1: Probability
     - *alternative reading:* [Wasserman, chapter 1, 2.1-2.4](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Short Homework: [ipynb](../class_material/homeworks/HW00.ipynb) [html](../class_material/homeworks/HW00.html)
     - Homework: [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
+    - Worksheet: [ipynb](../class_material/worksheets/week_01.ipynb)
 
 Week 2: The modeler's toolbox
 
@@ -38,6 +39,7 @@ Week 2: The modeler's toolbox
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework: [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
+    - Worksheet: [ipynb](../class_material/worksheets/week_02.ipynb)
 
 
 Week 3: Simulation, moments, and overdispersion.
@@ -47,13 +49,10 @@ Week 3: Simulation, moments, and overdispersion.
     Method-of-moments fitting; minimum-variance estimators.
     Outliers and overdispersion: scale mixtures, goodness-of-fit.
 
-<!--
-    - Slides: Poisson counts (continued) [ipynb](../class_material/slides/Poisson.ipynb) [html](../class_material/slides/Poisson.slides.html)
     - Slides: Method of moments [ipynb](../class_material/slides/Method_of_moments.ipynb) [html](../class_material/slides/Method_of_moments.slides.html)
     - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Central_limits.ipynb) [html](../class_material/slides/Central_limits.slides.html)
     - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
     - Homework: [ipynb](../class_material/homeworks/HW03.ipynb) [html](../class_material/homeworks/HW03.html)
--->
 
 
 Week 4: Model choice, categorical prediction, and likelihood.
