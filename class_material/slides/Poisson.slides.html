@@ -7604,7 +7604,7 @@ Answer with math and check it by simulation.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ac067718">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ef499fdb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7704,10 +7704,10 @@ The probability we see zero cosmic rays is $e^{-5} = 0.0067$</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>How long between sounds?</strong>
-Well, the probability there's no rays in $t$ minutes is $\exp(-t/1.2)$,
+Well, the probability there's no rays in $t$ minutes is $\exp(-1.2t)$,
 i.e., if $T$ is the time we have to wait for the next ray,
-then $$\P\{T &gt; t\} = e^{-t/1.2}.$$</p>
-<p><strong>So:</strong> $T$ is Exponentially distributed with rate 1.2 rays/second,
+then $$\P\{T &gt; t\} = e^{-1.2 t}.$$</p>
+<p><strong>So:</strong> $T$ is Exponentially distributed with mean 1/1.2 minutes,
 and so $\E[T] = 1/1.2$ and $\sd[T] = 1/1.2$.</p>
 </div>
 </div>
