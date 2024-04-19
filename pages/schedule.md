@@ -53,6 +53,7 @@ Week 3: Simulation, moments, and overdispersion.
     - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Central_limits.ipynb) [html](../class_material/slides/Central_limits.slides.html)
     - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
     - Homework: [ipynb](../class_material/homeworks/HW03.ipynb) [html](../class_material/homeworks/HW03.html)
+    - Worksheet: [ipynb](../class_material/worksheets/week_03.ipynb)
 
 
 Week 4: Model choice, categorical prediction, and likelihood.
