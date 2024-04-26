@@ -65,6 +65,7 @@ Week 4: Model choice, categorical prediction, and likelihood.
     - Reading: [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/01_Maximum_Likelihood.html)
     - *alternative reading:* [Wasserman, chapter 9](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework: [ipynb](../class_material/homeworks/HW04.ipynb) [html](../class_material/homeworks/HW04.html)
+    - Worksheet: [ipynb](../class_material/worksheets/week_04.ipynb)
 
 
 Week 5: Quantifying uncertainty
