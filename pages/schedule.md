@@ -73,15 +73,13 @@ Week 5: Quantifying uncertainty
 : Calibration of estimates of uncertainty;
     asymptotics versus simulation. Review.
 
-<!--
     - Slides: P-values, and hypotheses [ipynb](../class_material/slides/Pvalues.ipynb) [html](../class_material/slides/Pvalues.slides.html)
-    - In-class exercise: Confidence intervals and uncertainty [ipynb](../class_material/slides/Uncertainty.ipynb) [html](../class_material/slides/Uncertainty.slides.html)
-    - Slides: Power and false positives [ipynb](../class_material/slides/Power.ipynb) [html](../class_material/slides/Power.slides.html)
+    - Slides: Confidence intervals and uncertainty [ipynb](../class_material/slides/Uncertainty.ipynb) [html](../class_material/slides/Uncertainty.slides.html)
+    - In-class exercise: Power and false positives [ipynb](../class_material/slides/Power.ipynb) [html](../class_material/slides/Power.slides.html)
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework: [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
--->
 
 <!--
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
