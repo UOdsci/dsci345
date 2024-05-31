@@ -132,18 +132,21 @@ Week 9: Problems with linear models
     - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Transformations_and_diagnostics.slides.html)
     - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Regularization.ipynb) [html](../class_material/slides/Regularization.slides.html)
     - Homework: [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
+    - Worksheet: [ipynb](../class_material/worksheets/week_09.ipynb)
 
 
 Week 10: Prediction and inference revisited
 
 : The bootstrap; Identifiability, ill-posed inference, non-convex optimization.
 
-<!--
     - Slides: Uncertainty and the bootstrap [ipynb](../class_material/slides/Bootstrap.ipynb) [html](../class_material/slides/Bootstrap.slides.html)
     - Slides: Interpolation and ill-posedness [ipynb](../class_material/slides/Ill_posedness.ipynb) [html](../class_material/slides/Ill_posedness.slides.html)
     - Slides: Review [ipynb](../class_material/slides/Review.ipynb) [html](../class_material/slides/Review.slides.html)
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
+
+<!--
     - Final: [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html) 
 -->
+
