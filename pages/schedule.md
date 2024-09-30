@@ -27,8 +27,9 @@ Week 1: Probability
 <!--
 - Short Homework: [ipynb](../class_material/homeworks/HW00.ipynb) [html](../class_material/homeworks/HW00.html)
 
-
+-->
 - Homework: [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
+<!--
     - Worksheet: [ipynb](../class_material/worksheets/week_01.ipynb)
 -->
 
