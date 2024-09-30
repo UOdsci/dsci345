@@ -34,7 +34,7 @@ Students should be familiar with the basics of calculus and linear algebra, have
 
 # Assignments
 
-There will be weekly assignments, each a Jupyter notebook; download each one, complete it on your own, and submit your completed notebook on Canvas if possible by *Saturday at 11:59pm*, and no later than *Sunday at 11:59pm*.  Please think of the Saturday as the deadline, and Sunday as the absolute cutoff before I start assigning penalties.  Please do not ask me for extensions.   
+There will be weekly assignments, each a Jupyter notebook; download each one, complete it on your own, and submit your completed notebook on Canvas if possible by *Fridays at 11:59pm*. Please do not ask me for extensions; the grader has to do the grading over the weekend, period.   
 
 You are encouraged to work with other students (please say who you worked with) and use what internet sources you like (please cite your sources); please don't work with people outside the class and please do the *technical writing* on your own, avoiding use of generative AI on material you submit.  
 
