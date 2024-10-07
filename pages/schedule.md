@@ -24,14 +24,14 @@ Week 1: Probability
     - Slides: Random variables [ipynb](../class_material/slides/Random_variables.ipynb) [html](../class_material/slides/Random_variables.slides.html)
     - Reading: [Adhikari & Pitman, chapters 1, 2, & 3](http://prob140.org/textbook/content/README.html)
     - *alternative reading:* [Wasserman, chapter 1, 2.1-2.4](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--
+<!---
 - Short Homework: [ipynb](../class_material/homeworks/HW00.ipynb) [html](../class_material/homeworks/HW00.html)
--->
+--->
 
 - Homework: [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
-<!--
+<!---
     - Worksheet: [ipynb](../class_material/worksheets/week_01.ipynb)
--->
+--->
 
 Week 2: The modeler's toolbox
 
@@ -43,10 +43,10 @@ Week 2: The modeler's toolbox
     - Slides: Poisson counts [ipynb](../class_material/slides/Poisson.ipynb) [html](../class_material/slides/Poisson.slides.html)
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--
+<!---
     - Homework: [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_02.ipynb)
--->
+--->
 
 Week 3: Simulation, moments, and overdispersion.
 
@@ -58,10 +58,10 @@ Week 3: Simulation, moments, and overdispersion.
     - Slides: Method of moments [ipynb](../class_material/slides/Method_of_moments.ipynb) [html](../class_material/slides/Method_of_moments.slides.html)
     - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Central_limits.ipynb) [html](../class_material/slides/Central_limits.slides.html)
     - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW03.ipynb) [html](../class_material/homeworks/HW03.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_03.ipynb)
--->
+--->
 
 Week 4: Model choice, categorical prediction, and likelihood.
 
@@ -71,10 +71,10 @@ Week 4: Model choice, categorical prediction, and likelihood.
     - Slides: Likelihood [ipynb](../class_material/slides/Likelihood.ipynb) [html](../class_material/slides/Likelihood.slides.html)
     - Reading: [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/01_Maximum_Likelihood.html)
     - *alternative reading:* [Wasserman, chapter 9](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW04.ipynb) [html](../class_material/homeworks/HW04.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_04.ipynb)
--->
+--->
 
 Week 5: Quantifying uncertainty
 
@@ -87,15 +87,15 @@ Week 5: Quantifying uncertainty
     - Reading:
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_05.ipynb)
--->
+--->
 
-<!--
+<!---
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.slides.html)
         [Adhikari & Pitman, chapter 20](http://prob140.org/textbook/content/Chapter_20/03_Prior_and_Posterior.html)
--->
+--->
 
 Week 6: Multivariate data and latent structure
 
@@ -107,10 +107,10 @@ Week 6: Multivariate data and latent structure
     - Reading: [Adhikari & Pitman, chapter 17.1-17.3](http://prob140.org/textbook/content/Chapter_17/00_Joint_Densities.html)
         and [chapter 23](http://prob140.org/textbook/content/Chapter_23/00_Multivariate_Normal_RVs.html)
     - *alternative reading:* [Wasserman, chapter 14](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW06.ipynb) [html](../class_material/homeworks/HW06.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_06.ipynb)
--->
+--->
 
 Week 7: Linear models
 
@@ -120,24 +120,24 @@ Week 7: Linear models
     - Slides: Introduction to linear models [ipynb](../class_material/slides/Linear_models.ipynb) [html](../class_material/slides/Linear_models.slides.html)
     - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_models.ipynb) [html](../class_material/slides/Exercise_Linear_models.slides.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
     - For problem 1 in the homework, you will need to refer to [this image](../class_material/homeworks/images/ex_scatter.png).
     - Worksheet: [ipynb](../class_material/worksheets/week_07.ipynb)
--->
+--->
 
 Week 8: Generalized linear models
 
-: Response distributions, nonlinear relationships, transformations. <!-- Mixed models. -->
+: Response distributions, nonlinear relationships, transformations. <!--- Mixed models. --->
 
     - Slides: Some history [ipynb](../class_material/slides/History.ipynb) [html](../class_material/slides/History.slides.html)
     - Slides: Robust models [ipynb](../class_material/slides/Robust_models.ipynb) [html](../class_material/slides/Robust_models.slides.html)
     - Slides: Generalized linear models [ipynb](../class_material/slides/Generalized_Linear_Models.ipynb) [html](../class_material/slides/Generalized_Linear_Models.slides.html)
     - Slides: Nonlinear models [ipynb](../class_material/slides/Nonlinear_models.ipynb) [html](../class_material/slides/Nonlinear_models.slides.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW08.ipynb) [html](../class_material/homeworks/HW08.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_08.ipynb)
--->
+--->
 
 Week 9: Problems with linear models
 
@@ -145,10 +145,10 @@ Week 9: Problems with linear models
 
     - Slides: Transformations and diagnostics [ipynb](../class_material/slides/Transformations_and_diagnostics.ipynb) [html](../class_material/slides/Transformations_and_diagnostics.slides.html)
     - Slides: Regularization and crossvalidation [ipynb](../class_material/slides/Regularization.ipynb) [html](../class_material/slides/Regularization.slides.html)
-<!--
+<!---
 - Homework: [ipynb](../class_material/homeworks/HW09.ipynb) [html](../class_material/homeworks/HW09.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_09.ipynb)
--->
+--->
 
 Week 10: Prediction and inference revisited
 
@@ -160,6 +160,6 @@ Week 10: Prediction and inference revisited
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-<!--
+<!---
 - Final: [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html) 
--->
+--->
