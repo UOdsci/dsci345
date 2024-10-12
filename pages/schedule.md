@@ -43,8 +43,8 @@ Week 2: The modeler's toolbox
     - Slides: Poisson counts [ipynb](../class_material/slides/Poisson.ipynb) [html](../class_material/slides/Poisson.slides.html)
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-{% comment %}
     - Homework: [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
+{% comment %}
     - Worksheet: [ipynb](../class_material/worksheets/week_02.ipynb)
 {% endcomment %}
 
