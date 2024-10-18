@@ -34,7 +34,7 @@ Students should be familiar with the basics of calculus and linear algebra, have
 
 # Assignments
 
-There will be weekly assignments, each a Jupyter notebook; download each one, complete it on your own, and submit your completed notebook on Canvas if possible by *Fridays at 11:59pm*. Please do not ask me for extensions; the grader has to do the grading over the weekend, period.   
+There will be weekly assignments, each a Jupyter notebook; download each one, complete it on your own, and submit your completed notebook on Canvas by *Fridays at 11:59pm*. Please do not ask me for extensions; the grader has to do the grading over the weekend, period.   
 
 You are encouraged to work with other students (please say who you worked with) and use what internet sources you like (please cite your sources); please don't work with people outside the class and please do the *technical writing* on your own, avoiding use of generative AI on material you submit.  
 
@@ -114,7 +114,7 @@ This is a 4-credit hour course, so you should expect to complete 120 hours of wo
 I encourage working ahead of due dates. 
 # Course Deadlines and Late Work
 
-Assignments in this course are always due on Sundays at 11:59pm. Although deadlines are firm,  your lowest assignment score will be dropped.
+Assignments in this course are always due on Fridays at 11:59pm. Although deadlines are firm,  your lowest assignment score will be dropped.
 
 Work submitted late is penalized 10% per day late, where a "day" is the 24-hour period past the deadline. If work is more than 3 days late, it is not accepted. Work submitted even a few minutes late is, nonetheless, late, and will be penalized, so please submit your work well in advance of the deadline. We're going to stick to this policy quite rigidly, so that we can focus on return the graded assignments to you promptly.
 
