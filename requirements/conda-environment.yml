@@ -13,4 +13,4 @@ dependencies:
   - jupytext=1.16.7
   - scikit-learn=1.6.1
   - patsy=1.0.1
-  - jupyterlab_rise=0.43.1
+  - rise=5.7.1

@@ -40,15 +40,14 @@ Prerequisites for executing and showing the slides are in `requirements/conda-en
 conda env create -f requirements/conda-environment.yml 
 conda activate dsci
 ```
-Then open the slides with `jupyter lab`.
+Then open the slides with `jupyter notebook`.
 
+*Note:* at time or writing (March 2025), rise is no longer maintained and being replaced by
+[`jupterlab_rise`](https://pypi.org/project/jupyterlab-rise/);
+however, it's still buggier than rise in a lot of ways.
 To create slides you add the type of slide to the *metadata*:
 in jupyterlab, you specify the type of slide after clicking the gears in the sidebar:
 ![](assets/rise_howto1.png)
 Slides can have more than one cell; only label the first one.
 Then click the 'present' icon to start:
 ![](assets/rise_howto2.png)
-
-*Note:* previous versions of these slides were developed using `rise`;
-but this has been replaced by
-[`jupterlab_rise`](https://pypi.org/project/jupyterlab-rise/).
