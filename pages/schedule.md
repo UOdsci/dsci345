@@ -25,7 +25,6 @@ Week 1: Probability
     - Slides: Random variables [ipynb](../class_material/slides/Random_variables.ipynb) [html](../class_material/slides/Random_variables.slides.html)
     - Reading: [Adhikari & Pitman, chapters 1, 2, & 3](http://prob140.org/textbook/content/README.html)
     - *alternative reading:* [Wasserman, chapter 1, 2.1-2.4](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-    - Short Homework: [ipynb](../class_material/homeworks/HW00.ipynb) [html](../class_material/homeworks/HW00.html)
     - Homework: [ipynb](../class_material/homeworks/HW01.ipynb) [html](../class_material/homeworks/HW01.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_01.ipynb)
 
