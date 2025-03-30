@@ -36,7 +36,7 @@ An important thread throughout the course is on *simulating data*:
 being able to construct and simulate from sophisticated models for random data generation.
 
 
-# Course Objectives
+## Course Objectives
 
 Students will:
 
@@ -82,7 +82,7 @@ However, the final work (both code and writing) should be your own:
 for instance, if you use generative AI to suggest approaches to the problem,
 you should not copy-paste the results in, but rather rewrite it in your own words.
 
-# Quizzes
+## Quizzes
 
 There will be 9 short quizzes, at start of class on Monday.
 The purpose of the quizzes is:
@@ -90,15 +90,15 @@ The purpose of the quizzes is:
 - assess whether students can do modelling *without assistance* (the difference between a B and C grade)
 - help the instructor understand the state of knowledge of students in the class.
 
-# Final
+## Final
 
 The final exam will be *in class*; see [the exam schedule](https://registrar.uoregon.edu/dates-deadlines/exams) to find the day and time.
 The final will aim to cover the same topics as the homeworks,
 but structured in such a way that it is do-able in class (i.e., without the computer).
 
-Grade breakdown:
+## Grade breakdown:
 
-- 20% Quizzes  (lowest score dropped)
+- 20% Quizzes  (lowest two scores dropped)
 - 50% Assignments (lowest two scores dropped)
 - 30% Final
 
@@ -155,7 +155,7 @@ If you are having trouble with some aspect of it, we would like to strategize wi
 We believe every student can succeed in this course, and we care about your success.
 
 
-# Classroom Community Expectations
+## Classroom Community Expectations
 
 All members of the class (both students and instructor) can expect to:
 
@@ -175,7 +175,7 @@ All members of the class (both students and instructor) can expect to:
     and be open-minded to receiving help and feedback from others.
     Don't hesitate to contact us to ask for assistance or offer suggestions that might help us learn better.
 
-# Absences
+## Absences
 
 Attendance is important because we will develop our knowledge in part through in-class activities that require your active engagement.
 We'll have discussions, small-group activities, and do other work during class that will be richer for your presence,
@@ -184,9 +184,13 @@ That said, if you are feeling ill, please stay home to heal and avoid infecting 
 Please take absences only when necessary, so when they are necessary, your prior attendance will have positioned you for success.
 
 We do not assign credit specifically for attendance, but will have quizzes in class on Mondays.
-We drop the lowest quiz score, so if you will need to miss more than one Monday, please talk to us.
+We drop the lowest two quiz scores, so if you will need to miss more than one Monday, please talk to us.
 
-# Student Workload and Time Use
+Similarly, we understand that sometimes life intervenes:
+if your situation makes it so you need additional flexibility in course work,
+please talk to us.
+
+## Student Workload and Time Use
 
 This is a 4-credit hour course,
 so you should expect to complete 120 hours of work for the course: an average of about 12 hours each week (this includes time in-class).
@@ -198,12 +202,20 @@ some weeks may have shorter or longer time commitments:
 - Assignments: 7 Hours
 
 
-# Course Deadlines and Late Work
+## Course Deadlines and Late Work
 
 Assignments in this course are generally due once a week.
 Although deadlines are firm, your lowest two assignment scores will be dropped.
 
-# Grading Policies
+Work submitted late is penalized 10% per day late, where a "day" is the 24-hour period past the deadline.
+If work is more than 3 days late, it is not accepted.
+Work submitted even a few minutes late is, nonetheless, late, and will be penalized, so please submit your work well in advance of the deadline.
+There are two reasons for this policy:
+first, so that the grader has adequate time to give you good feedback on homeworks;
+and second, because in practice deadlines for many students provide structure that helps focus and improves learning.
+However, if circumstances intervene, please let us know.
+
+## Grading Policies
 
 **Grading scheme:** A = 85-100%, B = 75-84%, C = 65-74%, D = 55-64%, F = 0-55%.
 
@@ -256,7 +268,7 @@ As we see it, there are a few good reasons for this:
     because (a) the point of the class is for you to learn, and learning requires working;
     and (b) plagiarism.
 
-- To assign you a letter grade, *we need to assess whether *you* can do mathematical modelling and whether *you* can assess the errors in your models* -
+- To assign you a letter grade, we need to assess whether *you* can do mathematical modelling and whether *you* can assess the errors in your models -
     getting a GenAI model to produce plausible work is *not* the same thing as being able to do it yourself
     (the latter requires deeper understanding).
 
