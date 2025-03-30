@@ -268,7 +268,7 @@ As we see it, there are a few good reasons for this:
     because (a) the point of the class is for you to learn, and learning requires working;
     and (b) plagiarism.
 
-- To assign you a letter grade, *we need to assess whether *you* can do mathematical modelling and whether *you* can assess the errors in your models* -
+- To assign you a letter grade, we need to assess whether *you* can do mathematical modelling and whether *you* can assess the errors in your models -
     getting a GenAI model to produce plausible work is *not* the same thing as being able to do it yourself
     (the latter requires deeper understanding).
 
