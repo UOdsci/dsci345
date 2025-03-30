@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HW02</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Bootstrap</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7510,35 +7511,18 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59742dcb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=202599bf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Homework-2:-Random-variables">Homework 2: Random variables<a class="anchor-link" href="#Homework-2:-Random-variables">¶</a></h1><p><em>Instructions:</em>
-Please answer the following questions and submit your work
-by editing this jupyter notebook and submitting it on Canvas.
-Questions may involve math, programming, or neither,
-but you should make sure to <em>explain your work</em>:
-i.e., you should usually have a cell with at least a few sentences
-explaining what you are doing.</p>
+<h1 id="Hello-again,-Uncertainty">Hello again, Uncertainty<a class="anchor-link" href="#Hello-again,-Uncertainty">¶</a></h1><p>Peter Ralph</p>
+<p><a href="https://uodsci.github.io/dsci345">https://uodsci.github.io/dsci345</a></p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3e94f2a0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Several times below I ask you to compare the results of a simulation to a theoretical distribution.
-Here is a function that makes this easy:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2d27b846">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=733bfdf0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7546,48 +7530,254 @@ Here is a function that makes this easy:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsci345</span><span class="w"> </span><span class="kn">import</span> <span class="n">pretty</span>
 
-<span class="k">def</span> <span class="nf">comparison_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="o">*</span><span class="n">sims</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns a pandas DataFrame with columns corresponding to:</span>
-<span class="sd">    x: the possible values</span>
-<span class="sd">    expected: the expected frequencies these should happen at</span>
-<span class="sd">    sim1, sim2, ...: these are vectors of simulated values that</span>
-<span class="sd">        will be tabulated, and the frequencies of each of the values</span>
-<span class="sd">        of x will be put in a column in the result.</span>
-<span class="sd">    """</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"x"</span> <span class="p">:</span> <span class="n">x</span><span class="p">})</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">'expected'</span><span class="p">]</span> <span class="o">=</span> <span class="n">expected</span>
-    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sims</span><span class="p">):</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sim</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">total</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-        <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">"sim</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2eb4aa2c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88ec5c59">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>For instance, here I'm simulating 1000 draws, twice, from a fair die (i.e., uniform draws from 1, 2, 3, 4, 5, 6)
-and using the function to see if it's close to the expected proportions of 1/6.  Note that <code>expected</code> is a vector of length 6, but <code>sim1</code> and <code>sim2</code> are vectors of length 1000.
-A good way to check your numbers are "close enough" is to do the simulations two or three times (like I do here),
-and so check that the differences between simulations are similar to the difference to the expected column.</p>
+<p>$$\renewcommand{\P}{\mathbb{P}} \newcommand{\E}{\mathbb{E}} \newcommand{\var}{\text{var}} \newcommand{\sd}{\text{sd}} \newcommand{\cov}{\text{cov}} \newcommand{\cor}{\text{cor}}$$
+This is here so we can use <code>\P</code> and <code>\E</code> and <code>\var</code> and <code>\cov</code> and <code>\cor</code> and <code>\sd</code> in LaTeX below.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=67985d54">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9064c6e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Prediction-and-Estimation">Prediction and Estimation<a class="anchor-link" href="#Prediction-and-Estimation">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ef4684d1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Suppose I've collected data on rent in Eugene.
+Consider the following questions:</p>
+<ol>
+<li>How much does rent cost in the Bethel neighborhood this year?</li>
+<li>How much is rent changing by, per year?</li>
+</ol>
+<p><em>Question:</em> What would good answers to these questions look like?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5ed7086d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We could answer these questions by</p>
+<ul>
+<li>reporting empirical averages from the actual data</li>
+<li>fitting a black-box predictor and asking it questions</li>
+<li>fitting a model with explicit terms for neighborhood and year</li>
+</ul>
+<p><em>(Discuss pros and cons and how these would actually work.)</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f176dbf6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="A-third-question">A third question<a class="anchor-link" href="#A-third-question">¶</a></h1><ol start="3">
+<li>How sure are you about those answers?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=334a64d7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<ol>
+<li>How much does rent cost in the Bethel neighborhood this year?</li>
+</ol>
+</blockquote>
+<p>Note that this has two notions of uncertainty:
+rents come in a range of values, but also there will be uncertainty in our estimates of that range.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ea82e3b6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Uncertainty,-by-math">Uncertainty, by math<a class="anchor-link" href="#Uncertainty,-by-math">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce9e7ce9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Reminder:-confidence-intervals">Reminder: confidence intervals<a class="anchor-link" href="#Reminder:-confidence-intervals">¶</a></h2><p>If we have $n$ independent samples from some source,
+and the sample mean and SD are $\bar x$ and $s$ respectively,
+then a 95% confidence interval is
+$$ \bar x - t_n s / \sqrt{n} \qquad \text{to} \qquad \bar x + t_n s / \sqrt{n} , $$
+where $t_n$ is the 97.5% quantile for the $t$ distribution with $n-1$ degrees of freedom.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=02d75722">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Said another way:</em> $\bar x$ is our estimate of the mean,
+and math gives us an estimate of the uncertainty behind our estimate.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0da288de">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>How much does rent cost in the Bethel neighborhood this year?</li>
+</ol>
+<p><strong>(Take the mean of the rents in Bethel this year.)</strong></p>
+<ol start="2">
+<li>How much is rent changing by, per year?</li>
+</ol>
+<p><strong>(Take the mean difference in rent of places that go up for rent in adjacent years.)</strong></p>
+<ol start="3">
+<li>How sure are you about those answers?</li>
+</ol>
+<p><strong>(Get 95% CIs for them.)</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84e18b6c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="A-model">A model<a class="anchor-link" href="#A-model">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58b58529">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>For example: suppose we fit a model where
+the price of the $i^\text{th}$ apartment is
+$$\begin{aligned}
+    p_i &amp;= \beta_{n_i} + \beta_\text{year} y_i + \beta_\text{area} a_i + \epsilon_i \\
+    \epsilon_i &amp;\sim \text{Normal}(0, \sigma) ,
+\end{aligned}$$
+where</p>
+<ul>
+<li>$p_i$ is the price (in dollars)</li>
+<li>$n_i$ is the neighborhood,</li>
+<li>$\beta_n$ is the mean price in neighborhood $n$</li>
+<li>$y_i$ is the year</li>
+<li>$\beta_\text{year}$ is the amount that rent changes by, per year, on average</li>
+<li>$a_i$ is the area in square feet</li>
+<li>$\beta_\text{area}$ is the amount that rent goes up per additional square foot, on average</li>
+<li>$\epsilon_i$ is the residual, and</li>
+<li>$\sigma$ is how much otherwise similar apartments differ in price</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=61200376">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>How much does rent cost in the Bethel neighborhood this year?</li>
+</ol>
+<p><strong>(Our estimate of $\beta_\text{Bethel}$ plus terms for year and area.)</strong></p>
+<ol start="2">
+<li>How much is rent changing by, per year?</li>
+</ol>
+<p><strong>(Our estimate of $\beta_\text{year}$.)</strong></p>
+<ol start="3">
+<li>How sure are you about those answers?</li>
+</ol>
+<p><strong>???</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7afb588e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Aside:-how-do-we-fit-this-model?">Aside: how do we fit this model?<a class="anchor-link" href="#Aside:-how-do-we-fit-this-model?">¶</a></h2><p>We'll do it in two lines,
+with <a href="https://patsy.readthedocs.io/en/latest/quickstart.html">patsy</a>
+and <code>np.linalg.lstsq</code>.
+<em>(Reminder: since the residuals are Normal, least squares is the same as maximum likelihood.)</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3377b89d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>First, let's read in <a href="data/housing.csv">the data</a>.
+<em>(Note: it's fake data.)</em> (<a href="https://github.com/UOdsci/dsci345/raw/main/class_material/slides/data/housing.csv">github link</a>)</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0444c7dd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7595,12 +7785,8 @@ and so check that the differences between simulations are similar to the differe
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="n">expected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">sim1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">sim2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">comparison_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">sim1</span><span class="p">,</span> <span class="n">sim2</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/housing.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -7631,131 +7817,1225 @@ and so check that the differences between simulations are similar to the differe
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>x</th>
-<th>expected</th>
-<th>sim0</th>
-<th>sim1</th>
+<th>hood</th>
+<th>year</th>
+<th>area</th>
+<th>rent</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>1</td>
-<td>0.166667</td>
-<td>0.180</td>
-<td>0.166</td>
+<td>river</td>
+<td>2014</td>
+<td>489.0</td>
+<td>942.0</td>
 </tr>
 <tr>
 <th>1</th>
-<td>2</td>
-<td>0.166667</td>
-<td>0.183</td>
-<td>0.173</td>
+<td>bethel</td>
+<td>2010</td>
+<td>610.0</td>
+<td>370.0</td>
 </tr>
 <tr>
 <th>2</th>
-<td>3</td>
-<td>0.166667</td>
-<td>0.137</td>
-<td>0.156</td>
+<td>churchill</td>
+<td>2017</td>
+<td>385.0</td>
+<td>669.0</td>
 </tr>
 <tr>
 <th>3</th>
-<td>4</td>
-<td>0.166667</td>
-<td>0.151</td>
-<td>0.172</td>
+<td>bethel</td>
+<td>2012</td>
+<td>757.0</td>
+<td>624.0</td>
 </tr>
 <tr>
 <th>4</th>
-<td>5</td>
-<td>0.166667</td>
-<td>0.166</td>
-<td>0.170</td>
+<td>bethel</td>
+<td>2019</td>
+<td>504.0</td>
+<td>990.0</td>
 </tr>
 <tr>
-<th>5</th>
-<td>6</td>
-<td>0.166667</td>
-<td>0.183</td>
-<td>0.163</td>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>395</th>
+<td>bethel</td>
+<td>2012</td>
+<td>238.0</td>
+<td>579.0</td>
+</tr>
+<tr>
+<th>396</th>
+<td>campus</td>
+<td>2016</td>
+<td>287.0</td>
+<td>759.0</td>
+</tr>
+<tr>
+<th>397</th>
+<td>churchill</td>
+<td>2016</td>
+<td>526.0</td>
+<td>679.0</td>
+</tr>
+<tr>
+<th>398</th>
+<td>campus</td>
+<td>2014</td>
+<td>418.0</td>
+<td>868.0</td>
+</tr>
+<tr>
+<th>399</th>
+<td>bethel</td>
+<td>2018</td>
+<td>386.0</td>
+<td>983.0</td>
 </tr>
 </tbody>
 </table>
+<p>400 rows × 4 columns</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4001dbb1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce68e476">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-The-Binomial-distribution">1. The Binomial distribution<a class="anchor-link" href="#1.-The-Binomial-distribution">¶</a></h2><p>A random variable $X$ has a Binomial($n$, $p$) distribution if
-$\mathbb{P}\{ X = k \} = \binom{n}{k} p^k (1-p)^{n-k}$,
-where $\binom{n}{k} = n! / (k! (n-k)!)$,
-for $0 \le k \le n$.</p>
-<p><em>(a)</em> This has the following interpretation:
-suppose you try to do something $n$ times, and each time the chance you succeed is $p$,
-independently of everything else.
-$X$ is the total number of successes.
-Write a function to simulate a random number in this way.</p>
-<p><em>(b)</em> Check your function by simulating at least 10,000 random draws
-with $n=20$ and $p=0.3$,
-and making a table comparing the observed and expected proportions of these draws that are $k$
-for each $0 \le k \le 20$.</p>
-<p><em>(c)</em> Make up a story in which you'd get a Binomial distribution,
-being clear exactly which are the numbers that could be plotted to show the distribution.</p>
-<p><em>Note:</em> you can do the factorial, $n!$, by <code>math.factorial( )</code>.</p>
+<p>Next, let's shift the variables, so that for instance
+$\beta_\text{Bethel}$ is the average price of a 500 ft${}^2$ apartment in 2010
+(instead of a 0 ft${}^2$ apartment in the year 0):</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=56edb2a0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">'area'</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">500</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2010</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c73008d">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b4265d20">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-The-Poisson-distribution">2. The Poisson distribution<a class="anchor-link" href="#2.-The-Poisson-distribution">¶</a></h2><p>A random variable $X$ has a Poisson($\lambda$) distribution if
-$\mathbb{P}\{ X = k \} = \frac{\lambda^k}{k!} e^{-\lambda}$,
-for $k \ge 0$.</p>
-<p><em>(a)</em> The Poisson distribution is a good approximation for
-"the number of rare events", i.e., for the Binomial when $n$ is large but $p$ is small.
-Simulate at least 10,000 draws from the Poisson($5$) distribution
-and compare their distribution to
-the same number of draws from the Binomial(10, 0.5), the Binomial(100, 0.05), and the Binomial(1000, 0.005).
-<em>(Note: you may use <code>rng.binomial( )</code> instead of the function you wrote above.)</em></p>
-<p><em>(b)</em> Make up a story in which you might get the Poisson distribution,
-being clear exactly which are the numbers that could be plotted to show the distribution.</p>
-<p><em>(c)</em> Suppose that $X \sim \text{Poisson}(5)$. Write down a mathematical expression for $\mathbb{E}[X (X-1)]$
-using the definition of expectation, and evaluate it either with math or simulation.</p>
+<p>Now, fit the model,
+using patsy to make the <em>design matrix</em> (see board):</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=74a7ea63">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">patsy</span>
+<span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">"rent ~ 0 + hood + year + area"</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">predictors</span><span class="p">,</span> <span class="n">outcome</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">estimates</span> <span class="o">=</span> <span class="p">{</span> <span class="n">k</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">'hood['</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"]"</span><span class="p">)</span> <span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictors</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span> <span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">())}</span>
+
+<span class="n">estimates</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=16aeddbb">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'bethel': np.float64(556.0088681522523),
+ 'campus': np.float64(649.8851743401467),
+ 'churchill': np.float64(584.0968576228599),
+ 'river': np.float64(610.4626011683347),
+ 'whittaker': np.float64(643.2011227181563),
+ 'year': np.float64(31.21843122618344),
+ 'area': np.float64(0.10063620684218222)}</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0bd4a6bc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">predictors</span><span class="p">)[:</span><span class="mi">10</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>array([[   0.,    0.,    0.,    1.,    0.,    4.,  -11.],
+       [   1.,    0.,    0.,    0.,    0.,    0.,  110.],
+       [   0.,    0.,    1.,    0.,    0.,    7., -115.],
+       [   1.,    0.,    0.,    0.,    0.,    2.,  257.],
+       [   1.,    0.,    0.,    0.,    0.,    9.,    4.],
+       [   0.,    0.,    0.,    0.,    1.,    5.,  -16.],
+       [   0.,    0.,    0.,    1.,    0.,    6.,   93.],
+       [   1.,    0.,    0.,    0.,    0.,    4., -196.],
+       [   1.,    0.,    0.,    0.,    0.,    3.,  163.],
+       [   0.,    1.,    0.,    0.,    0.,    2.,   81.]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3fbd90d8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>hood</th>
+<th>year</th>
+<th>area</th>
+<th>rent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>river</td>
+<td>4</td>
+<td>-11.0</td>
+<td>942.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>bethel</td>
+<td>0</td>
+<td>110.0</td>
+<td>370.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>churchill</td>
+<td>7</td>
+<td>-115.0</td>
+<td>669.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>bethel</td>
+<td>2</td>
+<td>257.0</td>
+<td>624.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>bethel</td>
+<td>9</td>
+<td>4.0</td>
+<td>990.0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>395</th>
+<td>bethel</td>
+<td>2</td>
+<td>-262.0</td>
+<td>579.0</td>
+</tr>
+<tr>
+<th>396</th>
+<td>campus</td>
+<td>6</td>
+<td>-213.0</td>
+<td>759.0</td>
+</tr>
+<tr>
+<th>397</th>
+<td>churchill</td>
+<td>6</td>
+<td>26.0</td>
+<td>679.0</td>
+</tr>
+<tr>
+<th>398</th>
+<td>campus</td>
+<td>4</td>
+<td>-82.0</td>
+<td>868.0</td>
+</tr>
+<tr>
+<th>399</th>
+<td>bethel</td>
+<td>8</td>
+<td>-114.0</td>
+<td>983.0</td>
+</tr>
+</tbody>
+</table>
+<p>400 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7f1389c8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-The-Normal-distribution">3. The Normal distribution<a class="anchor-link" href="#3.-The-Normal-distribution">¶</a></h2><p>The Normal distribution is <em>additive</em>,
-meaning that if $X_1$ is Normal with mean $\mu_1$ and variance $\sigma^2_1$
-and $X_2$ is Normal with mean $\mu_2$ and variance $\sigma^2_2$, independent of $X_1$,
-then $X_1 + X_2$ is again Normal, with mean $\mu_1 + \mu_2$ and variance $\sigma_1^2 + \sigma_2^2$.</p>
-<p><em>(a)</em> Simulate a large number of draws of $X_1$ and $X_2$ above
-with $\mu_1 = 0$, $\sigma^2_1 = 2$, $\mu_2 = 3$, and $\sigma^2_2 = 1.5$,
-and compare the distribution to $X_3 \sim \text{Normal}(3, 4.5)$
-by plotting the histogram of $X_1 + X_2$
-and the histogram of draws from the second Normal.</p>
-<p><em>(b)</em> One way the Normal distribution arises is by <em>adding</em> together lots of <em>independent</em>
-things (e.g., the cumulative effect of lots of small, additive errors).
-Make up a story in which you might get a Normal distribution,
-being clear exactly which are the numbers that could be plotted to show the distribution.</p>
+<h1 id="Uncertainty,-by-simulation">Uncertainty, by simulation<a class="anchor-link" href="#Uncertainty,-by-simulation">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c19fd691">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Okay, so we'd like to know
+how far off our guesses of $\beta_\text{Bethel}$ or $\beta_a$ are
+from "the truth".</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a7353ad">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Well, one way to do this is to <em>simulate</em> data where we know the truth,
+and then see how far off our guesses are.
+If the simulations describe the real data well,
+then this should give us a good estimate.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4393153e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This is sometimes known as <em>the parametric bootstrap</em>.
+(We'll meet it's more famous cousin, "the" bootstrap, next.)
+We actually did it, last class.
+Let's do it again!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ef3fed53">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Okay, from our "real data" we estimated a certain set of estimated parameter values.
+To make the simulated datasets look as much like the real data as possible,
+we should simulate using those parameter values.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b6c99c77">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sim_rents</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+    <span class="c1"># TODO: estimate sigma</span>
+    <span class="n">sim_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">sim_df</span><span class="p">[</span><span class="s1">'rent'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">beta</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">sim_df</span><span class="o">.</span><span class="n">hood</span><span class="p">])</span> <span class="o">+</span> <span class="n">beta</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">*</span> <span class="n">sim_df</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="n">beta</span><span class="p">[</span><span class="s1">'area'</span><span class="p">]</span> <span class="o">*</span> <span class="n">sim_df</span><span class="o">.</span><span class="n">area</span>
+        <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">sim_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1b18ff02">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fit_model</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">"rent ~ 0 + hood + year + area"</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">predictors</span><span class="p">,</span> <span class="n">outcome</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">estimates</span> <span class="o">=</span> <span class="p">{</span> <span class="n">k</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">'hood['</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"]"</span><span class="p">)</span> <span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictors</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span> <span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">())}</span>
+    <span class="k">return</span> <span class="n">estimates</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=11ac2a14">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">estimates</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'bethel': np.float64(556.0088681522523),
+ 'campus': np.float64(649.8851743401467),
+ 'churchill': np.float64(584.0968576228599),
+ 'river': np.float64(610.4626011683347),
+ 'whittaker': np.float64(643.2011227181563),
+ 'year': np.float64(31.21843122618344),
+ 'area': np.float64(0.10063620684218222)}</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=aea9b229">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">experiments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="n">fit_model</span><span class="p">(</span><span class="n">sim_rents</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">estimates</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">experiments</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>bethel</th>
+<th>campus</th>
+<th>churchill</th>
+<th>river</th>
+<th>whittaker</th>
+<th>year</th>
+<th>area</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>575.902510</td>
+<td>642.604986</td>
+<td>592.798342</td>
+<td>608.078287</td>
+<td>697.180635</td>
+<td>28.779585</td>
+<td>0.113843</td>
+</tr>
+<tr>
+<th>1</th>
+<td>557.178776</td>
+<td>660.341787</td>
+<td>586.334886</td>
+<td>628.076765</td>
+<td>644.009012</td>
+<td>31.364434</td>
+<td>0.035168</td>
+</tr>
+<tr>
+<th>2</th>
+<td>563.137220</td>
+<td>668.938388</td>
+<td>582.832586</td>
+<td>630.124568</td>
+<td>644.535599</td>
+<td>32.107249</td>
+<td>0.092571</td>
+</tr>
+<tr>
+<th>3</th>
+<td>544.430006</td>
+<td>648.920584</td>
+<td>595.158346</td>
+<td>598.784393</td>
+<td>629.969406</td>
+<td>32.162263</td>
+<td>0.145045</td>
+</tr>
+<tr>
+<th>4</th>
+<td>555.357145</td>
+<td>659.746291</td>
+<td>606.171082</td>
+<td>628.264967</td>
+<td>642.935342</td>
+<td>29.826930</td>
+<td>0.095766</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>995</th>
+<td>544.890722</td>
+<td>634.565771</td>
+<td>574.393009</td>
+<td>595.705698</td>
+<td>639.830165</td>
+<td>33.709383</td>
+<td>0.050875</td>
+</tr>
+<tr>
+<th>996</th>
+<td>562.275564</td>
+<td>655.898478</td>
+<td>587.764530</td>
+<td>631.991290</td>
+<td>635.503826</td>
+<td>31.053371</td>
+<td>0.188562</td>
+</tr>
+<tr>
+<th>997</th>
+<td>552.190036</td>
+<td>666.794021</td>
+<td>546.301255</td>
+<td>605.447758</td>
+<td>650.142317</td>
+<td>31.925727</td>
+<td>0.185316</td>
+</tr>
+<tr>
+<th>998</th>
+<td>587.795985</td>
+<td>704.718662</td>
+<td>597.207021</td>
+<td>607.655886</td>
+<td>653.100338</td>
+<td>27.555325</td>
+<td>0.115970</td>
+</tr>
+<tr>
+<th>999</th>
+<td>553.359636</td>
+<td>652.144653</td>
+<td>580.140778</td>
+<td>664.082251</td>
+<td>679.938914</td>
+<td>26.670145</td>
+<td>0.098013</td>
+</tr>
+</tbody>
+</table>
+<p>1000 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6b55a2ec">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">experiments</span><span class="o">.</span><span class="n">bethel</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"mean bethel rent"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"frequency"</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">estimates</span><span class="p">[</span><span class="s1">'bethel'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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e8aSJUuiY8eOhR4HtsmapaWxZmlprFlaGmuWlsaapaUpljWbZVmsWrUqqqqqtnlsiw9rbdu2jUMPPTRmzJgRI0eOzG+fMWNGnHjiiZt9TGlpaZSWljbYtsceezTnmHxMx44d/VGnRbFmaWmsWVoaa5aWxpqlpbFmaWmKYc1u60q1jVp8WIuIGDduXJx55pkxYMCA+PznPx+33XZbvP322/HNb36z0KMBAAAAsJPaKcLa6NGj4/3334/vfe97UVNTE9XV1fH73/8+evXqVejRAAAAANhJ7RRhLSLiggsuiAsuuKDQY7AVpaWlcdVVV23yNlwoVtYsLY01S0tjzdLSWLO0NNYsLU1LXLO5bHu+OxQAAAAAaKBVoQcAAAAAgJZIWAMAAACABMIaAAAAACQQ1gAAAAAggbDGpzJx4sTI5XINbhUVFfn9WZbFxIkTo6qqKtq1axdDhgyJefPmNThHXV1djBkzJrp16xYdOnSIE044IZYuXbqjnwq7iK2t2fXr18d3vvOd6N+/f3To0CGqqqrirLPOinfffbfBOaxZdqRt/Z39uPPPPz9yuVzcdNNNDbZbs+xI27Nm58+fHyeccEJ06tQpysrK4vDDD4+33347v9+aZUfa1ppdvXp1XHTRRdGjR49o165d7LfffnHrrbc2OIc1y470zjvvxBlnnBFdu3aN9u3bx2c/+9mYO3dufr/XYBSbra3ZneE1mLDGp3bAAQdETU1N/vbKK6/k91133XUxefLkuPnmm+O5556LioqKOProo2PVqlX5Y8aOHRv33XdfTJ8+PWbPnh2rV6+O4447LjZs2FCIp8MuYEtr9oMPPogXXnghrrzyynjhhRfi3nvvjddffz1OOOGEBo+3ZtnRtvZ3dqP7778//ud//ieqqqo22WfNsqNtbc2++eabMWjQoPjMZz4TTzzxRLz00ktx5ZVXxm677ZY/xpplR9vamr300kvjoYceijvvvDPmz58fl156aYwZMyZ+97vf5Y+xZtlRli9fHl/4wheiTZs28Yc//CH+/Oc/xw033BB77LFH/hivwSgm21qzO8VrsAw+hauuuio76KCDNruvvr4+q6ioyK699tr8tg8//DDr1KlT9tOf/jTLsiz729/+lrVp0yabPn16/ph33nkna9WqVfbQQw816+zsmra2Zjfn2WefzSIiW7x4cZZl1iw73vas2aVLl2b/8A//kL366qtZr169shtvvDG/z5plR9vWmh09enR2xhlnbHG/NcuOtq01e8ABB2Tf+973Gmw75JBDsn/913/NssyaZcf6zne+kw0aNGiL+70Go9hsa81uTkt7DeaKNT61BQsWRFVVVfTp0ydOPfXUeOuttyIiYuHChVFbWxvDhg3LH1taWhqDBw+OOXPmRETE3LlzY/369Q2Oqaqqiurq6vwx0NS2tGY3Z8WKFZHL5fL/j4o1SyFsbc3W19fHmWeeGf/yL/8SBxxwwCaPtWYphC2t2fr6+njwwQejX79+MXz48OjevXscdthhcf/99+cfa81SCFv7Ozto0KB44IEH4p133oksy2LmzJnx+uuvx/DhwyPCmmXHeuCBB2LAgAHxla98Jbp37x4HH3xw/PznP8/v9xqMYrOtNbs5Le01mLDGp3LYYYfFHXfcEQ8//HD8/Oc/j9ra2hg4cGC8//77UVtbGxER5eXlDR5TXl6e31dbWxtt27aNzp07b/EYaEpbW7Of9OGHH8Zll10Wp59+enTs2DEirFl2vG2t2R/84AdRUlISF1988WYfb82yo21tzS5btixWr14d1157bRxzzDHxyCOPxMiRI2PUqFExa9asiLBm2fG29Xf2xz/+cey///7Ro0ePaNu2bRxzzDFxyy23xKBBgyLCmmXHeuutt+LWW2+Nvn37xsMPPxzf/OY34+KLL4477rgjIsJrMIrOttbsJ7XE12AlhR6Alm3EiBH5n/v37x+f//znY++9945p06bF4YcfHhERuVyuwWOyLNtk2ydtzzGQYmtrdty4cfl969evj1NPPTXq6+vjlltu2eZ5rVmay9bW7ODBg+NHP/pRvPDCC41ef9YszWVra/bUU0+NiIgTTzwxLr300oiI+OxnPxtz5syJn/70pzF48OAtnteapbls678NfvzjH8czzzwTDzzwQPTq1SuefPLJuOCCC6KysjKOOuqoLZ7XmqU51NfXx4ABA+Kaa66JiIiDDz445s2bF7feemucddZZ+eO8BqNYbO+ajWi5r8FcsUaT6tChQ/Tv3z8WLFiQ/zalTxbkZcuW5f8flIqKili3bl0sX758i8dAc/r4mt1o/fr1ccopp8TChQtjxowZ+f+nJMKapfA+vmafeuqpWLZsWey1115RUlISJSUlsXjx4hg/fnz07t07IqxZCu/j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HHjggfmfW7duHV27do3+/fvnt5WXl0dExLJlyyIiYu7cuTFz5szYfffd87fPfOYzERH5t3u++eabcfrpp8c//uM/RseOHaNPnz4REfH2229v8XdXVlY2+D1b8vnPf36T+xuvWJs7d2688cYbUVZWlp+tS5cu8eGHHzZ4K+r2/Ft8cp65c+fG1KlTGzzv4cOHR319fSxcuHCb596of//+0bZt2/z97Z35gAMOiNatWzeYb1v/VgAAqUoKPQAAQEvQpk2bBvdzuVyDbRs/r2vj2zjr6+vj+OOPjx/84AebnGtjjDr++OOjZ8+e8fOf/zyqqqqivr4+qqurN/mw/q39nsb4+GMPPfTQ+NWvfrXJMXvuuec2z7Ot533++efHxRdfvMnj9tprr+2etUOHDg3ub+/Mm/vfKeXfCgBgewhrAADN4JBDDon//M//jN69e0dJyab/yfX+++/H/Pnz42c/+1l88YtfjIiI2bNnN9nvf+aZZ+Kss85qcP/ggw/Oz3b33XdH9+7do2PHjpt9fNu2bWPDhg2N/r2HHHJIzJs3L/bZZ5+0wbdy3m3NvD1SnxcAwOZ4KygAQDO48MIL469//Wucdtpp8eyzz8Zbb70VjzzySJx77rmxYcOG/Ddb3nbbbfHGG2/E448/HuPGjWuy33/PPffEf/zHf8Trr78eV111VTz77LP5LxD46le/Gt26dYsTTzwxnnrqqVi4cGHMmjUrLrnkkli6dGlERPTu3TtefvnleO211+K9997Lf7PmtnznO9+JP/7xj3HhhRfGiy++GAsWLIgHHnggxowZ86mez/bMvD169+4dTz75ZLzzzjsNvqEVACCFsAYA0Ayqqqri6aefjg0bNsTw4cOjuro6LrnkkujUqVO0atUqWrVqFdOnT4+5c+dGdXV1XHrppXH99dc32e+/+uqrY/r06XHggQfGtGnT4le/+lXsv//+ERHRvn37ePLJJ2OvvfaKUaNGxX777RfnnnturF27Nn812De+8Y3Yd999Y8CAAbHnnnvG008/vV2/98ADD4xZs2bFggUL4otf/GIcfPDBceWVV+bf/ppqe2beHt/73vdi0aJFsffee2/X214BALYml2VZVughAAAAAKClccUaAAAAACQQ1gAAAAAggbAGAAAAAAmENQAAAABIIKwBAAAAQAJhDQAAAAASCGsAAAAAkEBYAwAAAIAEwhoAAAAAJBDWAAAAACCBsAYAAAAACYQ1AAAAAEjwfwE0WSLNvi8pzwAAAABJRU5ErkJggg=="/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b7e3c7c0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Conclusion:</strong> The mean rent in Bethel for 500 ft${}^2$ apartments in 2010
+as about \$556, with a 95% confidence interval of about \$518 to \$595.</p>
+<p>Widths of other 95% confidence intervals are below.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2cee481f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">estimates</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'bethel': np.float64(556.0088681522523),
+ 'campus': np.float64(649.8851743401467),
+ 'churchill': np.float64(584.0968576228599),
+ 'river': np.float64(610.4626011683347),
+ 'whittaker': np.float64(643.2011227181563),
+ 'year': np.float64(31.21843122618344),
+ 'area': np.float64(0.10063620684218222)}</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0a04f327">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">experiments</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span> <span class="o">-</span> <span class="n">experiments</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>bethel       77.541967
+campus       85.234240
+churchill    81.627153
+river        81.111593
+whittaker    81.389827
+year         10.005483
+area          0.205705
+dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7790792">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Uncertainty,-by-our-bootstraps">Uncertainty, by our bootstraps<a class="anchor-link" href="#Uncertainty,-by-our-bootstraps">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84ac6f1a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>However</em>, sometimes we don't have
+(or can't be bothered to make)
+a good generative model
+to simulate from.
+Or we tried and it was hard to get realistic-looking data.
+What to do then?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c5488c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Well, what we'd <em>like</em> to do is to draw a bunch of new datasets
+from wherever we got the first one.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3fa15c92">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This seems unrealistic... <em>but</em>, our best guess at what that would be like if we could...
+is our dataset itself!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=486f54b2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="The-bootstrap">The bootstrap<a class="anchor-link" href="#The-bootstrap">¶</a></h2><p>Suppose we have a method that estimates something.
+To get an estimate of <em>uncertainty</em> of that estimate,</p>
+<ol>
+<li><p>Obtain a new dataset, of the same size as the original,
+by resampling <em>with replacement</em> observations from the original dataset.</p>
+</li>
+<li><p>Apply the method to this 'bootstrapped' dataset.</p>
+</li>
+<li><p>Repeat lots of times.</p>
+</li>
+</ol>
+<p>Then, the middle 95% of the estimates
+gives you the "bootstrap 95% confidence interval".</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0ac47a23">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Exercise:">Exercise:<a class="anchor-link" href="#Exercise:">¶</a></h2><p>Here are 10 numbers.</p>
+<pre><code>array([176, 255,  53,  94,  61, 119,  42, 109,   0,  30])
+</code></pre>
+<ol>
+<li>Compute the median.</li>
+<li>1,000 times, resample 10 numbers, with replacement, from this list of numbers,
+and compute the median.</li>
+<li>Make a histogram of those 1,000 medians, with the original median as a vertical line.</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=007288a3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># IN CLASS</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">176</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span>  <span class="mi">53</span><span class="p">,</span>  <span class="mi">94</span><span class="p">,</span>  <span class="mi">61</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span>  <span class="mi">42</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mi">30</span><span class="p">])</span>
+<span class="n">med_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=633b682d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boot_meds</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8388950b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">boot_meds</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">pretty</span><span class="p">(</span><span class="n">boot_meds</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">med_x</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'red'</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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Y9y4cTFgwIDYunVr3H777dHa2hqTJk2KXC4XM2bMiHnz5sXgwYNj8ODBMW/evOjVq1dcc801pR6dY9D+/ftj4cKFMWnSpOje/X9/xbAmcShtbW3x9ttv5+83NzfHmjVroqqqKgYMGHDYdaiysjKmTJkSs2bNir59+0ZVVVXMnj07hgwZEhdddFGpXhZH2aHOo7q6uvje974Xq1evjl//+texb9++/O9OVVVVUVZWFu+8804sWrQoLr300qiuro4333wzZs2aFWeeeWace+65pXpZlMChzqWqqqrD/jyzJvGpw/18i4hobW2Np556Ku6+++4Oj7cudaES/sVKPuPf/u3fsoEDB2ZlZWXZsGHDshUrVpR6JI5hEXHA28KFC7Msy7KPP/44GzNmTHbyySdnPXr0yAYMGJBNmjQp27RpU2kH55hz9dVXZ7W1tVmPHj2yurq6bPz48dn69evz+/fv35/deuutWU1NTVZeXp6df/752dq1a0s4Mcey5557LouI7K233irYbk3iUF588cUD/kybNGlSlmVHtg7t3r07u/HGG7OqqqqsZ8+e2WWXXeb8SsyhzqPm5uaD/u704osvZlmWZZs2bcrOP//8rKqqKisrK8tOO+207F//9V+zbdu2lfaFcdQd6lw60p9n1iSy7PA/37Isyx588MGsZ8+e2fbt2zs83rrUdXJZlmVdXtsAAAAAoMR8RhgAAAAASRDCAAAAAEiCEAYAAABAEoQwAAAAAJIghAEAAACQBCEMAAAAgCQIYQAAAAAkQQgDAAAAIAlCGAAAAABJEMIAAAAASIIQBgAAAEAS/h/0ELlxtvSYlQAAAABJRU5ErkJggg=="/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9018765b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 95% confidence interval</span>
+<span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">boot_meds</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">boot_meds</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(np.float64(41.5), np.float64(142.5))</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f83a43c7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Here's a (very) simple method to obtain a bootstrap resampled version of a data frame:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ef75bf1b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bootstrap</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f5e017f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>And, here, let's apply the<code>fit_model</code> method above to 1000 of these.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=213236de">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boots</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="n">fit_model</span><span class="p">(</span><span class="n">bootstrap</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">boots</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>bethel</th>
+<th>campus</th>
+<th>churchill</th>
+<th>river</th>
+<th>whittaker</th>
+<th>year</th>
+<th>area</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>562.472230</td>
+<td>607.100486</td>
+<td>565.395919</td>
+<td>590.802400</td>
+<td>666.817819</td>
+<td>31.778218</td>
+<td>0.126840</td>
+</tr>
+<tr>
+<th>1</th>
+<td>529.192742</td>
+<td>640.495432</td>
+<td>593.828156</td>
+<td>620.172014</td>
+<td>627.839688</td>
+<td>30.404554</td>
+<td>0.155942</td>
+</tr>
+<tr>
+<th>2</th>
+<td>574.811506</td>
+<td>655.464745</td>
+<td>606.884968</td>
+<td>649.632581</td>
+<td>665.138330</td>
+<td>29.370616</td>
+<td>0.024600</td>
+</tr>
+<tr>
+<th>3</th>
+<td>532.740067</td>
+<td>631.887855</td>
+<td>583.826112</td>
+<td>618.851433</td>
+<td>663.472104</td>
+<td>29.516356</td>
+<td>0.124679</td>
+</tr>
+<tr>
+<th>4</th>
+<td>562.512608</td>
+<td>666.967288</td>
+<td>598.311342</td>
+<td>623.518098</td>
+<td>639.886522</td>
+<td>29.613112</td>
+<td>0.078457</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>995</th>
+<td>569.668469</td>
+<td>658.942641</td>
+<td>574.674532</td>
+<td>606.367452</td>
+<td>622.423225</td>
+<td>29.863527</td>
+<td>0.136098</td>
+</tr>
+<tr>
+<th>996</th>
+<td>567.254152</td>
+<td>662.668325</td>
+<td>549.584022</td>
+<td>588.496222</td>
+<td>639.206063</td>
+<td>34.323386</td>
+<td>0.024327</td>
+</tr>
+<tr>
+<th>997</th>
+<td>559.954882</td>
+<td>638.365579</td>
+<td>599.215047</td>
+<td>605.086299</td>
+<td>663.665607</td>
+<td>32.544599</td>
+<td>0.088130</td>
+</tr>
+<tr>
+<th>998</th>
+<td>566.461808</td>
+<td>682.573878</td>
+<td>573.381698</td>
+<td>613.338983</td>
+<td>643.444693</td>
+<td>31.993623</td>
+<td>0.042107</td>
+</tr>
+<tr>
+<th>999</th>
+<td>564.783341</td>
+<td>675.236614</td>
+<td>576.947170</td>
+<td>640.135260</td>
+<td>628.659703</td>
+<td>29.753753</td>
+<td>0.149073</td>
+</tr>
+</tbody>
+</table>
+<p>1000 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=08f5b1c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>And, here is the distribution of estimates of $\beta_\text{Bethel}$.
+It is similar, but not identical, to our other distribution above (as expected).</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=357c0431">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">boots</span><span class="o">.</span><span class="n">bethel</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"mean bethel rent"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"frequency"</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">estimates</span><span class="p">[</span><span class="s1">'bethel'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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REQsWrQoqqur6+TB165dG4ccckjcfvvtW9x/0003xcSJE+P222+P1157LUpLS+O4446L1atX544ZOXJkPPbYYzF16tSYOXNmrFmzJk488cTYuHFjncwIAAAAAFuyQ28FPfXUU6N///7RqVOnKCgoiD59+kTTpk23eOyCBQt2+MGHDBkSQ4YM2eK+LMvitttui2uvvTaGDRsWERFTpkyJkpKSeOihh+Kiiy6KlStXxn333Re//OUv49hjj42IiAceeCC6dOkSzz77bAwePHiHZwEAAACA2tihsHbPPffEsGHD4v3334/LL788vve970WrVq3qdbCFCxdGZWVlDBo0KLetuLg4+vfvH7NmzYqLLrooZs+eHRs2bKhxTFlZWZSXl8esWbO2Gtaqqqqiqqoqd33VqlX190QAAAAA2CXt8LeCHn/88RERMXv27LjiiivqPaxVVlZGRERJSUmN7SUlJbF48eLcMUVFRdG2bdvNjtl0+y0ZP3583HDDDXU8MQAAAAC7kx36jLUvmjRpUr1HtS/68jeNZlm23W8f3d4x11xzTaxcuTJ3+fDDD+tkVgAAAAB2H7UOaztLaWlpRMRmZ54tX748dxZbaWlprF+/PlasWLHVY7akuLg4WrduXeMCAAAAALXRYMNa9+7do7S0NKZNm5bbtn79+pgxY0b07ds3IiIOP/zwaNasWY1jKioq4p133skdAwAAAAD1YYc/Y60+rFmzJt5///3c9YULF8acOXOiXbt2sc8++8TIkSNj3Lhx0aNHj+jRo0eMGzcuWrRoEWeeeWZERLRp0yYuvPDCGD16dLRv3z7atWsXY8aMid69e+e+JRQAAAAA6kNew9rrr78eAwcOzF0fNWpURESce+65MXny5Ljqqqti3bp1cckll8SKFSviiCOOiGeeeabGZ7zdeuutUVhYGKeddlqsW7cujjnmmJg8eXI0bdp0pz8fAAAAAHYfBVmWZfkeIt9WrVoVbdq0iZUrV/q8NWAz3a5+Mt8jAERERPP1n8W8W/9PREQceOVvYl3RHnmeCNiWRRO+me8RAEhQm07UYD9jDQAAAAAaMmENAAAAABIIawAAAACQQFgDAAAAgATCGgAAAAAkENYAAAAAIIGwBgAAAAAJhDUAAAAASCCsAQAAAEACYQ0AAAAAEghrAAAAAJBAWAMAAACABMIaAAAAACQQ1gAA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0VBsb716vfUlGfyv66+/PjvkkEO2uK+6ujorLS3NJkyYkNv22WefZW3atMnuuuuuLMuy7K9//WvWrFmzbOrUqbljli1bljVp0iR76qmn6nV2dj/bWq9b8uqrr2YRkS1evDjLMuuVnWtH1uvSpUuzf/iHf8jeeeedrGvXrtmtt96a22e9sjNtb70OHz48O+uss7a633plZ9neWu3Vq1d244031th22GGHZf/3//7fLMusVXauH/7wh1m/fv22ut/rLRqS7a3XLdmdX285Y40a5s+fH2VlZdG9e/c4/fTTY8GCBRERsXDhwqisrIxBgwblji0uLo7+/fvHrFmzIiJi9uzZsWHDhhrHlJWVRXl5ee4YqEtbW69bsnLlyigoKMj9K4v1ys62rfVaXV0dZ599dvzgBz+IXr16bXZb65WdbWvrtbq6Op588sno2bNnDB48ODp27BhHHHFEPP7447nbWq/sTNv63dqvX7944oknYtmyZZFlWUyfPj3ee++9GDx4cERYq+xcTzzxRPTp0ye+/e1vR8eOHePQQw+Ne++9N7ff6y0aku2t1y3ZnV9vCWvkHHHEEXH//ffH008/Hffee29UVlZG375945NPPonKysqIiCgpKalxm5KSkty+ysrKKCoqirZt2271GKgr21qvX/bZZ5/F1VdfHWeeeWa0bt06IqxXdq7trdcf//jHUVhYGJdffvkWb2+9sjNta70uX7481qxZExMmTIjjjz8+nnnmmRg6dGgMGzYsZsyYERHWKzvP9n63/uxnP4uDDjooOnfuHEVFRXH88cfHHXfcEf369YsIa5Wda8GCBXHnnXdGjx494umnn46LL744Lr/88rj//vsjIrzeokHZ3nr9st399VZhvgeg4RgyZEju5969e8fXvva12HfffWPKlClx5JFHRkREQUFBjdtkWbbZti/bkWOgtra1XkeNGpXbt2HDhjj99NOjuro67rjjju3er/VKfdjWeu3fv3/89Kc/jTfeeKPWa896pT5sa72efvrpERFxyimnxJVXXhkREV/5yldi1qxZcdddd0X//v23er/WK3Vte38X+NnPfhavvPJKPPHEE9G1a9d48cUX45JLLolOnTrFscceu9X7tVapD9XV1dGnT58YN25cREQceuihMXfu3LjzzjvjnHPOyR3n9RYNwY6u1wivtyKcscY2tGzZMnr37h3z58/PfcPSl8vy8uXLc/+qUlpaGuvXr48VK1Zs9RioL19cr5ts2LAhTjvttFi4cGFMmzYt968nEdYr+fXF9frSSy/F8uXLY5999onCwsIoLCyMxYsXx+jRo6Nbt24RYb2SX19crx06dIjCwsI46KCDahxz4IEH5r4V1HolX764VtetWxf/8i//EhMnToyTTjopDj744Ljsssti+PDh8ZOf/CQirFV2rk6dOm33d2eE11s0DNtbr5t4vfU3whpbVVVVFfPmzYtOnTpF9+7do7S0NKZNm5bbv379+pgxY0b07ds3IiIOP/zwaNasWY1jKioq4p133skdA/Xli+s14v//kp8/f348++yz0b59+xrHW6/k0xfX69lnnx1vvfVWzJkzJ3cpKyuLH/zgB/H0009HhPVKfn1xvRYVFcVXv/rVePfdd2sc895770XXrl0jwnolf764Vjds2BAbNmyIJk1qvtxp2rRpVFdXR4S1ys719a9/fZu/O73eoiHZ3nqN8Hqrhnx9awINz+jRo7MXXnghW7BgQfbKK69kJ554YtaqVats0aJFWZZl2YQJE7I2bdpkjz76aPb2229nZ5xxRtapU6ds1apVufu4+OKLs86dO2fPPvts9sYbb2Tf+MY3skMOOST7/PPP8/W02EVta71u2LAhO/nkk7POnTtnc+bMySoqKnKXqqqq3H1Yr+ws2/v9+mVf/lbQLLNe2Xm2t14fffTRrFmzZtk999yTzZ8/P/v5z3+eNW3aNHvppZdy92G9sjNsb632798/69WrVzZ9+vRswYIF2aRJk7I99tgju+OOO3L3Ya2ys7z66qtZYWFh9m//9m/Z/PnzswcffDBr0aJF9sADD+SO8XqLhmJ769XrrZqENXKGDx+ederUKWvWrFlWVlaWDRs2LJs7d25uf3V1dXb99ddnpaWlWXFxcXb00Udnb7/9do37WLduXXbZZZdl7dq1y5o3b56deOKJ2ZIlS3b2U2E3sK31unDhwiwitniZPn167j6sV3aW7f1+/bIthTXrlZ1lR9brfffdl+23337ZHnvskR1yyCHZ448/XmO/9crOsL21WlFRkZ133nlZWVlZtscee2T7779/dsstt2TV1dW5Y6xVdqb//M//zMrLy7Pi4uLsgAMOyO65554a+73eoiHZ1nr1equmgizLsvycKwcAAAAAjZfPWAMAAACABMIaAAAAACQQ1gAAAAAggbAGAAAAAAmENQAAAABIIKwBAAAAQAJhDQAAAAASCGsAALuYgoKCePzxx+v8fhctWhQFBQUxZ86cv+t+unXrFrfddludzAQAkE/CGgAAmznvvPPiW9/6Vr7HqHOiHgBQl4Q1AAAatPXr1+d7BACALRLWAAC2Y8CAATFixIgYOXJktG3bNkpKSuKee+6JtWvXxvnnnx+tWrWKfffdN37/+9/XuN2f/vSnOOGEE2LPPfeMkpKSOPvss+Pjjz/O7X/qqaeiX79+sddee0X79u3jxBNPjA8++CC3f9NbLx999NEYOHBgtGjRIg455JD4wx/+sN2ZKyoqYsiQIdG8efPo3r17PPLIIzX2L1u2LIYPHx5t27aN9u3bxymnnBKLFi2KiIixY8fGlClT4re//W0UFBREQUFBvPDCC7nbLliwYJvzzJo1K44++uho3rx5dOnSJS6//PJYu3btjv5x586WGz9+fJSVlUXPnj23O/MXb/eTn/wkOnXqFO3bt49LL700NmzYEBF/+++4ePHiuPLKK3PPCwDg7yGsAQDsgClTpkSHDh3i1VdfjREjRsT3v//9+Pa3vx19+/aNN954IwYPHhxnn312fPrppxHxt7DVv3//+MpXvhKvv/56PPXUU/HnP/85TjvttNx9rl27NkaNGhWvvfZaPPfcc9GkSZMYOnRoVFdX13jsa6+9NsaMGRNz5syJnj17xhlnnBGff/75Nue97rrr4tRTT40333wzzjrrrDjjjDNi3rx5ERHx6aefxsCBA2PPPfeMF198MWbOnBl77rlnHH/88bF+/foYM2ZMnHbaaXH88cdHRUVFVFRURN++fXdonrfffjsGDx4cw4YNi7feeisefvjhmDlzZlx22WW1+vN+7rnnYt68eTFt2rT4r//6r+3OvMn06dPjgw8+iOnTp8eUKVNi8uTJMXny5IiIePTRR6Nz585x44035p4XAMDfJQMAYJv69++f9evXL3f9888/z1q2bJmdffbZuW0VFRVZRGR/+MMfsizLsuuuuy4bNGhQjfv58MMPs4jI3n333S0+zvLly7OIyN5+++0sy7Js4cKFWURkv/jFL3LHzJ07N4uIbN68eVudNyKyiy++uMa2I444Ivv+97+fZVmW3Xfffdn++++fVVdX5/ZXVVVlzZs3z55++uksy7Ls3HPPzU455ZQa97Ej85x99tnZP//zP9e43UsvvZQ1adIkW7duXZZlWda1a9fs1ltv3er85557blZSUpJVVVXltu3ozF27ds0+//zz3DHf/va3s+HDh+eub++xAQBqwxlrAAA74OCDD8793LRp02jfvn307t07t62kpCQiIpYvXx4REbNnz47p06fHnnvumbsccMABERG5t3t+8MEHceaZZ8Y//uM/RuvWraN79+4REbFkyZKtPnanTp1qPM7WfO1rX9vs+qYz1mbPnh3vv/9+tGrVKjdbu3bt4rPPPqvxVtQd+bP48jyzZ8+OyZMn13jegwcPjurq6li4cOF273uT3r17R1FRUe76js7cq1evaNq0aY35tvdnBQCQqjDfAwAANAbNmjWrcb2goKDGtk2f17XpbZzV1dVx0kknxY9//OPN7mtTjDrppJOiS5cuce+990ZZWVlUV1dHeXn5Zh/Wv63HqY0v3vbwww+PBx98cLNj9t577+3ez/ae90UXXRSXX375ZrfbZ599dnjWli1b1ri+ozNv6b9Typ8VAMCOENYAAOrBYYcdFv/xH/8R3bp1i8LCzf/K9cknn8S8efPi7rvvjqOOOioiImbOnFlnj//KK6/EOeecU+P6oYcempvt4Ycfjo4dO0br1q23ePuioqLYuHFjrR/3sMMOi7lz58Z+++2XNvg27nd7M++I1OcFALAl3goKAFAPLr300vjLX/4SZ5xxRrz66quxYMGCeOaZZ+KCCy6IjRs35r7Z8p577on3338/nn/++Rg1alSdPf4jjzwS//7v/x7vvfdeXH/99fHqq6/mvkDgO9/5TnTo0CFOOeWUeOmll2LhwoUxY8aMuOKKK2Lp0qUREdGtW7d466234t13342PP/44982a2/PDH/4w/vCHP8Sll14ac+bMifnz58cTTzwRI0aM+Luez47MvCO6desWL774YixbtqzGN7QCAKQQ1gAA6kFZWVm8/PLLsXHjxhg8eHCUl5fHFVdcEW3atIkmTZpEkyZNYurUqTF79uwoLy+PK6+8Mm6++eY6e/wbbrghpk6dGgcffHBMmTIlHnzwwTjooIMiIqJFixbx4osvxj777BPDhg2LAw88MC644IJYt25d7myw733ve7H//vtHnz59Yu+9946XX355hx734IMPjhkzZsT8+fPjqKOOikMPPTSuu+663NtfU+3IzDvixhtvjEWLFsW+++67Q297BQDYloIsy7J8DwEAAAAAjY0z1gAAAAAggbAGAAAAAAmENQAAAABIIKwBAAAAQAJhDQAAAAASCGsAAAAAkEBYAwAAAIAEwhoAAAAAJBDWAAAAACCBsAYAAAAACYQ1AAAAAEggrAEAAABAgv8HcCgsLjKgYiQAAAAASUVORK5CYII="/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=41eecfb9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Conclusion:</strong> The mean rent in Bethel for 500 ft${}^2$ apartments in 2010
+as about \$556, with a 95% confidence interval of about \$518 to \$595.</p>
+<p>Widths of other 95% confidence intervals are below.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8548d625">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boots</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span> <span class="o">-</span> <span class="n">boots</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>bethel       81.652334
+campus       85.080632
+churchill    82.110892
+river        78.229027
+whittaker    73.397059
+year         10.116929
+area          0.189463
+dtype: float64</pre>
+</div>
 </div>
 </div>
 </div>

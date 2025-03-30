@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HW06</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Poisson</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7510,34 +7511,32 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59742dcb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=202599bf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Homework-6:-Correlations.">Homework 6: Correlations.<a class="anchor-link" href="#Homework-6:-Correlations.">¶</a></h1><p><em>Instructions:</em>
-Please answer the following questions and submit your work
-by editing this jupyter notebook and submitting it on Canvas.
-Questions may involve math, programming, or neither,
-but you should make sure to <em>explain your work</em>:
-i.e., you should usually have a cell with at least a few sentences
-explaining what you are doing.</p>
-<p>Also, please be sure to always specify units of any quantities that have units,
-and label axes of plots (again, with units when appropriate).</p>
+<h1 id="Poisson-counting">Poisson counting<a class="anchor-link" href="#Poisson-counting">¶</a></h1><p>Peter Ralph</p>
+<p><a href="https://uodsci.github.io/dsci345">https://uodsci.github.io/dsci345</a></p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=03fe74bf">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=733bfdf0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7545,79 +7544,646 @@ and label axes of plots (again, with units when appropriate).</p>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03754e1d-342c-498b-9eea-d83909c81a9e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0b9f690">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="1.-Y-given-X">1. Y given X<a class="anchor-link" href="#1.-Y-given-X">¶</a></h1><p>Let $X \sim \text{Normal}(\text{mean}=0, \text{sd}=1)$,
-and given $X$, let
-$$Y = a X + \epsilon,$$
-where $\epsilon \sim \text{Normal}(\text{mean}=0, \text{sd}=\sigma)$
-is independent of $X$.</p>
-<p><strong>(a)</strong> Find $\text{cov}[X,Y]$ and $\text{cor}[X,Y]$ by doing math.</p>
-<p><strong>(b)</strong> Find $\text{cov}[X,Y]$ and $\text{cor}[X,Y]$ by simulation
-with $a=2$ and $\sigma=0.5$,
-and include a scatter plot of their joint distribution.</p>
-<p><strong>(c)</strong> Since $Y - aX = \epsilon$, clearly $\text{cov}[X, Y - aX] = 0$.
-Show that for <em>any</em> two random variables $X$ and $Y$ with nonzero variance,
-if $a = \text{cov}[X,Y] / \text{var}[X]$ then $X$ and $Z = Y - aX$
-are uncorrelated (i.e., $\text{cov}[X,Z] = 0$).</p>
+<p>$$\renewcommand{\P}{\mathbb{P}} \newcommand{\E}{\mathbb{E}} \newcommand{\var}{\text{var}} \newcommand{\sd}{\text{sd}}$$
+This is here so we can use <code>\P</code> and <code>\E</code> and <code>\var</code> and <code>\sd</code> in LaTeX below.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9497dfc8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f73a245">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="2.-Random-walk">2. Random walk<a class="anchor-link" href="#2.-Random-walk">¶</a></h1><p>Consider the matrix
-$$
-    A = \begin{bmatrix}
-        1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
-        1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
-        1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
-        1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
-        1 &amp; 1 &amp; 1 &amp; 1 &amp; 1
-    \end{bmatrix} .
-$$
-Let $Z$ be a vector of five independent draws from the Normal(0, 1) distribution.
-What is the covariance matrix of
-$$ X = A Z ? $$
-Explain, and check by simulation.</p>
+<h1 id="Motivation,-and-the-Poisson">Motivation, and the Poisson<a class="anchor-link" href="#Motivation,-and-the-Poisson">¶</a></h1><p><em>Main points: the Poisson distribution shows up
+when you are counting rare events.
+So do Exponentials, as waiting times.</em></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=86f880fd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a078592">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="3.-Two-clouds">3. Two clouds<a class="anchor-link" href="#3.-Two-clouds">¶</a></h1><p>Consider the following model:
+<p>Suppose that we're running a solar panel manufacturing plant.
+Each panel is made up of many modules, each of which may be defective.
+Usually only a few are:
+the average number of defects per panel is 1.
+A few defects are okay, but if a panel has more then 2 defects,
+the panel will not work.
+<em>What proportion of panels will work?</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ccc2a41d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>What do we need to know?</em>
+Well, let's suppose that a panel has $N$ modules,
+and each module is broken independently of the others.
+If the probability of a particular module being broken is $p$, then we must have $p = 1/N$.
+(<em>Why?</em>)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=702fe9e0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Poisson-approximation">Poisson approximation<a class="anchor-link" href="#Poisson-approximation">¶</a></h2><p>Let's call the number of defects $X$. So, $X$ is Binomial($N$, $\lambda/N$) with $\lambda=1$.
+Binomial probabilities say that
 $$\begin{aligned}
-    U &amp;= \begin{cases}
-        0 \qquad &amp;\text{with probability 1/2} \\
-        1 \qquad &amp;\text{with probability 1/2}
-    \end{cases} \\
-    X_j &amp;= \text{Normal}\left( \text{mean}= U, \text{sd}=7/5 \right)
-        \qquad \text{for}\quad 1 \le j \le 50 .
+    \P\{ X = k \}
+    &amp;=
+    \frac{N (N-1) \cdots (N-k+1)}{k!} \left(\frac{\lambda}{N}\right)^k \left(1-\frac{\lambda}{N}\right)^{N-k} .
 \end{aligned}$$
-(In words: $X$ is a 50-dimensional vector of independent draws from a Normal distribution;
-these all have the same mean, $U$; and this mean is either 0 or 1, with probability 1/2 each.)</p>
-<p><em>(a)</em> Simulate 1,000 independent samples from this model;
-the result should be an array of shape <code>(1000, 50)</code>.
-<em>(Note: each row should have it's own, independent, simulated value for $U$.)</em>
-Treat this is a matrix of data with 1000 observations of 50 variables.</p>
-<p><em>(b)</em> Plot some of these "variables" against each other,
-colored by the value of $U$.</p>
-<p><em>(c)</em> Carry out principal components analysis for these data,
-and show the scree plot, the positions of the 1,000 data points on the first two PCs,
-and the loadings of the 50 variables on these two PCs.</p>
+However, $N$ was arbitrary. For large $N$,
+$$\begin{aligned}
+   N (N-1) \cdots (N-k+1) &amp;\approx N^k, \\
+   \text{and} \qquad
+   \left(1 - \frac{\lambda}{N}\right)^N &amp;\approx e^{-\lambda},
+\end{aligned}$$
+so
+$$\begin{aligned}
+    \P\{ X = k \}
+    &amp;\approx
+    \frac{1}{k!} \lambda^k e^{-\lambda} ,
+\end{aligned}$$
+i.e., $X$ is approximately <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson with mean $\lambda$</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ef1e0115">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Example:-defects">Example: defects<a class="anchor-link" href="#Example:-defects">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=76861172">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Suppose that a few defects are okay, but if a panel has more then 2 defects,
+the panel will not work.
+<em>What proportion of panels will work?</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e98de0a4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Solution:</em>
+Let $X$ denote the number of defective modules on a randomly chosen panel.
+Then $X$ has a Poisson($\lambda = 1$) distribution, so
+$$\begin{aligned}
+    \P\{X \le 2\} &amp;= \P\{X = 0\} + \P\{X = 1\} + \P\{X = 2\} \\
+        &amp;= e^{-\lambda} \left( 1 + \lambda + \lambda^2 / 2 \right) ,
+\end{aligned}$$
+which is here</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=65a7170a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">lam</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">p_good</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">lam</span> <span class="o">+</span> <span class="n">lam</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Proportion </span><span class="si">{</span><span class="n">p_good</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> good, and </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">p_good</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> bad"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Proportion 0.920 good, and 0.080 bad
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97ea0f87">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Exercise:</strong>
+What proportion of good panels still have some defects?
+Answer with math and check it by simulation.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ef499fdb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>np.float64(0.5988906974948813)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9fa5ae00">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>$$ \P\{ X &gt; 0 | X \le 2 \} 
+   = \frac{ \P\{ X &gt; 0 \text{ and } X \le 2 \} }{ \P\{X \le 2\} }
+   = \frac{
+           e^{-1} (1 + 1/2)
+      }{
+           e^{-1} (1 + 1 + 1/2)
+      }
+   =
+   \frac{3}{5}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cf6e3e78">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Waiting-times">Waiting times<a class="anchor-link" href="#Waiting-times">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eae8e132">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Here's a different example.
+<a href="https://en.wikipedia.org/wiki/Cosmic_ray">Cosmic rays</a> from outside the solar system
+pass through us pretty often.
+Let's say we have a <a href="https://muse.jhu.edu/article/19841">cosmic ray detector</a>
+that plays a sound whenever a strong enough cosmic ray passes through it,
+which turns out to be about once every 1.2 minutes.
+How many do we expect in 6 minutes?
+How long do we have to wait between sounds?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=175cd12f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>How many in 6 minutes?</strong> By the same argument as above, the number of cosmic rays we get
+in $t$ minutes is Poisson with mean $t / 1.2$.
+So, we expect about $6 / 1.2 = 5$ cosmic rays in 6 minutes,
+with a standard deviation of $\sqrt{5} \approx 2.23$ cosmic rays.
+The probability we see zero cosmic rays is $e^{-5} = 0.0067$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd62021f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>How long between sounds?</strong>
+Well, the probability there's no rays in $t$ minutes is $\exp(-1.2t)$,
+i.e., if $T$ is the time we have to wait for the next ray,
+then $$\P\{T &gt; t\} = e^{-1.2 t}.$$</p>
+<p><strong>So:</strong> $T$ is Exponentially distributed with mean 1/1.2 minutes,
+and so $\E[T] = 1/1.2$ and $\sd[T] = 1/1.2$.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=efbe0ab4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Memorylessness">Memorylessness<a class="anchor-link" href="#Memorylessness">¶</a></h2><p><strong>Fact:</strong> The Exponential distribution is <em>memoryless</em>,
+i.e., if $T$ is Exponential, then
+$$ \P\{ T &gt; t + s | T &gt; t \} = \P\{ T &gt; s \} . $$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a06ed15c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Proof:</strong></p>
+<p>$$\begin{aligned}
+    \P\{ T &gt; t + s | T &gt; t \} 
+    &amp;=
+    \frac{ \P\{ T &gt; t + s \} }{ \P\{ T &gt; t \} } \\
+    &amp;=
+    \frac{ e^{-\lambda(t+s)} }{ e^{-\lambda t} } \\
+    &amp;=
+    \P\{ T &gt; s \} . 
+\end{aligned}$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8150119b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(np.float64(0.30131007265642373), np.float64(0.301281))</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c64183a2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Exercise:</strong>
+This implies that cosmic rays don't care how long I've already been waiting for one to arrive:
+the probability that $T &gt; 2$ minutes given that $T &gt; 1$ minute is equal to the probability that $T &gt; 1$ minute.
+Demonstrate this, by simulation.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=138f9840">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=750d730f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Distributions:-recap">Distributions: recap<a class="anchor-link" href="#Distributions:-recap">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6f8cebc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>If something happens at rate $\lambda$ per unit time,
+and whether it happens in each bit of time is independent of other bits of time, then:</p>
+<p>The <strong>number</strong> of times it happens in $t$ units of time, $N(t)$,
+is <strong>Poisson</strong> with mean $\lambda t$;
+so $\E[N(t)] = \var[N(t)] = \lambda t$
+and $$ \P\{ N(t) = n \} = e^{-\lambda t} \frac{(\lambda t)^n}{n!} ,$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e8e26840">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The <strong>time</strong> between subsequent events, $T$, is <strong>Exponential</strong> with rate $\lambda$,
+so $\E[T] = \sd[T] = 1/\lambda$ and
+$$ \P\{ T &gt; t \} = \exp(-\lambda t) . $$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=631e5833">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Complications:-overdispersion">Complications: overdispersion<a class="anchor-link" href="#Complications:-overdispersion">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=975b2a55">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let's go back to the solar panels:
+suppose that the number of defects per panel turns out to <em>not</em> be Poisson,
+and in fact the distribution of number of defects per panel looks like this:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22273bd2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">npanels</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">nd</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">npanels</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">npanels</span><span class="p">)</span>
+<span class="n">defects</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span> <span class="s2">"value"</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'int'</span><span class="p">)</span> <span class="p">})</span>
+<span class="n">defects</span><span class="p">[</span><span class="s2">"expected"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">npanels</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">lam</span><span class="p">)</span> <span class="o">*</span> <span class="n">lam</span> <span class="o">**</span> <span class="n">defects</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span> 
+    <span class="o">/</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">defects</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">defects</span><span class="p">[</span><span class="s1">'observed'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">nd</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">defects</span><span class="p">[</span><span class="s1">'value'</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3044b84d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">defects</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>value</th>
+<th>expected</th>
+<th>observed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>0</td>
+<td>3678.794412</td>
+<td>4955</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>3678.794412</td>
+<td>2484</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2</td>
+<td>1839.397206</td>
+<td>1283</td>
+</tr>
+<tr>
+<th>3</th>
+<td>3</td>
+<td>613.132402</td>
+<td>630</td>
+</tr>
+<tr>
+<th>4</th>
+<td>4</td>
+<td>153.283100</td>
+<td>333</td>
+</tr>
+<tr>
+<th>5</th>
+<td>5</td>
+<td>30.656620</td>
+<td>147</td>
+</tr>
+<tr>
+<th>6</th>
+<td>6</td>
+<td>5.109437</td>
+<td>91</td>
+</tr>
+<tr>
+<th>7</th>
+<td>7</td>
+<td>0.729920</td>
+<td>38</td>
+</tr>
+<tr>
+<th>8</th>
+<td>8</td>
+<td>0.091240</td>
+<td>21</td>
+</tr>
+<tr>
+<th>9</th>
+<td>9</td>
+<td>0.010138</td>
+<td>9</td>
+</tr>
+<tr>
+<th>10</th>
+<td>10</td>
+<td>0.001014</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6007bb2c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Overdispersion">Overdispersion<a class="anchor-link" href="#Overdispersion">¶</a></h2><p>What's going on? With some more investigation,
+we find that some panels are more error-prone than others:
+a better model for the number of defects per panel is
+that the "quality" of a panel, $R$, is drawn from an Exponential distribution,
+and given this quality, the number of defects is Poisson with mean $R$:
+$$\begin{aligned}
+\text{error rate: } R &amp;\sim \text{Exponential}(1) \\
+\text{number of defects: } X &amp;\sim \text{Poisson}(R) .
+\end{aligned}$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7e29ded1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><em>Question:</em> What is $\E[X]$?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7249176b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Well, given $R$, the mean is, well, $R$, i.e., $\E[X|R] = R$.</p>
+<p>So, it would make sense if $\E[X] = \E[R] = 1$.</p>
+<p>This is true; here is the "proof" from first principles:
+$$\begin{aligned}
+ \E[X]
+ &amp;=
+ \sum_x x \P\{X = x\} \\
+ &amp;=
+ \sum_x x \sum_r \P\{X = x, R = r\} \\
+ &amp;=
+ \sum_x x \sum_r \P\{R = r\} \P\{X = x \;|\; R = r\} \\
+ &amp;=
+ \sum_r \P\{R = r\} \sum_x x \P\{X = x \;|\; R = r\} \\
+ &amp;=
+ \sum_r \P\{R = r\} \E[X = x \;|\; R = r] \\
+ &amp;=
+ \sum_r \P\{R = r\} r \\
+ &amp;=
+ \E[R] .
+\end{aligned}$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d624af2f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Challenge">Challenge<a class="anchor-link" href="#Challenge">¶</a></h1><p>Estimate the proportion of broken panels from this model by simulation.</p>
 </div>
 </div>
 </div>

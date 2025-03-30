@@ -42,9 +42,9 @@ conda activate dsci
 ```
 Then open the slides with `jupyter notebook`.
 
-*Note:* at time or writing (March 2024), rise is no longer maintained and being replaced by
+*Note:* at time or writing (March 2025), rise is no longer maintained and being replaced by
 [`jupterlab_rise`](https://pypi.org/project/jupyterlab-rise/);
-however, it's still buggier than rise.
+however, it's still buggier than rise in a lot of ways.
 To create slides you add the type of slide to the *metadata*:
 in jupyterlab, you specify the type of slide after clicking the gears in the sidebar:
 ![](assets/rise_howto1.png)

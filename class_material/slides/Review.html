@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HW07</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Review</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7510,25 +7511,18 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59742dcb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=202599bf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Homework-7:-Linear-models.">Homework 7: Linear models.<a class="anchor-link" href="#Homework-7:-Linear-models.">¶</a></h1><p><em>Instructions:</em>
-Please answer the following questions and submit your work
-by editing this jupyter notebook and submitting it on Canvas.
-Questions may involve math, programming, or neither,
-but you should make sure to <em>explain your work</em>:
-i.e., you should usually have a cell with at least a few sentences
-explaining what you are doing.</p>
-<p>Also, please be sure to always specify units of any quantities that have units,
-and label axes of plots (again, with units when appropriate).</p>
+<h1 id="Review">Review<a class="anchor-link" href="#Review">¶</a></h1><p>Peter Ralph</p>
+<p><a href="https://uodsci.github.io/dsci345">https://uodsci.github.io/dsci345</a></p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=03fe74bf">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=733bfdf0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7536,190 +7530,321 @@ and label axes of plots (again, with units when appropriate).</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">patsy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dsci345</span><span class="w"> </span><span class="kn">import</span> <span class="n">pretty</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5080711f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=88ec5c59">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="1.-Correlation-correlation">1. Correlation correlation<a class="anchor-link" href="#1.-Correlation-correlation">¶</a></h1><p>If $X$ and $Z$ are independent, random Normal with mean 0 and standard deviation 1,
-and
-$$\begin{aligned}
-    Y = rX + \sqrt{1 - r^2} Z
-\end{aligned}$$
-then
-$$ \text{cor}[X, Y] = r . $$</p>
-<p><em>(a)</em> Show that this is true, using math.</p>
-<p><em>(b)</em> For each of 16 values of $r$ evenly spaced between -1 and 1,
-simulate 100 draws from a bivariate distribution with correlation $r$.
-(You should get, for each $r$, 100 pairs $(x_i, y_i)$.)
-Use these to make a plot like the following (but with four rows and columns),
-with one scatter plot for each simulation, having the minimum-MSE line superimposed,
-and both the theoretical and observed correlation in the title.
-<img alt="image of example plots" src="images/ex_scatter.png" style="width: 400px;"/></p>
+<p>$$\renewcommand{\P}{\mathbb{P}} \newcommand{\E}{\mathbb{E}} \newcommand{\var}{\text{var}} \newcommand{\sd}{\text{sd}} \newcommand{\cov}{\text{cov}} \newcommand{\cor}{\text{cor}}$$
+This is here so we can use <code>\P</code> and <code>\E</code> and <code>\var</code> and <code>\cov</code> and <code>\cor</code> and <code>\sd</code> in LaTeX below.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=958de09b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c676a4b3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="2.-I-want-candy!">2. I want candy!<a class="anchor-link" href="#2.-I-want-candy!">¶</a></h1><p>Researchers are planning a study on the effect of children on consumer behavior.
-In the study, they plan to will record the purchases made by each participants
-in a month of shopping,
-and are interested in how the amount spent on candy and other sweets
-is correlated with the number of children who come along on shopping trips.
-They have enrolled 65 parents in the study,
-with the following numbers of accompanying children:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=675b75ec">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">num_children</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
-       <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
-       <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</pre></div>
+<h1 id="Uncertainty:-(how-to)-deal-with-it">Uncertainty: (how to) deal with it<a class="anchor-link" href="#Uncertainty:-(how-to)-deal-with-it">¶</a></h1>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42000a28">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=480e39af">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>(Some are zero, for instance, if they <em>have</em> children
-but none come along when shopping.)</p>
-<p>However, they are worried that this small sample size will
-not allow them to reliably estimate the effect of interest.
-Your task is to assess this question, by simulation:</p>
-<p><em>(a)</em> Write a function that simulates the amount of sweets purchased
-from the following model, where $D_i$ is the amount of sweets (in dollars)
-and $C_i$ is the number of children of the $i^\text{th}$ parent:
-$$\begin{aligned}
-        X_i &amp;\sim \text{Normal}(\text{mean}= 1 + 5 C_i, \text{sd}=3 C_i) \\
-        D_i &amp;= \max(0, X_i) .
-    \end{aligned}$$</p>
-<p><em>(b)</em> Simulate one data set, and fit a linear model to these data
-to predict how the average amount spent on sweets
-depends on the number of children.
-You should fit a standard ("least squares") linear model,
-using either of the methods shown in class:
-scikit-learn or direct use of the formula.
-Plot the data with the estimated line on top.
-<em>(Note: since the SD of $X$ depends on $C$, the standard linear model
-is not the optimal method; our job here is to see how well it does in practice.)</em></p>
-<p><em>(c)</em> Your result in (b) should have given you estimates of the average amount
-spent with no children (the intercept), and
-that the amount increases by, per additional child (the slope).
-Do the same thing for at least 100 simulated datasets,
-and make histograms of the resulting estimated slopes and intercepts.
-How well are these estimated?</p>
+<p>When we're doing data science, we</p>
+<ul>
+<li>look at data</li>
+<li>make predictions about future values</li>
+<li>infer aspects of the underlying process</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=79581cfb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b92b271">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="3.-More-mosquitos">3. More mosquitos<a class="anchor-link" href="#3.-More-mosquitos">¶</a></h1><p>Recall the mosquito bite data from HW4:
-here are the numbers of mosquito bites that 27 kids
-got on a camping trip:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=808bc536">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bites</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-</pre></div>
+<p>Fundamental to all stages are <em>randomness</em> and <em>uncertainty</em>.</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b671ef62">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=441bbb54">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now, we have more data: a parent has measured the concentration
-of some volatile organics in each kids' breath.
-Here are the concentrations for the 27 kids (in the same order as <code>bites</code>, above),
-in units of parts per million (ppm):</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2380b77">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">odor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">2.8</span><span class="p">,</span>  <span class="mf">4.4</span><span class="p">,</span>  <span class="mf">6.9</span><span class="p">,</span>  <span class="mf">2.3</span><span class="p">,</span>  <span class="mf">5.9</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span>  <span class="mf">3.2</span><span class="p">,</span>  <span class="mf">7.6</span><span class="p">,</span>  <span class="mf">6.3</span><span class="p">,</span>  <span class="mf">4.5</span><span class="p">,</span>  <span class="mf">4.3</span><span class="p">,</span>
-                <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">8.2</span><span class="p">,</span>  <span class="mf">5.4</span><span class="p">,</span>  <span class="mf">7.6</span><span class="p">,</span>  <span class="mf">3.3</span><span class="p">,</span>  <span class="mf">3.9</span><span class="p">,</span>  <span class="mf">0.1</span><span class="p">,</span>  <span class="mf">2.7</span><span class="p">,</span>  <span class="mf">4.7</span><span class="p">,</span>  <span class="mf">2.1</span><span class="p">,</span>  <span class="mf">4.3</span><span class="p">,</span>
-               <span class="mf">11.3</span><span class="p">,</span>  <span class="mf">1.7</span><span class="p">,</span>  <span class="mf">2.8</span><span class="p">,</span>  <span class="mf">2.9</span><span class="p">,</span>  <span class="mf">8.5</span><span class="p">])</span>
-</pre></div>
+<p><em>For instance:</em> randomized algorithms (e.g., stochastic gradient descent).</p>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=52edf3f3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=351645e3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Our goal is to determine how odor affects the number of bites.
-To do this, we'll fit a <em>Poisson</em> model:
-if $Y_i$ is the number of bites the $i^\text{th}$ kid got,
-and $X_i$ is their "odor" value, then we want to fit:
-$$\begin{aligned}
-    Y_i \sim \text{Poisson}(\text{mean}= \exp(a X_i + b)) ,
-\end{aligned}$$
-i.e., find the values of $a$ and $b$ at which this model
-best fits the data.
-To do this:</p>
-<p><em>(a)</em> Write a likelihood function: this should take $a$ and $b$ as arguments,
-and return the negative log likelihood of the data (i.e., of <code>odor</code> and <code>bites</code>)
-under the model above.</p>
-<p><em>(b)</em> Use your function from (a) and <code>scipy.optimize.minimize</code> to find
-the maximum likelihood estimates of $a$ and $b$.</p>
-<p><em>(c)</em> Plot the data, with number of bites against odor,
-and add the line showing how expected number of bites increases with odor.</p>
+<p><em>For instance:</em></p>
+<p>Computing <strong>a statistic</strong>
+gives you a number that describes a data set.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e000a471">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Doing statistics</strong> helps you understand
+how reliable that description is
+and how well it applies to the wider world.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=543a708e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We understand uncertainty, conceptually and quantitatively,
+with <strong>randomness</strong>,</p>
+<p>i.e., through <em>probability</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6dd70a8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Goals-of-this-class">Goals of this class<a class="anchor-link" href="#Goals-of-this-class">¶</a></h2><ul>
+<li><p>Become familiar with different types of probability models.</p>
+</li>
+<li><p>Calculate properties of probability models.</p>
+</li>
+<li><p>Construct and simulate from realistic models of data generation.</p>
+</li>
+<li><p>Be able to test estimation and prediction methods with simulation.</p>
+</li>
+<li><p>Gain familiarity with fundamental statistical concepts.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1268baa5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We'll spend a lot of time on <em>probability models</em>,
+for applications from classical statistics
+to machine learning.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6545d86e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Tools:-Distributions">Tools: Distributions<a class="anchor-link" href="#Tools:-Distributions">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=352a2806">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>Uniform</li>
+<li>Exponential</li>
+<li>Normal</li>
+<li>multivariate Normal</li>
+<li>Binomial</li>
+<li>Gamma</li>
+<li>Student's $t$</li>
+<li>Beta</li>
+<li>Cauchy</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10e1576c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Probability-and-Random-Variables">Probability and Random Variables<a class="anchor-link" href="#Probability-and-Random-Variables">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b9265ddd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>probability rules: like area</li>
+<li>rules for means and variances</li>
+<li>algebra with random variables: $$ \mathbb{E}[f(X)] = \sum_x \mathbb{P}\{X=x\} f(x) $$</li>
+<li>independence</li>
+<li>means minimize sum-of-squared-errors</li>
+<li>covariance and correlation</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc9e3cd8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Modeling:">Modeling:<a class="anchor-link" href="#Modeling:">¶</a></h2><ul>
+<li>Central Limit Theorem: sums of little things gets you Normals</li>
+<li>rare events gets you Poisson counts and Exponential waiting times</li>
+</ul>
+<p>Linear models:</p>
+<ul>
+<li>the usual</li>
+<li>Poisson-exponential</li>
+<li>Binomial-logistic</li>
+<li>robust</li>
+<li>nonlinear linear models</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85f8de8e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Model-fitting:">Model fitting:<a class="anchor-link" href="#Model-fitting:">¶</a></h2><ul>
+<li>method of moments</li>
+<li>maximum likelihood</li>
+<li>penalized (or, regularized) likelihood</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5eaa92d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">¶</a></h2><ul>
+<li>sampling distributions</li>
+<li>standard errors</li>
+<li>the $t$ distribution</li>
+<li>confidence intervals</li>
+<li>heteroskedasticity</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98c1ee37">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Methods">Methods<a class="anchor-link" href="#Methods">¶</a></h2><ul>
+<li>PCA</li>
+<li>diagnostics for linear models</li>
+<li>transformations</li>
+<li>crossvalidation</li>
+<li>the bootstrap</li>
+<li>the other bootstrap</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb44cc09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Details">Details<a class="anchor-link" href="#Details">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d2d8b141">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Relationships:</p>
+<p>Definition(s) of variance:
+$$ \var[X] = \E[(X - \E[X])^2] = \E[X^2] - \E[X]^2  $$
+and covariance:
+$$ \cov[X,Y] = \E[XY] - \E[X] \E[Y] $$
+and correlation:
+$$ \cor[X,Y] = \frac{\cov[X,Y]}{\sqrt{\var[X]\var[Y]}} .$$</p>
+<p>If $X$ and $Y$ are independent:
+$$ \E[XY] = \E[X] \E[Y] $$
+and so
+$$ \var[X + Y] = \var[X] + \var[Y]. $$</p>
+<p><em>Bilinearity of covariance:</em>
+$$ \cov[a X + Y, Z] = a \cov[X, Z] + \cov[Y, Z] . $$</p>
+<p><em>Law of total variance:</em>
+$$ \var[X] = \var[\E[X|Y]] + \E[\var[X|Y]] . $$</p>
 </div>
 </div>
 </div>
