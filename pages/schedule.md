@@ -39,10 +39,7 @@ Week 2: The modeler's toolbox
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_02.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
--->
 
 Week 3: Simulation, moments, and overdispersion.
 
