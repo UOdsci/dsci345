@@ -77,10 +77,7 @@ Week 5: Quantifying uncertainty
         [Adhikari & Pitman, chapter 14](http://prob140.org/textbook/content/Chapter_14/06_Confidence_Intervals.html);
     - *alternative reading:* [Wasserman, chapters 8 & 11](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_05.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW05.ipynb) [html](../class_material/homeworks/HW05.html)
--->
 
 {% comment %}
     - Slides: Review [ipynb](../class_material/slides/Week_05_Review.ipynb) [html](../class_material/slides/Week_05_Review.html)
