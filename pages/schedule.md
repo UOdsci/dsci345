@@ -95,10 +95,7 @@ Week 6: Multivariate data and latent structure
         and [chapter 23](http://prob140.org/textbook/content/Chapter_23/00_Multivariate_Normal_RVs.html)
     - *alternative reading:* [Wasserman, chapter 14](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_06.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW06.ipynb) [html](../class_material/homeworks/HW06.html)
--->
 
 Week 7: Linear models
 
