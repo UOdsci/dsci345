@@ -7598,7 +7598,7 @@ $$\begin{aligned}
     M_{ij} = (1+i+j) \times 2^{-|i-j|} \qquad \text{for } 1 \le j \le 5, \quad 1 \le i \le 5 .
 \end{aligned}$$
 Write a function to produce a random set of 5 numbers of this form,
-and test the result by verifying that (a) $\text{var}[X_2] = 3$ and
+and test the result by verifying that (a) $\text{var}[X_2] = 5$ and
 (b) $\text{cov}[X_3,X_5] = 2.25$.</p>
 </div>
 </div>
@@ -7608,13 +7608,16 @@ and test the result by verifying that (a) $\text{var}[X_2] = 3$ and
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">))),</span> <span class="mf">2.25</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">))))</span>
 <span class="k">assert</span> <span class="n">C</span><span class="p">[</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span>  <span class="mf">2.25</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">))),</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span>  <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -7628,6 +7631,7 @@ and test the result by verifying that (a) $\text{var}[X_2] = 3$ and
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>2.25 2.25 2.25
+5.0 5.0 5.0
 </pre>
 </div>
 </div>
