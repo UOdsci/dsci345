@@ -8275,6 +8275,32 @@ abhorred: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=37587dac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">wordmat</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(1000, 19224)</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bde00c98">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8295,7 +8321,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">svds</span>
@@ -8328,7 +8354,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">loadings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">evecs</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">"PC</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)],</span> <span class="n">index</span><span class="o">=</span><span class="n">words</span><span class="p">)</span>
@@ -8343,7 +8369,7 @@ finding <em>all</em> would take waaaay too long.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8459,7 +8485,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PCA fig 6 &amp; 7</span>
@@ -8504,7 +8530,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># PCA fig 8</span>
@@ -8528,7 +8554,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_30351/1265099608.py:8: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<pre>/tmp/ipykernel_123181/1265099608.py:8: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend();
 </pre>
 </div>
@@ -8557,7 +8583,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">loadings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"PC2"</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -8571,7 +8597,7 @@ finding <em>all</em> would take waaaay too long.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8729,10 +8755,10 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">loadings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"PC2 "</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">loadings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"PC2"</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8742,36 +8768,156 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_30351/1107278371.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> loadings.sort_values(<span class="ansi-yellow-fg">"PC2 "</span>).tail(<span class="ansi-green-fg">20</span>)
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-green-fg">~/micromamba/envs/ds345/lib/python3.12/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(self, by, axis, ascending, inplace, kind, na_position, ignore_index, key)</span>
-<span class="ansi-green-fg">   7185</span>             )
-<span class="ansi-green-fg">   7186</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> len(by):
-<span class="ansi-green-fg">   7187</span>             <span style="color: rgb(95,135,135)"># len(by) == 1</span>
-<span class="ansi-green-fg">   7188</span> 
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">7189</span>             k = self._get_label_or_level_values(by[<span class="ansi-green-fg">0</span>], axis=axis)
-<span class="ansi-green-fg">   7190</span> 
-<span class="ansi-green-fg">   7191</span>             <span style="color: rgb(95,135,135)"># need to rewrap column in Series to apply key function</span>
-<span class="ansi-green-fg">   7192</span>             <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> key <span class="ansi-bold" style="color: rgb(0,135,0)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ansi-green-fg">~/micromamba/envs/ds345/lib/python3.12/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(self, key, axis)</span>
-<span class="ansi-green-fg">   1907</span>             values = self.xs(key, axis=other_axes[<span class="ansi-green-fg">0</span>])._values
-<span class="ansi-green-fg">   1908</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> self._is_level_reference(key, axis=axis):
-<span class="ansi-green-fg">   1909</span>             values = self.axes[axis].get_level_values(key)._values
-<span class="ansi-green-fg">   1910</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1911</span>             <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> KeyError(key)
-<span class="ansi-green-fg">   1912</span> 
-<span class="ansi-green-fg">   1913</span>         <span style="color: rgb(95,135,135)"># Check for duplicates</span>
-<span class="ansi-green-fg">   1914</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> values.ndim &gt; <span class="ansi-green-fg">1</span>:
-
-<span class="ansi-red-fg">KeyError</span>: 'PC2 '</pre>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>PC1</th>
+<th>PC2</th>
+<th>PC3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>white</th>
+<td>-0.003848</td>
+<td>0.019542</td>
+<td>-0.005490</td>
+</tr>
+<tr>
+<th>boat</th>
+<td>-0.003445</td>
+<td>0.020078</td>
+<td>-0.001117</td>
+</tr>
+<tr>
+<th>of</th>
+<td>-0.347599</td>
+<td>0.020880</td>
+<td>0.089325</td>
+</tr>
+<tr>
+<th>these</th>
+<td>-0.010246</td>
+<td>0.021112</td>
+<td>-0.008600</td>
+</tr>
+<tr>
+<th>now</th>
+<td>-0.024838</td>
+<td>0.022074</td>
+<td>-0.015997</td>
+</tr>
+<tr>
+<th>into</th>
+<td>-0.018128</td>
+<td>0.025168</td>
+<td>-0.007119</td>
+</tr>
+<tr>
+<th>one</th>
+<td>-0.033698</td>
+<td>0.027119</td>
+<td>-0.037192</td>
+</tr>
+<tr>
+<th>whales</th>
+<td>-0.005390</td>
+<td>0.027329</td>
+<td>-0.010196</td>
+</tr>
+<tr>
+<th>old</th>
+<td>-0.008500</td>
+<td>0.027787</td>
+<td>-0.017462</td>
+</tr>
+<tr>
+<th>his</th>
+<td>-0.120435</td>
+<td>0.028370</td>
+<td>0.009677</td>
+</tr>
+<tr>
+<th>ship</th>
+<td>-0.005879</td>
+<td>0.028600</td>
+<td>-0.006917</td>
+</tr>
+<tr>
+<th>sea</th>
+<td>-0.006046</td>
+<td>0.031019</td>
+<td>-0.006752</td>
+</tr>
+<tr>
+<th>ahab</th>
+<td>-0.006510</td>
+<td>0.032928</td>
+<td>-0.007920</td>
+</tr>
+<tr>
+<th>upon</th>
+<td>-0.016007</td>
+<td>0.035191</td>
+<td>-0.028701</td>
+</tr>
+<tr>
+<th>like</th>
+<td>-0.014690</td>
+<td>0.035441</td>
+<td>-0.017307</td>
+</tr>
+<tr>
+<th>a</th>
+<td>-0.200405</td>
+<td>0.037541</td>
+<td>-0.055637</td>
+</tr>
+<tr>
+<th>this</th>
+<td>-0.047997</td>
+<td>0.042451</td>
+<td>-0.052062</td>
+</tr>
+<tr>
+<th>in</th>
+<td>-0.196969</td>
+<td>0.053266</td>
+<td>-0.005499</td>
+</tr>
+<tr>
+<th>whale</th>
+<td>-0.014152</td>
+<td>0.069795</td>
+<td>-0.026534</td>
+</tr>
+<tr>
+<th>the</th>
+<td>-0.523547</td>
+<td>0.652591</td>
+<td>0.022868</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -8792,7 +8938,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">loadings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"PC3"</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -8806,7 +8952,7 @@ finding <em>all</em> would take waaaay too long.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8964,7 +9110,7 @@ finding <em>all</em> would take waaaay too long.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">loadings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"PC3"</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -8978,7 +9124,7 @@ finding <em>all</em> would take waaaay too long.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
