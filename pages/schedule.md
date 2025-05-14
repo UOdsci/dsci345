@@ -106,11 +106,7 @@ Week 7: Linear models
     - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_models.ipynb) [html](../class_material/slides/Exercise_Linear_models.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_07.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
-    - For problem 1 in the homework, you will need to refer to [this image](../class_material/homeworks/images/ex_scatter.png).
--->
 
 Week 8: Generalized linear models
 
