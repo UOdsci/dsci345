@@ -104,6 +104,7 @@ Week 7: Linear models
 
     - Slides: Introduction to linear models [ipynb](../class_material/slides/Linear_models.ipynb) [html](../class_material/slides/Linear_models.html)
     - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_models.ipynb) [html](../class_material/slides/Exercise_Linear_models.html)
+    - Slides: Some history [ipynb](../class_material/slides/History.ipynb) [html](../class_material/slides/History.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_07.ipynb)
     - Homework: [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
@@ -112,7 +113,6 @@ Week 8: Generalized linear models
 
 : Response distributions, nonlinear relationships, transformations. {% comment %} Mixed models. {% endcomment %}
 
-    - Slides: Some history [ipynb](../class_material/slides/History.ipynb) [html](../class_material/slides/History.html)
     - Slides: Robust models [ipynb](../class_material/slides/Robust_models.ipynb) [html](../class_material/slides/Robust_models.html)
     - Slides: Generalized linear models [ipynb](../class_material/slides/Generalized_Linear_Models.ipynb) [html](../class_material/slides/Generalized_Linear_Models.html)
     - Slides: Nonlinear models [ipynb](../class_material/slides/Nonlinear_models.ipynb) [html](../class_material/slides/Nonlinear_models.html)
