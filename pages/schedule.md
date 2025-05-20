@@ -117,10 +117,7 @@ Week 8: Generalized linear models
     - Slides: Generalized linear models [ipynb](../class_material/slides/Generalized_Linear_Models.ipynb) [html](../class_material/slides/Generalized_Linear_Models.html)
     - Slides: Nonlinear models [ipynb](../class_material/slides/Nonlinear_models.ipynb) [html](../class_material/slides/Nonlinear_models.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_08.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW08.ipynb) [html](../class_material/homeworks/HW08.html)
--->
 
 Week 9: Problems with linear models
 
