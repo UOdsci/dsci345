@@ -7674,7 +7674,8 @@ best fits the data.
 (Another way to parameterize the Negative Binomial distribution,
 as used for instance by <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nbinom.html#scipy.stats.nbinom">scikit-learn</a> is with $n$ and $p$;
 if the mean is $\mu$, then
-then these are related by $p = 1/(1 + \mu/n)$.)</p>
+then these are related by $p = 1/(1 + \mu/n)$.
+Also note that $n$ does not have to be an integer.)</p>
 <p><em>(a)</em> Implement the negative log-likelihood function:
 this should take $a$ and $b$ and $n$ as arguments,
 and return the negative log likelihood of the data (i.e., of <code>bites</code> and <code>odor</code>)
