@@ -103,7 +103,7 @@ Week 7: Linear models
     Robust models, loss functions and likelihood.
 
     - Slides: Introduction to linear models [ipynb](../class_material/slides/Linear_models.ipynb) [html](../class_material/slides/Linear_models.html)
-    - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_models.ipynb) [html](../class_material/slides/Exercise_Linear_models.html)
+    - Slides: In-class exercise [ipynb](../class_material/slides/Exercise_Linear_model.ipynb) [html](../class_material/slides/Exercise_Linear_model.html)
     - Slides: Some history [ipynb](../class_material/slides/History.ipynb) [html](../class_material/slides/History.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_07.ipynb)
