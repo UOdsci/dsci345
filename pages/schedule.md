@@ -138,7 +138,4 @@ Week 10: Prediction and inference revisited
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
-
-<!--
-    - Final: [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html) 
--->
+    - Homework: [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html) 
