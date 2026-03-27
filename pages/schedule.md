@@ -6,13 +6,10 @@ description: schedule, with links to slides and homeworks
 
 The source code for these lectures is available at
 [the github repository](https://github.com/UOdsci/dsci345/).
-The schedule (with slides and homeworks) from
-Fall 2023 is available [here](fall_2023_schedule.html).
 
 Below, *worksheets* are collections of exercises that we may or may not do in class;
 consider them as helpful supplementary exercises.
 
-# Spring 2025
 
 Week 1: Probability
 
@@ -139,3 +136,7 @@ Week 10: Prediction and inference revisited
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Homework: [ipynb](../class_material/homeworks/HW10.ipynb) [html](../class_material/homeworks/HW10.html) 
+
+**Previous versions:**
+The schedule (with slides and homeworks) from
+Fall 2023 is available [here](fall_2023_schedule.html).
