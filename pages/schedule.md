@@ -36,10 +36,7 @@ Week 2: The modeler's toolbox
     - Reading: [Adhikari & Pitman](http://prob140.org/textbook/content/README.html), chapters 4, 6.1-6.3, 6.5, 8, 15.1-15.4.
     - *alternative reading:* [Wasserman, chapters 2 & 3](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_02.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW02.ipynb) [html](../class_material/homeworks/HW02.html)
--->
 
 Week 3: Simulation, moments, and overdispersion.
 
@@ -52,10 +49,7 @@ Week 3: Simulation, moments, and overdispersion.
     - Slides: The central limit theorem and the Normal distribution [ipynb](../class_material/slides/Central_limits.ipynb) [html](../class_material/slides/Central_limits.html)
     - Reading: [Adhikari & Pitman, chapters 7, 12.1-2, 13.1-3, 14](http://prob140.org/textbook/content/README.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_03.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW03.ipynb) [html](../class_material/homeworks/HW03.html)
--->
 
 Week 4: Model choice, categorical prediction, and likelihood.
 
