@@ -8021,7 +8021,7 @@ Answer with math and check it by simulation.</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.float64(0.5990915439185001)</pre>
+<pre>np.float64(0.5997959995911293)</pre>
 </div>
 </div>
 </div>
@@ -8305,37 +8305,37 @@ and in fact the distribution of number of defects per panel looks like this:</p>
 <th>0</th>
 <td>0</td>
 <td>3678.794412</td>
-<td>4984</td>
+<td>5059</td>
 </tr>
 <tr>
 <th>1</th>
 <td>1</td>
 <td>3678.794412</td>
-<td>2483</td>
+<td>2414</td>
 </tr>
 <tr>
 <th>2</th>
 <td>2</td>
 <td>1839.397206</td>
-<td>1248</td>
+<td>1236</td>
 </tr>
 <tr>
 <th>3</th>
 <td>3</td>
 <td>613.132402</td>
-<td>660</td>
+<td>632</td>
 </tr>
 <tr>
 <th>4</th>
 <td>4</td>
 <td>153.283100</td>
-<td>316</td>
+<td>347</td>
 </tr>
 <tr>
 <th>5</th>
 <td>5</td>
 <td>30.656620</td>
-<td>163</td>
+<td>155</td>
 </tr>
 <tr>
 <th>6</th>
@@ -8347,25 +8347,25 @@ and in fact the distribution of number of defects per panel looks like this:</p>
 <th>7</th>
 <td>7</td>
 <td>0.729920</td>
-<td>31</td>
+<td>43</td>
 </tr>
 <tr>
 <th>8</th>
 <td>8</td>
 <td>0.091240</td>
-<td>20</td>
+<td>16</td>
 </tr>
 <tr>
 <th>9</th>
 <td>9</td>
 <td>0.010138</td>
-<td>8</td>
+<td>6</td>
 </tr>
 <tr>
 <th>10</th>
 <td>10</td>
 <td>0.001014</td>
-<td>4</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
@@ -8445,12 +8445,39 @@ $$\begin{aligned}
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c629a0df">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4642e81f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>np.float64(0.080245)</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c629a0df">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
@@ -8466,9 +8493,9 @@ $$\begin{aligned}
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.float64(0.125746)</pre>
+<pre>np.float64(0.125142)</pre>
 </div>
 </div>
 </div>
