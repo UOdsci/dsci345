@@ -104,10 +104,7 @@ Week 7: Linear models
     - Slides: Some history [ipynb](../class_material/slides/History.ipynb) [html](../class_material/slides/History.html)
     - Reading: [Adhikari & Pitman, chapter 24 & 25](http://prob140.org/textbook/content/Chapter_24/00_Simple_Linear_Regression.html)
     - Worksheet: [ipynb](../class_material/worksheets/week_07.ipynb)
-
-<!--
     - Homework: [ipynb](../class_material/homeworks/HW07.ipynb) [html](../class_material/homeworks/HW07.html)
--->
 
 Week 8: Generalized linear models
 
