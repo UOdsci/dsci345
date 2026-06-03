@@ -132,6 +132,7 @@ Week 10: Prediction and inference revisited
     - Slides: Uncertainty and the bootstrap [ipynb](../class_material/slides/Bootstrap.ipynb) [html](../class_material/slides/Bootstrap.html)
     - Slides: Interpolation and ill-posedness [ipynb](../class_material/slides/Ill_posedness.ipynb) [html](../class_material/slides/Ill_posedness.html)
     - Slides: Review [ipynb](../class_material/slides/Review.ipynb) [html](../class_material/slides/Review.html)
+    - Slides: Overview [ipynb](../class_material/slides/Overview.ipynb) [html](../class_material/slides/Overview.html) (much more in detail than the Review, and with example questions)
     - Reading: 
         [Adhikari DeNero & Wagner, chapter 13](https://inferentialthinking.com/chapters/13/2/Bootstrap.html)
     - *alternative reading:* [Wasserman, chapter 8](https://www.stat.cmu.edu/~larry/all-of-statistics/index.html)
